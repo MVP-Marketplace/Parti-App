@@ -1,30 +1,33 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const mongoose = require("mongoose");
+const permissions = require("mongoose-permissions");
+const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   password: {
     type: password,
     required: true,
-    minLength: 6 
+    minLength: 6,
   },
   // role: {
   //   type: String,
   //   enum: ['Creator', 'Contributor', 'Recipient']
   // },
-  contactList: [{
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  }]
-})
+  contactList: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
+}).plugin(permissions);
 
-const User = mongoose.model('User', userSchema)
-module.exports = User
+const User = mongoose.model("User", userSchema);
+module.exports = User;
