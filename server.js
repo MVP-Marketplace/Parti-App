@@ -39,13 +39,13 @@ const app = express();
 
 
 //User session
-// app.use(
-// 	session({
-// 		secret: process.env.SECRET,
-// 		resave: false,
-// 		saveUninitialized: false,
-// 	})
-// );
+app.use(
+	session({
+		secret: 'parti-app',
+		resave: false,
+		saveUninitialized: false,
+	})
+);
 
 // app.use(methodOverride("_method"));
 
@@ -66,13 +66,8 @@ app.use(express.static("static"));
 // passport.deserializeUser(User.deserializeUser());
 
 // routes
-// const tripsRouter = require("./routes/trips.js");
-// app.use("/trips", tripsRouter);
 
-// const sightseeingsRouter = require("./routes/sightseeings.js");
-// app.use("/sightseeings", sightseeingsRouter);
-
-// const userRouter = require("./routes/users.js");
-// app.use("/users", userRouter);
+const userRouter = require("./routes/users.js");
+app.use("/users", userRouter);
 
 app.listen(PORT || 3000) 
