@@ -1,38 +1,14 @@
-//require statements
-const PORT = 3000
-
 const express               = require("express");
-	  mongoose              = require("mongoose");
+const mongoose = require("mongoose");
 	//   passport              = require("passport");
 	//   localStrategy         = require("passport-local");
 	//   passportLocalMongoose = require("passport-local-mongoose"); 
-      methodOverride        = require("method-override");
-      session               = require("express-session");
-	  
-// const User = require("./models/users.js");
-// require("dotenv").config();
+// const methodOverride = require("method-override");
+const session = require("express-session");
 
+require("dotenv").config();
+const PORT = process.env.PORT || 3000;
 const app = express();
-
-// database connection
-// const connectionString = process.env.MONGO_URI;
-
-// mongoose.connect(connectionString, {
-// 	useNewUrlParser: true,
-// 	useUnifiedTopology: true,
-// 	useCreateIndex: true,
-// 	useFindAndModify: false,
-// });
-
-// mongoose.connect( process.env.MONGODB_URI || "YOUR CURRENT LOCALHOST DB CONNECTION STRING HERE" );
-
-// mongoose.connection.on("connected", () =>
-// 	console.log(`Mongoose connected to ${connectionString}`)
-// );
-// mongoose.connection.on("disconnected", () =>
-// 	console.log("Mongoose disconnected")
-// );
-// mongoose.connection.on("error", (err) => console.log("Mongoose error", err));
 
 //middleware
 // app.set("view engine", "ejs");
@@ -67,7 +43,7 @@ app.use(express.static("static"));
 
 // routes
 
-const userRouter = require("./routes/users.js");
-app.use("/users", userRouter);
+// const userRouter = require("./routes/users.js");
+// app.use("/users", userRouter);
 
-app.listen(PORT || 3000) 
+app.listen(PORT, console.log(`Server running on port ${PORT}`)) 
