@@ -27,7 +27,7 @@ app.use(
 
 // parse incoming data into a JS object attached to the request
 app.use(express.urlencoded({ extended: true }));
-// app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // set location from which to pull static files
@@ -41,9 +41,14 @@ app.use(express.static("static"));
 // passport.serializeUser(User.serializeUser()); 
 // passport.deserializeUser(User.deserializeUser());
 
+
+app.get('/', (req, res) => {
+	res.send('Here is a homepage');
+});
+
 // routes
+const userRouter = require("./routes/users.js");
+app.use("/users", userRouter);
 
-// const userRouter = require("./routes/users.js");
-// app.use("/users", userRouter);
-
+  
 app.listen(PORT, console.log(`Server running on port ${PORT}`)) 

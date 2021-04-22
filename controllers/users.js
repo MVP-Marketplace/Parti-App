@@ -10,7 +10,7 @@ const User = require("../models/User");
 // passport.use(new localStrategy(User.authenticate()));
 
 
-//create User with Passport  
+// create User with Passport  
 const createUser = (req, res) => {
 	req.body.name
 	req.body.email
@@ -27,12 +27,12 @@ const createUser = (req, res) => {
 	}	
 )};
 
+
 const login = (req, res) => {
-	res.render( {
+	res.send( {
 		message: 'Please login'
 	})
 };
-
 
 const logout = (req, res) => {
 	req.session.destroy((err) => {
