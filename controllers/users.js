@@ -29,9 +29,7 @@ const createUser = (req, res) => {
 
 
 const login = (req, res) => {
-	res.send( {
-		message: 'Please login'
-	})
+	res.render( "../views/login.ejs" )
 };
 
 const logout = (req, res) => {

@@ -1,0 +1,28 @@
+<h1>Login</h1>
+
+<form action="/login" method="POST">
+  <div>
+    <label for="name">Name</label>
+    <input type="name" id="name" name="name" required>
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+  <div>
+    <label for="name">Choose your role: </label>
+  <select name="role" id="role">
+    <option value="Creator">Creator</option>,
+    <option value="Contributor">Contributor</option>, 
+    <option value="Recipient">Recipient</option>, 
+  </optgroup> 
+</select> 
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+  </div>
+
+  <button type="submit">Login</button>
+</form>
+<a href="users/signup">signup</a>

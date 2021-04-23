@@ -17,10 +17,10 @@ const userSchema = new Schema({
     required: true,
     minLength: 6,
   },
-  // role: {
-  //   type: String,
-  //   enum: ['Creator', 'Contributor', 'Recipient']
-  // },
+  role: {
+    type: String,
+    enum: ['Creator', 'Contributor', 'Recipient']
+  },
   contactList: [
     {
       type: Schema.Types.ObjectId,
@@ -30,4 +30,7 @@ const userSchema = new Schema({
 }).plugin(permissions);
 
 const User = mongoose.model("User", userSchema);
+
+
+
 module.exports = User;
