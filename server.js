@@ -1,10 +1,12 @@
-const express               = require("express");
+const express = require("express");
 const mongoose = require("mongoose");
 	//   passport              = require("passport");
 	//   localStrategy         = require("passport-local");
 	//   passportLocalMongoose = require("passport-local-mongoose"); 
 // const methodOverride = require("method-override");
 const session = require("express-session");
+const db = require("./models/index.js"); 
+
 
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
@@ -12,7 +14,6 @@ const app = express();
 
 //middleware
 // app.set("view engine", "ejs");
-
 
 //User session
 app.use(
