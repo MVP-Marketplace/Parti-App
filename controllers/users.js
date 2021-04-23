@@ -10,26 +10,24 @@ const User = require("../models/User");
 // passport.use(new localStrategy(User.authenticate()));
 
 
-// create User with Passport  
-const createUser = (req, res) => {
-	req.body.name
-	req.body.email
-	req.body.password
-	User.register( new User({name: req.body.name, email: req.body.email}), req.body.password, function(err, user){
-		if(err){
-			console.log(err)
-            return res.render( {
-                message: "User is created"}) 
-		}
-		// passport.authenticate("local")(req, res, function(){
-		// 	res.redirect("/")
-		// })
-	}	
-)};
 
+const createUser = (req, res)=>{
+    try{
+        const newUser = new User(req.body);
+        newUser.save()
+        res.send(newUser)
+    }
+    catch(err){
+        res.send({message: err})
+    }
+}
+
+const newUser = (req, res) => {
+	res.render("../views/register.ejs")
+}
 
 const login = (req, res) => {
-	res.render( "../views/login.ejs" )
+	res.render("../views/login.ejs")
 };
 
 const logout = (req, res) => {
@@ -47,5 +45,6 @@ const logout = (req, res) => {
 module.exports = {
 	logout,
 	login,
-	createUser
+	createUser,
+	newUser
 };
