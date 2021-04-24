@@ -1,16 +1,22 @@
 const express = require("express");
 const mongoose = require("mongoose");
-	//   passport              = require("passport");
-	//   localStrategy         = require("passport-local");
-	//   passportLocalMongoose = require("passport-local-mongoose"); 
+	  passport              = require("passport");
+	  localStrategy         = require("passport-local");
+	  passportLocalMongoose = require("passport-local-mongoose"); 
 const methodOverride = require("method-override");
 const session = require("express-session");
-const db = require("./models/index.js"); 
+var bodyParser = require('body-parser')
 
+const db = require("./models/index.js"); 
+const User = require("./models/User.js"); 
 
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 const app = express();
+
+
+// app.use(express.bodyParser());
+
 
 //middleware
 app.set("view engine", "ejs");
@@ -28,20 +34,19 @@ app.use(methodOverride("_method"));
 
 // parse incoming data into a JS object attached to the request
 app.use(express.urlencoded({ extended: true }));
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // set location from which to pull static files
-app.use(express.static("static"));
+// app.use(express.static("static"));
 
-// //connect passport packages 
-// app.use(passport.initialize());
-// app.use(passport.session()); 
+//connect passport packages 
+app.use(passport.initialize());
+app.use(passport.session()); 
 
 // //read and encode data from the session 
-// passport.serializeUser(User.serializeUser()); 
-// passport.deserializeUser(User.deserializeUser());
-
+passport.serializeUser(User.serializeUser()); 
+passport.deserializeUser(User.deserializeUser());
 
 app.get('/', (req, res) => {
 	res.send('Here is a homepage');
