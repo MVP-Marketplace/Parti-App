@@ -28,6 +28,9 @@ const userSchema = new Schema({
       ref: "User",
     },
   ],
+  googleId: {
+    type: String,
+  }
 }).plugin(permissions);
 
 userSchema.plugin(passportLocalMongoose)

@@ -24,5 +24,15 @@ router.post('/login', function(req, res, next) {
     })(req, res, next);
   });
 
+router.get('/auth/google',
+  passport.authenticate('google', { scope: ["profile", "email" ] }));
+
+// GET /auth/google/callback
+router.get('/auth/google/return', 
+  passport.authenticate('google', { failureRedirect: 'users/login' }),
+  function(req, res) {
+    res.redirect('/');
+});
+
 
 module.exports = router
