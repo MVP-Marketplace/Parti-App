@@ -10,3 +10,7 @@ const db = mongoose.connect(connectionString, {
 })
   .then(() => console.log('MongoDb connected'))
   .catch((err) => console.log(err))
+
+module.exports = {
+	Card: require('./GreetingCard')
+};

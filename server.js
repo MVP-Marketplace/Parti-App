@@ -97,7 +97,9 @@ app.get("/", (req, res) => {
 });
 
 // routes
-const userRouter = require("./server/routes/users.js");
-app.use("/users", userRouter);
+// const userRouter = require("./server/routes/users.js");
+const routes = require('./server/routes');
+app.use("/users", routes.users);
+app.use('/greetingcard', routes.greetingCard);
 
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
