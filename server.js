@@ -4,19 +4,19 @@ passport = require("passport");
 localStrategy = require("passport-local");
 passportLocalMongoose = require("passport-local-mongoose");
 GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const { cloudinary } = require("./server/utils/cloudinary");
 
 const methodOverride = require("method-override");
 const session = require("express-session");
-var bodyParser = require("body-parser");
+const bodyParser = require('body-parser');
 
-const db = require("./server/models/index.js");
+const db = require("./server/models/index");
 const User = require("./server/models/User.js");
 
 require("dotenv").config();
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// app.use(express.bodyParser());
 
 //middleware
 app.set("view engine", "ejs");
@@ -98,6 +98,9 @@ app.get("/", (req, res) => {
 
 // routes
 const userRouter = require("./server/routes/users.js");
+const cloudinaryRouter = require("./server/routes/cloudinary.js");
 app.use("/users", userRouter);
+app.use("/", cloudinaryRouter);
+
 
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
