@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Video } from 'cloudinary-react';
+import { Image, Video, Transformation } from 'cloudinary-react';
 
 export default function Home() {
 	const [imageIds, setImageIds] = useState();
@@ -21,7 +21,7 @@ export default function Home() {
 			<div className='gallery'>
 				{imageIds &&
 					imageIds.map((imageId, index) => (
-						<Video
+						<Image
 							key={index}
 							cloudName={process.env.CLOUDINARY_NAME}
 							publicId={imageId}

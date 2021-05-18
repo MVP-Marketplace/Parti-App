@@ -38,10 +38,18 @@ export default function Upload() {
 
 	const uploadImage = async (base64EncodedImage) => {
 		try {
-			await fetch('/image-upload', {
+			let headers = new Headers();
+			headers.append('Content-Type', 'application/json');
+			headers.append('Accept', 'application/json');
+			headers.append('Origin', 'http://localhost:3001');
+			await fetch('http://localhost:3001/image-upload', {
 				method: 'POST',
+				mode: 'cors',
 				body: JSON.stringify({ data: base64EncodedImage }),
-				headers: { 'Content-Type': 'application/json' },
+				// headers: {
+				// 	'Content-Type': 'application/json',
+				// 	'Access-Control-Allow-Origin': 'http://localhost:3001',
+				// },
 			});
 			setFileInputState('');
 			setPreviewSource('');
@@ -70,7 +78,7 @@ export default function Upload() {
 				</button>
 			</form>
 			{previewSource && (
-				<video src={previewSource} alt='chosen' style={{ height: '300px' }} />
+				<img src={previewSource} alt='chosen' style={{ height: '300px' }} />
 			)}
 		</div>
 	);

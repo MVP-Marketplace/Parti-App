@@ -8,6 +8,6 @@ cloudinary.config({
 });
 
 console.log('cloudinary is connected ');
-console.log(cloudinary.url('sample'));
+console.log(cloudinary.url('parti-app'));
 
 module.exports = { cloudinary };
