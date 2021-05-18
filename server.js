@@ -102,28 +102,4 @@ const cloudinaryRouter = require('./server/routes/cloudinary.js');
 app.use('/users', userRouter);
 app.use('/', cloudinaryRouter);
 
-app.get('/images-view', async (req, res) => {
-	const { resources } = await cloudinary.search
-		.expression('folder:dev_setups')
-		.sort_by('public_id', 'desc')
-		.max_results(30)
-		.execute();
-
-	const publicIds = resources.map((file) => file.public_id);
-	res.send(publicIds);
-});
-app.post('/image-upload', async (req, res) => {
-	try {
-		const fileStr = req.body.data;
-		const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-			upload_preset: 'dev_setups',
-		});
-		console.log(uploadResponse);
-		res.json({ msg: 'Upload successful' });
-	} catch (err) {
-		console.error(err);
-		res.status(500).json({ err: 'Something went wrong' });
-	}
-});
-
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
