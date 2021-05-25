@@ -1,5 +1,5 @@
 const User = require("../models/User");
-
+const localStrategy = require('passport-local');
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose"); 
 
@@ -14,7 +14,7 @@ passport.use(new localStrategy(User.authenticate()));
 const createUser = (req, res) => {
     User.register(({username: req.body.username, email: req.body.email}), req.body.password, function(err, user){
     if(err){
-         console.log(err);
+      console.log(err);
 		// return res.render("../views/register.ejs") 
 		return res.send({message: err}) 
         }
