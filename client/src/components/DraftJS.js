@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { EditorState, Editor, RichUtils } from 'draft-js';
+import Emoji from './Emoji/emoji';
+import '@draft-js-plugins/emoji/lib/plugin.css';
 
 
 class TextBox extends Component {
@@ -49,7 +51,7 @@ class TextBox extends Component {
             handleKeyCommand={this.handleKeyCommand}
             onChange={this.onChange}
           />
-          
+          <Emoji/>
         </div>
       </div>
     )
