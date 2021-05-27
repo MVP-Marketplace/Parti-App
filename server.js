@@ -5,10 +5,10 @@ localStrategy = require('passport-local');
 passportLocalMongoose = require('passport-local-mongoose');
 GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const { cloudinary } = require('./server/utils/cloudinary');
-
+const cors = require('cors')
 const methodOverride = require('method-override');
 const session = require('express-session');
-const bodyParser = require('body-parser');
+
 
 const db = require('./server/models/index');
 const User = require('./server/models/User.js');
@@ -16,10 +16,29 @@ const User = require('./server/models/User.js');
 require('dotenv').config();
 const PORT = process.env.PORT || 3001;
 const app = express();
-var cors = require('cors');
 
+app.use(cors())
+const corsOptions = {
+	origin: 'http://example.com',
+  }
+  
+  const configuredCors = cors(corsOptions);
+  
+  app.options('*', configuredCors)
+  
+  app.post('/', configuredCors, (req, res) => {
+	console.log(req.body)
+	res.send("Hello")
+  })
 //middleware
 app.set('view engine', 'ejs');
+
+// Middlewares
+// app.use(cors());
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
+// app.use(cors());
+
 
 //User session
 app.use(
@@ -32,10 +51,7 @@ app.use(
 
 app.use(methodOverride('_method'));
 
-// parse incoming data into a JS object attached to the request
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cors());
+
 // set location from which to pull static files
 // app.use(express.static("static"));
 

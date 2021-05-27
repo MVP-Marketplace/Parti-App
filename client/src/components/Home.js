@@ -19,7 +19,7 @@ export default function Home() {
 		<div>
 			<h1 className='title'>Card Videos</h1>
 			<div className='gallery'>
-				{imageIds &&
+				{/* {imageIds &&
 					imageIds.map((imageId, index) => (
 						<Image
 							key={index}
@@ -28,7 +28,7 @@ export default function Home() {
 							width='300'
 							crop='scale'
 						/>
-					))}
+					))} */}
 			</div>
 		</div>
 	);
