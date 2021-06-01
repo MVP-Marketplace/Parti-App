@@ -7,7 +7,7 @@ const greetingCardSchema = new Schema({
     ref: 'User'
   },
   dueDate: {
-    type: Date(),
+    type: Date,
     required: true
   },
   content: [{
