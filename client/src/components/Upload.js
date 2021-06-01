@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Alert from './Alert';
+import axios from 'axios';
+
 
 export default function Upload() {
 	const [fileInputState, setFileInputState] = useState('');
@@ -25,6 +27,7 @@ export default function Upload() {
 	const handleSubmitFile = (e) => {
 		e.preventDefault();
 		if (!selectedFile) return;
+	
 		const reader = new FileReader();
 		reader.readAsDataURL(selectedFile);
 		reader.onloadend = () => {
@@ -36,29 +39,24 @@ export default function Upload() {
 		};
 	};
 
-	const uploadImage = async (base64EncodedImage) => {
-		try {
-			let headers = new Headers();
-			headers.append('Content-Type', 'application/json');
-			headers.append('Accept', 'application/json');
-			headers.append('Origin', 'http://localhost:3001');
-			await fetch('http://localhost:3001/image-upload', {
-				method: 'POST',
-				mode: 'cors',
-				body: JSON.stringify({ data: base64EncodedImage }),
-				// headers: {
-				// 	'Content-Type': 'application/json',
-				// 	'Access-Control-Allow-Origin': 'http://localhost:3001',
-				// },
-			});
-			setFileInputState('');
-			setPreviewSource('');
-			setSuccessMsg('File uploaded successfully');
-		} catch (err) {
-			console.error(err);
-			setErrMsg('Something went wrong!');
-		}
-	};
+	const uploadImage = async (data) => {
+	await axios.post(
+		'http://localhost:3001/image-upload',
+		{'file': data},
+		{headers: {'accept': 'application/json'}},
+	  )
+		.then(function (response) {
+		  //handle success
+		  setFileInputState('');
+		  setPreviewSource('');
+		  setSuccessMsg('File uploaded successfully');
+		  console.log(response);
+		})
+		.catch(function (response) {
+		  //handle error
+		  console.log(response);
+		});
+}
 	return (
 		<div>
 			<h1 className='title'>Upload a Video</h1>
@@ -68,10 +66,11 @@ export default function Upload() {
 				<input
 					id='fileInput'
 					type='file'
-					name='video'
+					name='file'
 					onChange={handleFileInputChange}
 					value={fileInputState}
 					className='form-input'
+					// tempFilePath = {fileInputState}
 				/>
 				<button className='btn' type='submit'>
 					Submit
