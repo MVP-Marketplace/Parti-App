@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 import Upload from './components/Upload';
 import Home from './components/Home';
-
+import DraftJS from './components/DraftJS';
 function App() {
 	return (
 		<div className='container'>
@@ -23,6 +23,7 @@ function App() {
 					<Route component={Upload} path='/upload' />
 					<Route component={Home} path='/' />
 				</Switch>
+				<DraftJS/>
 			</Router>
 		</div>
 	);
