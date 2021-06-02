@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-passport = require('passport');
-localStrategy = require('passport-local');
-passportLocalMongoose = require('passport-local-mongoose');
-GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const passport = require('passport');
+const localStrategy = require('passport-local');
+const passportLocalMongoose = require('passport-local-mongoose');
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const { cloudinary } = require('./server/utils/cloudinary');
 const cors = require('cors')
 const methodOverride = require('method-override');
@@ -53,7 +53,7 @@ app.use(methodOverride('_method'));
 
 
 // set location from which to pull static files
-// app.use(express.static("static"));
+app.use(express.static("static"));
 
 // GoogleStrategy within Passport
 passport.use(
@@ -89,11 +89,11 @@ passport.use(
 	)
 );
 
-//connect passport packages
+// connect passport packages
 app.use(passport.initialize());
 app.use(passport.session());
 
-//read and encode data from the session
+// read and encode data from the session
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -115,7 +115,9 @@ app.get('/', (req, res) => {
 // routes
 const userRouter = require('./server/routes/users.js');
 const cloudinaryRouter = require('./server/routes/cloudinary.js');
+const cardRouter = require('./server/routes/greetingCard.js');
 app.use('/users', userRouter);
 app.use('/', cloudinaryRouter);
+app.use('/card', cardRouter);
 
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
