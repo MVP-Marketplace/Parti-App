@@ -1,47 +1,20 @@
 const express = require("express");
 const app = express();
-passport = require("passport");
-localStrategy = require("passport-local");
-passportLocalMongoose = require("passport-local-mongoose");
-GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const passport = require("passport");
+const cookieParser = require("cookie-parser");
+const dotenv = require("dotenv").config();
+const session = require("express-session");
 const facebookStrategy = require("passport-facebook").Strategy;
+const db = require("./models/index");
+const User = require("./models/User");
 
-const User = require("../models/User");
-const db = require("../models/index");
+app.set("view engine", "ejs");
 
-// GoogleStrategy within Passport
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/users/auth/google/return",
-    },
-    (accessToken, refreshToken, profile, done) => {
-      console.log(profile);
-      // passport callback function
-      //check if user already exists in our db with the given profile ID
-      User.findOne({ googleId: profile.id }).then((currentUser) => {
-        if (currentUser) {
-          console.log(profile);
-          //if we already have a record with the given profile ID
-          done(null, currentUser);
-        } else {
-          //if not, create a new user
-          user = new User({
-            username: profile.displayName,
-            email: profile.emails[0].value,
-            googleId: profile.id,
-          });
-          user.save(function (err) {
-            if (err) console.log(err);
-            return done(null, user);
-          });
-        }
-      });
-    }
-  )
-);
+// Initialize Passport and restore authentication state, if any, from the session.
+app.use(session({ secret: "keyboard cat" }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(cookieParser());
 
 // FacebookStrategy within Passport
 passport.use(
@@ -71,8 +44,8 @@ passport.use(
             // If there is no user found with that facebook id, create them.
             var newUser = new User();
             // Set all of the facebook information in our user model.
-            newUser.facebookId = profile.id; // Set the users facebook id.
-            newUser.username = profile.displayName; // Set the users name.
+            newUser.uid = profile.id; // Set the users facebook id.
+            newUser.name = profile.displayName; // Set the users name.
             newUser.email = profile.emails[0].value; // Facebook can return multiple emails, so we will use the first one.
             // Save our user to the database.
             newUser.save(function (err) {
@@ -88,18 +61,55 @@ passport.use(
   )
 );
 
-//read and encode data from the session
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
-passport.serializeUser((user, done) => {
+// Used to serialize the user.
+passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 
-passport.deserializeUser((id, done) => {
-  User.findById(id).then((user) => {
-    done(null, user);
+// Used to deserialize the user.
+passport.deserializeUser(function (id, done) {
+  User.findById(id, function (err, user) {
+    done(err, user);
   });
 });
 
-module.exports = { passport };
+app.get("/profile", isLoggedIn, function (req, res) {
+  console.log(req.user);
+  res.render("profile", {
+    user: req.user, // Get the user data out of the session and pass it to template.
+  });
+});
+
+// Route middleware to confirm authentication.
+function isLoggedIn(req, res, next) {
+  // If user is authenticated in the session, continue.
+  if (req.isAuthenticated()) return next();
+
+  // If they aren't, redirect them to the home page
+  res.redirect("/");
+}
+
+// Facebook route middleware.
+app.get(
+  "/auth/facebook",
+  passport.authenticate("facebook", { scope: "email" })
+);
+
+app.get(
+  "/facebook/callback",
+  passport.authenticate("facebook", {
+    successRedirect: "/profile",
+    failureRedirect: "/",
+  })
+);
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+app.get("/logout", function (req, res) {
+  req.logout();
+  res.redirect("/");
+});
+
+module.exports = { facebook };
