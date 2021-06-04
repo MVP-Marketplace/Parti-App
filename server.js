@@ -31,16 +31,15 @@ app.post("/", configuredCors, (req, res) => {
   console.log(req.body);
   res.send("Hello");
 });
-//middleware
+
+//Middleware
 app.set("view engine", "ejs");
 
-// Middlewares
-// app.use(cors());
+// Body parsing middleware
 app.use(express.json({ limit: "50mb" }));
 app.use(
   express.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 })
 );
-// app.use(cors());
 
 // Initialize Passport and restore authentication state, if any, from the session.
 app.use(
@@ -50,7 +49,7 @@ app.use(
     saveUninitialized: false,
   })
 );
-// connect passport packages
+// Connect passport packages.
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser());
