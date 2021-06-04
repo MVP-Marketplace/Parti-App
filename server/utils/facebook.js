@@ -30,7 +30,7 @@ passport.use(
       //Asynchronous callback.
       process.nextTick(function () {
         // Find the user in the database based on their facebook id.
-        User.findOne({ uid: profile.id }, function (err, user) {
+        User.findOne({ facebookId: profile.id }, function (err, user) {
           // If there is an error, stop everything and return that
           // there is an error connecting to the database.
           if (err) return done(err);
@@ -44,7 +44,7 @@ passport.use(
             // If there is no user found with that facebook id, create them.
             var newUser = new User();
             // Set all of the facebook information in our user model.
-            newUser.uid = profile.id; // Set the users facebook id.
+            newUser.facebookId = profile.id; // Set the users facebook id.
             newUser.name = profile.displayName; // Set the users name.
             newUser.email = profile.emails[0].value; // Facebook can return multiple emails, so we will use the first one.
             // Save our user to the database.
