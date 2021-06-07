@@ -104,4 +104,6 @@ app.use('/users', userRouter);
 app.use('/', cloudinaryRouter);
 app.use('/card', cardRouter);
 
+console.log(process.env.SG_KEY)
+
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
