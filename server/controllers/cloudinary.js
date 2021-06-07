@@ -2,33 +2,28 @@ const { cloudinary } = require('../utils/cloudinary');
 const User = require('../models/User');
 const bodyParser = require('body-parser');
 const { createUser } = require('./users');
-const uploadImage = (req, res) => {
-	// const data = {
-	// 	image: req.body.image,
-	// 	user: req.body.user,
-	// };
-	const data = req.body.data;
-	// upload image here
-	cloudinary.uploader
-		.upload(data, { resource_type: 'raw', upload_preset: 'parti-app' }) // raw allows uploading videos and images
-		.then((result) => {
-			// TODO
-			//update user with asset ID
-			// const user = User.findById(req.params.id)
-			// user.findByIdAndUpdate(req.params.id, data.image)
-			// res.json(user)
-			res.status(200).send({
-				message: 'success',
-				result,
-			});
-		})
-		.catch((error) => {
-			res.status(500).send({
-				message: 'failure',
-				error,
-			});
-		});
+
+
+const uploadImage = async (req, res) => {
+	const data = req.body;
+    try {
+        const uploadResponse = await cloudinary.uploader.upload_large(data.file,{
+             resource_type: "image", 
+        });
+        res.json({ msg: uploadResponse,  });
+		console.log(uploadResponse)
+		// TODO
+		//update user with asset ID
+		// const user = User.findById(req.params.id)
+	    // user.findByIdAndUpdate(req.params.id, data.image) 			
+		// res.json(user)
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ err: 'Something went wrong' });
+    }
 };
+
+
 const showAssets = (req, res) => {
 	cloudinary.search
 		.expression('folder:samples')
