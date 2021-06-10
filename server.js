@@ -107,13 +107,20 @@ passport.deserializeUser((id, done) => {
   });
 });
 
+// middleware to set the user
+function setUser(req, res, next){
+	const userId = req.body.userId
+	if (userId){
+		req.user = User.find(user => User.id === userId)
+	}
+	next()
+}
 //homepage route
 app.get("/", (req, res) => {
   res.send("Parti-App homepage");
 });
 
 // routes
-
 const userRouter = require("./server/routes/users.js");
 const cloudinaryRouter = require("./server/routes/cloudinary.js");
 const cardRouter = require("./server/routes/greetingCard.js");
