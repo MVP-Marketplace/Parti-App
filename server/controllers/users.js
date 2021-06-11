@@ -12,7 +12,7 @@ passport.use(new localStrategy(User.authenticate()));
 
 // create User with Passport  
 const createUser = (req, res) => {
-    User.register(({username: req.body.username, email: req.body.email}), req.body.password, function(err, user){
+    User.register(({username: req.body.username, email: req.body.email, role: req.body.role}), req.body.password, function(err, user){
     if(err){
       console.log(err);
 		// return res.render("../views/register.ejs") 
@@ -20,6 +20,7 @@ const createUser = (req, res) => {
         }
 	else{
         passport.authenticate("local")(req, res, function(){
+		res.send({user: user}) 
         res.redirect("/")
         })
     }} 
