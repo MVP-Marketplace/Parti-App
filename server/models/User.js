@@ -21,7 +21,7 @@ const userSchema = new Schema({
   role: {
     type: String,
     enum: ["Creator", "Contributor", "Recipient"],
-    default: "Contributor"
+    default: "Contributor",
   },
   contactList: [
     {
@@ -35,8 +35,7 @@ const userSchema = new Schema({
   facebookId: {
     type: String,
   },
-// }).plugin(permissions);
-});
+}).plugin(permissions);
 
 userSchema.plugin(passportLocalMongoose);
 const User = mongoose.model("User", userSchema);

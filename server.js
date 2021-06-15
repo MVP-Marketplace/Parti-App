@@ -10,6 +10,7 @@ const cors = require("cors");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+const multer = require("multer");
 
 const db = require("./server/models/index");
 const User = require("./server/models/User.js");
@@ -108,25 +109,45 @@ passport.deserializeUser((id, done) => {
 });
 
 // middleware to set the user
-function setUser(req, res, next){
-	const userId = req.body.userId
-	if (userId){
-		req.user = User.find(user => User.id === userId)
-	}
-	next()
+function setUser(req, res, next) {
+  const userId = req.body.userId;
+  if (userId) {
+    req.user = User.find((user) => User.id === userId);
+  }
+  next();
 }
 //homepage route
 app.get("/", (req, res) => {
   res.send("Parti-App homepage");
 });
 
+// Draft-js
+app.use("/static", express.static(__dirname + "/uploads"));
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, new Date().toISOString().split(":")[0] + file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
+
+app.post("/uploadImage", upload.single("file"), (req, res) => {
+  console.log("starting upload...", req.file);
+
+  res.json("http://localhost:3001/static/" + req.file.filename);
+});
+
 // routes
 const userRouter = require("./server/routes/users.js");
 const cloudinaryRouter = require("./server/routes/cloudinary.js");
 const cardRouter = require("./server/routes/greetingCard.js");
+const posts = require("./server/routes/api/posts");
 app.use("/users", userRouter);
 app.use("/", cloudinaryRouter);
 app.use("/card", cardRouter);
+app.use("/api/posts", posts);
 
 // Server connection.
 app.listen(PORT, () => {
