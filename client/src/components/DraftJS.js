@@ -1,70 +1,99 @@
-import React, { Component } from "react";
-import { EditorState, Editor, RichUtils } from "draft-js";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { EditorState, Editor, RichUtils, convertToRaw } from "draft-js";
 import Emoji from "./Emoji/emoji";
 import "@draft-js-plugins/emoji/lib/plugin.css";
+import { stateToHTML } from "draft-js-export-html";
 
-class TextBox extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      editorState: EditorState.createEmpty(),
-    };
-  }
+export default function TextBox() {
+  const [name, setName] = useState("");
+  const [content, setContent] = useState(EditorState.createEmpty());
+  const history = useHistory();
+  // const [handleKeyCommand, setHandleKeyCommand] = useState(editorState)
 
-  onChange = (editorState) => {
-    this.setState({
-      editorState,
+  const convertDescriptionFromJSONToHTML = () => {
+    try {
+      return { __html: stateToHTML(content.getCurrentContent()) };
+    } catch (exp) {
+      console.log(exp);
+      return { __html: "Error" };
+    }
+  };
+
+  const uploadCallback = (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    return new Promise((resolve, reject) => {
+      fetch("http://localhost:3001/uploadImage", {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((resData) => {
+          console.log(resData);
+          resolve({ data: { link: resData } });
+        })
+        .catch((error) => {
+          console.log(error);
+          reject(error.toString());
+        });
     });
   };
-  handleKeyCommand = (command) => {
-    const newState = RichUtils.handleKeyCommand(
-      this.state.editorState,
-      command
-    );
-    if (newState) {
-      this.onChange(newState);
-      return "handled";
-    }
-    return "not-handled";
-  };
 
-  onUnderlineClick = () => {
-    this.onChange(
-      RichUtils.toggleInlineStyle(this.state.editorState, "UNDERLINE")
-    );
-  };
+  const onSubmit = (e) => {
+    e.preventDefault();
 
-  onBoldClick = () => {
-    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "BOLD"));
+    const newPost = {
+      name: name,
+      content: convertToRaw(content.getCurrentContent()),
+    };
+    console.log("POST: ", newPost);
+    fetch("http://localhost:3001/api/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPost),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setContent(EditorState.createEmpty());
+        history.goBack();
+      })
+      .catch((err) => console.log("ERROR:", err));
   };
-
-  onItalicClick = () => {
-    this.onChange(
-      RichUtils.toggleInlineStyle(this.state.editorState, "ITALIC")
-    );
-  };
-
-  render() {
-    return (
-      <div className="editorContainer">
-        <button onClick={this.onUnderlineClick}>U</button>
-        <button onClick={this.onBoldClick}>
-          <b>B</b>
-        </button>
-        <button onClick={this.onItalicClick}>
-          <em>I</em>
-        </button>
+  return (
+    <div className="editorContainer">
+      <form noValidate onSubmit={onSubmit}>
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Enter Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <br />
         <div className="editors">
           <Editor
-            editorState={this.state.editorState}
-            handleKeyCommand={this.handleKeyCommand}
-            onChange={this.onChange}
+            editorState={content}
+            wrapperClassName="wrapper-class"
+            editorClassName="editor-class"
+            toolbarClassName="toolbar-class"
+            wrapperStyle={{ border: "2px solid green", marginBottom: "20px" }}
+            editorStyle={{ height: "300px", padding: "10px" }}
+            toolbar={{ image: { uploadCallback } }}
+            onEditorStateChange={(editorState) => setContent(editorState)}
           />
           <Emoji />
         </div>
-      </div>
-    );
-  }
+        <div dangerouslySetInnerHTML={convertDescriptionFromJSONToHTML()}></div>
+        <button type="submit" className="btn btn-lg btn-primary btn-block">
+          Submit Message
+        </button>
+      </form>
+    </div>
+  );
 }
-
-export default TextBox;
