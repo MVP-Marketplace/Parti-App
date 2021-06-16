@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 import Upload from "./components/Upload";
 import Home from "./components/Home";
 import DraftJS from "./components/DraftJS";
+import Default from "./components/Organizer/Default";
 import VideoPlayer from "./components/VideoPlayer";
 
 function App() {
