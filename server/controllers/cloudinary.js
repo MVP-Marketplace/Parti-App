@@ -8,7 +8,12 @@ const uploadImage = async (req, res) => {
 	const data = req.body;
     try {
         const uploadResponse = await cloudinary.uploader.upload_large(data.file,{
-             resource_type: "image", 
+             resource_type: "video",
+			 chunk_size: 6000000,
+    		 eager: [
+					{ width: 300, height: 300, crop: "pad", audio_codec: "none" }, 
+					{ width: 160, height: 100, crop: "crop", gravity: "south", audio_codec: "none" } ],                                   
+			 eager_async: true,
         });
         res.json({ msg: uploadResponse,  });
 		console.log(uploadResponse)

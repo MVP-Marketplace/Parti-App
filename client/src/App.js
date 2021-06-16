@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.css";
-import axios from "axios";
+import Axios from "axios";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 import Upload from "./components/Upload";
 import Home from "./components/Home";
 import DraftJS from "./components/DraftJS";
 import Default from "./components/Organizer/Default";
+import VideoPlayer from "./components/VideoPlayer";
+
 function App() {
   return (
     <div className="container">
@@ -26,6 +28,10 @@ function App() {
           <Route component={Home} path="/" />
         </Switch>
         <DraftJS />
+        <div className="video-card">
+          <h2> Cloud Hosted Video Player </h2>
+          <VideoPlayer />
+        </div>
       </Router>
     </div>
   );
