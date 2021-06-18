@@ -35,7 +35,8 @@ const userSchema = new Schema({
   facebookId: {
     type: String,
   },
-}).plugin(permissions);
+})
+// }).plugin(permissions);
 
 userSchema.plugin(passportLocalMongoose);
 const User = mongoose.model("User", userSchema);

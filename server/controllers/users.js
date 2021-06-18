@@ -26,14 +26,13 @@ const createUser = (req, res) => {
     }} 
 )};
 
-
 const newUser = (req, res) => {
 	res.render("../views/register.ejs")
 }
 
 const login = (req, res) => {
-	console.log(req.user);
-	res.render("../views/login.ejs");
+	res.send({user: user})
+	// res.render("../views/login.ejs");
 };
 
 const logout = (req, res) => {
@@ -47,7 +46,6 @@ const logout = (req, res) => {
 		}
 	});
 };
-
 
 module.exports = {
 	logout,
