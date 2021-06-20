@@ -118,7 +118,10 @@ function setUser(req, res, next) {
 }
 //homepage route
 app.get("/", (req, res) => {
-  res.send("Parti-App homepage");
+  const user = req.body.user;
+  // res.send("Parti-App homepage");
+  res.send({user: userId})
+  // return setUser()
 });
 
 // Draft-js
