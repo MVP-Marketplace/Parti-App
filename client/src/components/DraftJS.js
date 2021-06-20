@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { EditorState, Editor, RichUtils, convertToRaw } from "draft-js";
-import Emoji from "./Emoji/emoji";
+import { EditorState, Editor, convertToRaw } from "draft-js";
+// import Emoji from "./Emoji/emoji";
 import "@draft-js-plugins/emoji/lib/plugin.css";
+import Toolbar from "./StyleToolbar/toolbar.js";
+import '@draft-js-plugins/static-toolbar/lib/plugin.css'
 import { stateToHTML } from "draft-js-export-html";
 
 export default function TextBox() {
@@ -64,19 +66,26 @@ export default function TextBox() {
       })
       .catch((err) => console.log("ERROR:", err));
   };
+
+
+
+
   return (
     <div className="editorContainer">
       <form noValidate onSubmit={onSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Enter Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <br />
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Enter Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+       
         <div className="editors">
+       
           <Editor
             editorState={content}
             wrapperClassName="wrapper-class"
@@ -87,7 +96,7 @@ export default function TextBox() {
             toolbar={{ image: { uploadCallback } }}
             onEditorStateChange={(editorState) => setContent(editorState)}
           />
-          <Emoji />
+          <Toolbar/>
         </div>
         <div dangerouslySetInnerHTML={convertDescriptionFromJSONToHTML()}></div>
         <button type="submit" className="btn btn-lg btn-primary btn-block">
