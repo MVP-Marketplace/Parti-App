@@ -22,7 +22,7 @@ const createUser = (req, res) => {
 	else{
         passport.authenticate("local")(req, res, function(){
 		res.send({user: user}) 
-        res.redirect("/")
+        // res.redirect("/")
         })
     }} 
 )};

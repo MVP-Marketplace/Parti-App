@@ -22,12 +22,12 @@ const UserForm = (props) => {
   const handleSubmit = async (e) =>{
     // stop form reloading aka browser default behavior
     e.preventDefault();
-    axios.post('/users/login', {username: username, password: password})
+    axios.post('/users/register', {username: username, password: password})
         .then((response)=>{
           setUser(response.data)
           console.log(response.data)
           localStorage.setItem('user', JSON.stringify(response.data));
-          props.history.push('/')
+        //   props.history.push('/')
       })
         .catch(error => {
             setUser({ errorMessage: error.message });
@@ -41,7 +41,7 @@ const UserForm = (props) => {
   return (
     <div style={styles}>
     <Form className="register-form" onSubmit={handleSubmit}>
-      <h1>Login to an account </h1>
+      <h1>Create an account </h1>
       
         <Form.Group controlId="username">
           <Form.Control
@@ -63,7 +63,7 @@ const UserForm = (props) => {
           <Form.Control
             type="password"
             placeholder="Confirm Password"
-            name="email"
+            name="password"
             // onChange={}
           />
         </Form.Group>
