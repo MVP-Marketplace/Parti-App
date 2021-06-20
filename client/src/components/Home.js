@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Image, Video, Transformation } from 'cloudinary-react';
+import DraftJS from './DraftJS';
+import VideoPlayer from './VideoPlayer';
 
 export default function Home() {
 	const [imageIds, setImageIds] = useState();
@@ -30,6 +32,8 @@ export default function Home() {
 						/>
 					))} */}
 			</div>
+			<DraftJS />
+			<VideoPlayer />
 		</div>
 	);
 }
