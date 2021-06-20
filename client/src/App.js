@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Axios from "axios";
+// import Axios from "axios";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 import Upload from "./components/Upload";
 import Home from "./components/Home";
