@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const userSchema = new Schema({
-
   username: {
     type: String,
     required: true,
@@ -18,7 +17,7 @@ const userSchema = new Schema({
   role: {
     type: String,
     enum: ["Creator", "Contributor", "Recipient"],
-    default: "Contributor",
+    default: "Recipient",
   },
   contactList: [
     {
