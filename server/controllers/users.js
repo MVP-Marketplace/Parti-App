@@ -22,7 +22,7 @@ const createUser = (req, res) => {
 	else{
         passport.authenticate("local")(req, res, function(){
 		res.send({user: user}) 
-        // res.redirect("/")
+        console.log(user) // res.redirect("/")
         })
     }} 
 )};
@@ -32,6 +32,8 @@ const newUser = (req, res) => {
 }
 
 const login = (req, res) => {
+	const user = req.body
+	console.log('LINE 36 controllers/users' , user) 
 	res.send({user: user})
 	// res.render("../views/login.ejs");
 };

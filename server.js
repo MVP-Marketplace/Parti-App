@@ -66,7 +66,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/users/auth/google/return",
+      callbackURL: "http://localhost:3001/users/auth/google/return",
     },
     (accessToken, refreshToken, profile, done) => {
       console.log(profile);
@@ -110,18 +110,17 @@ passport.deserializeUser((id, done) => {
 
 // middleware to set the user
 function setUser(req, res, next) {
-  const userId = req.body.userId;
-  if (userId) {
+  const user = req.body.user;
+  console.log('line 114 server.js', user )
+  if (user) {
     req.user = User.find((user) => User.id === userId);
+    console.log(user, userId)
   }
   next();
 }
 //homepage route
 app.get("/", (req, res) => {
-  const user = req.body.user;
-  // res.send("Parti-App homepage");
-  res.send({user: userId})
-  // return setUser()
+  res.send("Parti-App homepage");
 });
 
 // Draft-js

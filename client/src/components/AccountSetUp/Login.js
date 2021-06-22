@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
+
+
 const styles = {
   position: "relative",
   minHeight: "100vh",
@@ -12,11 +14,9 @@ const styles = {
 
 const UserForm = (props) => {
 
-  const [user, setUser] = useState();
+  const [user, setUser] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
-  console.log(user)
 
   // "Test11@gmail.com", password: "123456"
   const handleSubmit = async (e) =>{
@@ -24,10 +24,10 @@ const UserForm = (props) => {
     e.preventDefault();
     axios.post('/users/login', {username: username, password: password})
         .then((response)=>{
-          setUser(response.data)
-          console.log(response.data)
+          const user = response.data
           localStorage.setItem('user', JSON.stringify(response.data));
-          props.history.push('/')
+          setUser(user)
+          props.history.push('/');
       })
         .catch(error => {
             setUser({ errorMessage: error.message });
@@ -36,8 +36,7 @@ const UserForm = (props) => {
       
       console.log('line 33' , localStorage)
       }
-      
-  
+
   return (
     <div style={styles}>
     <Form className="register-form" onSubmit={handleSubmit}>
@@ -68,7 +67,7 @@ const UserForm = (props) => {
           />
         </Form.Group>
         
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" >
           Sign up
         </Button>
         <p>or Sign up with</p>
