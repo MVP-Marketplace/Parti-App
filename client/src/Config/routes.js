@@ -5,12 +5,14 @@ import Home from '../components/Home';
 import Login from '../components/AccountSetUp/Login'
 import Register from '../components/AccountSetUp/Register'
 
+
 const Routes = () => (
+
   <Switch>
     <Route exact path='/' component={ Home } />
-    <Route path='/upload' component={ Upload } />
     <Route path='/login' component={ Login } />
     <Route path='/register' component={ Register } />
+    <Route path='/upload' component={ Upload } />
   </Switch>
 );
 

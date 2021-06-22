@@ -4,11 +4,13 @@ import axios from 'axios';
 
 
 export default function Upload() {
+	
 	const [fileInputState, setFileInputState] = useState('');
 	const [previewSource, setPreviewSource] = useState('');
 	const [selectedFile, setSelectedFile] = useState();
 	const [successMsg, setSuccessMsg] = useState('');
 	const [errMsg, setErrMsg] = useState('');
+
 	const handleFileInputChange = (e) => {
 		const file = e.target.files[0];
 		previewFile(file);
