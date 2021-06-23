@@ -9,7 +9,7 @@ function Welcome() {
           <Card.Text>
             Your Account has been created!
           </Card.Text>
-          <Button href="#" variant="primary"> Create Card</Button>
+          <Button href="/create-card" variant="primary"> Create Card</Button>
           <Card.Link href="#">Take me to Dashboard </Card.Link>
         </Card.Body>
       </Card>

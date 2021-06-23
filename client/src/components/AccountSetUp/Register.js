@@ -24,7 +24,7 @@ const UserForm = (props) => {
           setUser(response.data)
           console.log(response.data)
           localStorage.setItem('user', JSON.stringify(response.data));
-        //   props.history.push('/')
+          props.history.push('/welcome')
       })
         .catch(error => {
             setUser({ errorMessage: error.message });
