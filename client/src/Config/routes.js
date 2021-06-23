@@ -4,6 +4,8 @@ import Upload from '../components/Upload';
 import Home from '../components/Home';
 import Login from '../components/AccountSetUp/Login'
 import Register from '../components/AccountSetUp/Register'
+import Welcome from '../components/AccountSetUp/Welcome'
+import NewCard from '../components/Card/NewCard'
 
 
 const Routes = () => (
@@ -13,6 +15,8 @@ const Routes = () => (
     <Route path='/login' component={ Login } />
     <Route path='/register' component={ Register } />
     <Route path='/upload' component={ Upload } />
+    <Route path='/welcome' component={ Welcome } />
+    <Route path='/create-card' component={ NewCard } />
   </Switch>
 );
 

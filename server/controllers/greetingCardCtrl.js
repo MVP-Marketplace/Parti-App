@@ -2,11 +2,16 @@ const db = require('../models');
 
 
 const create = (req, res) => {
-  db.Card.create(req.body, (err, newCard) => {
-    if (err) console.log(err);
-    res.json(newCard)
-  });
-};
+  db.Card.create((req.body), function(err, card){
+  if(err){
+    console.log(err);
+  return res.send({message: err}) 
+      }
+else{
+  res.send({card: card}) 
+      console.log(card) // res.redirect("/")
+  }} 
+)};
 
 const destroy = (req, res) => {
   db.Card.findByIdAndDelete(req.params.id, (err, deletedCard) => {
