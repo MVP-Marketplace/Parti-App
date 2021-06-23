@@ -44,7 +44,7 @@ const greetingCardSchema = new Schema({
   },
   occasion: {
     type: String,
-    enum: ['Birthday', 'Wedding', 'Graduation']
+    enum: ['Anniversary', 'Baby', 'Birthday', 'Graduation', 'Promotion',  'Wedding']
   },
   title: {
     type: String
