@@ -22,8 +22,8 @@ const UserForm = (props) => {
     axios.post('/users/register', {username: username, password: password})
         .then((response)=>{
           setUser(response.data)
-          console.log(response.data)
-          localStorage.setItem('user', JSON.stringify(response.data));
+          console.log(response.data.user._id)
+          localStorage.setItem('user', JSON.stringify(response.data.user._id));
           props.history.push('/welcome')
       })
         .catch(error => {
