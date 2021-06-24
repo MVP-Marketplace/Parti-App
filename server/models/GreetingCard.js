@@ -40,7 +40,8 @@ const greetingCardSchema = new Schema({
   }],
   status: {
     type: String,
-    enum: ['Incomplete', 'Completed', 'Sent']
+    enum: ['Incomplete', 'Completed', 'Sent'],
+    default: "Incomplete",
   },
   occasion: {
     type: String,

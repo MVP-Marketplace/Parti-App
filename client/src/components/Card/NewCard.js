@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Button, Form, Modal, Row, Col, Dropdown, DropdownButton} from 'react-bootstrap';
+import { Card, Button, Form, Modal, Row, Col, Dropdown, DropdownButton, ButtonGroup} from 'react-bootstrap';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
  
@@ -8,24 +8,38 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function CreateNewCard() {
 
-    // 1 'who is this part card for' 
-    // First Name 
-    // Last Name 
-    // email
+
+    // const [user, setUser] = useState();
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [occasion, setOccasion] = useState('');
+    const [dueDate, setdueDate] = useState('');
+    // dueTime
+    const [hours, setHours] = useState('');
+    const [minutes, setMinutes] = useState('');
+    const [timeZone, setTimeZone] = useState('');
     
-    // 2 
-    // Occasion : Dropdown 
-    // Card title
+    const [title, setTitle] = useState('');
 
-    // 3 when should we deliver the card ? 
-    // delivery date (calendar)
-    // Delivery Time hh;mm  
-    // Select time zone: Dropdown 
+ 
+    const handleSelect=(evtKey, event)=>{
+      console.log(evtKey, event.target.innerText);
+      setOccasion(event.target.innerText)
+    }
+    const handleTimeZoneSelect=(evtKey, event)=>{
+      console.log(evtKey, event.target.innerText);
+      setTimeZone(event.target.innerText)
+    }
 
-    // 4 
-    // Schedule later 
-    // Crete card 
-
+    const handleDueDateChange = (date) => {
+      setdueDate(date)
+    }
+  
+    const onFormSubmit = (e) => {
+      e.preventDefault();
+      console.log(dueDate)
+    }
     // const handleSubmit = async (e) =>{
     // // stop form reloading aka browser default behavior
     // e.preventDefault();
@@ -59,18 +73,10 @@ function CreateNewCard() {
       setModalState("close")
      }
 
-     // Calendar 
-     const  daySelected = function(m) {
-      // m is a moment object
-      alert(m.toString());
-    };
      return (
       <div>
-
-        {/*           */} 
         <Card>
          <Card.Body>
-
            <Card.Title as="h5"> New Parti Card </Card.Title>
            <Card.Subtitle> Who is this Parti Card for? </Card.Subtitle>
            <Card.Text>
@@ -82,7 +88,10 @@ function CreateNewCard() {
               First Name
             </Form.Label>
             <Col sm="5">
-              <Form.Control type="password" placeholder="First Name" />
+              <Form.Control 
+              type="text"
+              placeholder="First Name" 
+              onChange={event => setFirstName(event.target.value)}/>
             </Col>
             </Form.Group>
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
@@ -90,7 +99,10 @@ function CreateNewCard() {
               Last Name
             </Form.Label>
             <Col sm="5">
-              <Form.Control type="password" placeholder="Last Name" />
+              <Form.Control 
+              type="text"
+              placeholder="Last Name" 
+              onChange={event => setLastName(event.target.value)}/>
             </Col>
             </Form.Group>
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
@@ -98,27 +110,13 @@ function CreateNewCard() {
               Email
             </Form.Label>
             <Col sm="5">
-              <Form.Control type="password" placeholder="Email" />
+              <Form.Control 
+              type="text" 
+              placeholder="Email" 
+              onChange={event => setEmail(event.target.value)}
+              />
             </Col>
             </Form.Group>
-            {/* <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button> */}
           </Form>
        </div>
            </Card.Text>
@@ -126,8 +124,6 @@ function CreateNewCard() {
          </Card.Body>
        </Card>
      
-
-
         <Modal show={modalState === "modal-one"}
                size="lg"
                aria-labelledby="contained-modal-title-vcenter"
@@ -140,14 +136,22 @@ function CreateNewCard() {
               What is the occasion? 
             </Form.Label>
             <Col sm="5">
-            <DropdownButton id="" title="Birthday">
-              <Dropdown.Item as="button">Anniversary</Dropdown.Item>
-              <Dropdown.Item as="button">Baby</Dropdown.Item>
-              <Dropdown.Item as="button">Birthday</Dropdown.Item>
-              <Dropdown.Item as="button">Graduation</Dropdown.Item>
-              <Dropdown.Item as="button">Promotion</Dropdown.Item>
-              <Dropdown.Item as="button">Wedding</Dropdown.Item>
-            </DropdownButton>
+
+            <DropdownButton id="dropdown-menu-align-right" title="Birthday" onSelect={handleSelect}>  
+            {['Anniversary', 'Baby', 'Birthday', 'Graduation', 'Promotion', 'Wedding'].map((variant) => (
+            <Dropdown.Item
+                key={variant}
+                id={`dropdown-variants-${variant}`}
+                variant={variant.toLowerCase()}
+                title={variant}
+                value = {variant}
+              >{variant}
+              </Dropdown.Item>
+            ),
+          )}
+          </DropdownButton>
+
+
             </Col>
             </Form.Group>
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
@@ -155,7 +159,11 @@ function CreateNewCard() {
               Name Your Card 
             </Form.Label>
             <Col sm="5">
-              <Form.Control type="password" placeholder="" />
+              <Form.Control
+              type="text" 
+              placeholder="Title"
+              onChange={event => setTitle(event.target.value)}
+              />
             </Col>
             </Form.Group>
           </Form>
@@ -173,32 +181,70 @@ function CreateNewCard() {
                centered>
           <Modal.Body>When should we deliver the card?
           
-       
-          {/* <form onSubmit={ this.onFormSubmit }> */}
-          <form >
+          <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+            <Form.Label column sm="2">
+              Choose Delivery
+            </Form.Label>
+
+       <form onSubmit={onFormSubmit }>
         <div className="form-group">
           <DatePicker
-              // selected={ this.state.startDate }
-              // onChange={ this.handleChange }
               name="startDate"
               dateFormat="MM/dd/yyyy"
+              selected={ dueDate }
+              onChange={handleDueDateChange }
           />
-          <button className="btn btn-primary">Show Date</button>
         </div>
         </form>
+            <Col sm="5">
+            </Col>
+            </Form.Group>
+            
 
-        // TODO 
-        // add hour : min 
-          
-          <DropdownButton id="" title="Eastern Standart Time">
-              <Dropdown.Item as="button">Eastern Standart Time</Dropdown.Item>
-              <Dropdown.Item as="button">Central Standart Time</Dropdown.Item>
-              <Dropdown.Item as="button">Mountain Standart Time</Dropdown.Item>
-              <Dropdown.Item as="button">Pacific Standart Time</Dropdown.Item>
-            </DropdownButton>
-          
+            <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+            <Form.Label column sm="2">
+              Delivery Time
+            </Form.Label>
+            <Col sm="5">
+            <Form.Control 
+              type="text" 
+              placeholder="Hour"
+              onChange={event => setHours(event.target.value)}
+              />
+            <Form.Control 
+              type="text" 
+              placeholder="Minutes"
+              onChange={event => setMinutes(event.target.value)} />
+            </Col>
+            </Form.Group>
+
+
+            <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+            <Form.Label column sm="2">
+              Select Time Zone
+            </Form.Label>
+            <Col sm="5"> 
+
+            <DropdownButton id="dropdown-menu-align-right" title="Eastern Standart Time" onSelect={handleTimeZoneSelect}>  
+            {['Eastern Standart Time', 'Central Standart Time', 'Mountain Standart Time', 'Pacific Standart Time'].map((variant) => (
+            <Dropdown.Item
+                key={variant}
+                id={`dropdown-variants-${variant}`}
+                variant={variant.toLowerCase()}
+                title={variant}
+                value = {variant}
+              >{variant}
+              </Dropdown.Item>
+            ),
+          )}
+          </DropdownButton>
+            </Col>
+            </Form.Group>
+
+         
           </Modal.Body>
           <Modal.Footer>
+            <Button onClick={handleClose}>Schedule Later</Button> 
             <Button onClick={handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
