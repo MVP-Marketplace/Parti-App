@@ -1,6 +1,7 @@
 import { Container, Col, Row } from 'react-bootstrap'
 import Nav from './Nav'
 import Preview from './Preview'
+import LSide from './Sidebar/LSide'
 
 
 function Default() {
@@ -10,7 +11,7 @@ function Default() {
       <Container>
         <Row>
           <Col>
-            <h1>Left side placeholder</h1>
+            <LSide />
           </Col>
           <Col>
             <Preview />
