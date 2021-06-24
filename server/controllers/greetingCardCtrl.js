@@ -1,17 +1,20 @@
 const db = require('../models');
+const User = require("../models/User");
 
-
-const create = (req, res) => {
-  db.Card.create((req.body), function(err, card){
-  if(err){
-    console.log(err);
-  return res.send({message: err}) 
-      }
-else{
-  res.send({card: card}) 
-      console.log(card) // res.redirect("/")
-  }} 
-)};
+const create = async (req, res) => {
+  console.log("line 24 req.body", req.body);
+	try {
+		const createdCard = await db.Card.create(req.body);
+		User.findById(req.body.userId, (err, createdCard) => {
+			createdCard.cardsList.push(createdCard);
+			createdCard.save();
+      res.send({createdCard: createdCard})
+      console.log(createdCard)
+		});
+	} catch (err) {
+		console.log(err);
+	}
+};
 
 const destroy = (req, res) => {
   db.Card.findByIdAndDelete(req.params.id, (err, deletedCard) => {

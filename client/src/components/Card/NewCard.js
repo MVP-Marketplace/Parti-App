@@ -43,9 +43,11 @@ function CreateNewCard(props) {
     const handleSubmit = async (e) =>{
     // stop form reloading aka browser default behavior
     e.preventDefault();
-    const userID =   localStorage.getItem('user')
+    // const userID =   localStorage.getItem('user')
+    const userId = JSON.parse(localStorage.getItem('user'))
+    console.log(userId)
     axios.post('/card', {
-            userId: userID,
+            userId: userId,
             recipientEmail: email,
             recipientFirstName: firstName,
             recipientLastName: lastName,

@@ -6,6 +6,7 @@ const greetingCardSchema = new Schema({
   userId: {
     type: String,
     required: true,
+    ref: "User",
   },
   recipientEmail: {
     type: String,
