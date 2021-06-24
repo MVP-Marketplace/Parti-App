@@ -3,9 +3,9 @@ const Schema = mongoose.Schema
 
 const greetingCardSchema = new Schema({
 
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
+  userId: {
+    type: String,
+    required: true,
   },
   recipientEmail: {
     type: String,
@@ -32,7 +32,7 @@ const greetingCardSchema = new Schema({
   }],
   dueTimeZone: {
     type: String,
-    enum: ['AKST', 'PST', 'CST', 'EST']
+    enum: ['Eastern Standart Time', 'Central Standart Time', 'Mountain Standart Time', 'Pacific Standart Time']
   },
   content: [{
     type: Schema.Types.ObjectId,

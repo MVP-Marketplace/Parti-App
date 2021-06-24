@@ -25,6 +25,12 @@ const userSchema = new Schema({
       ref: "User",
     },
   ],
+  cardList: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "GreetingCard",
+		}
+  ],
   googleId: {
     type: String,
   },

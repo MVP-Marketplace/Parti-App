@@ -6,7 +6,7 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function CreateNewCard() {
+function CreateNewCard(props) {
 
 
     // const [user, setUser] = useState();
@@ -40,23 +40,32 @@ function CreateNewCard() {
       e.preventDefault();
       console.log(dueDate)
     }
-    // const handleSubmit = async (e) =>{
-    // // stop form reloading aka browser default behavior
-    // e.preventDefault();
-    // axios.post('/card', {username: username, password: password})
-    //     .then((response)=>{
-    //       setUser(response.data)
-    //       console.log(response.data)
-    //       localStorage.setItem('user', JSON.stringify(response.data));
-    //       props.history.push('/welcome')
-    //   })
-    //     .catch(error => {
-    //         setUser({ errorMessage: error.message });
-    //         console.error('There was an error!', error);
-    //     });
+    const handleSubmit = async (e) =>{
+    // stop form reloading aka browser default behavior
+    e.preventDefault();
+    const userID =   localStorage.getItem('user')
+    axios.post('/card', {
+            userId: userID,
+            recipientEmail: email,
+            recipientFirstName: firstName,
+            recipientLastName: lastName,
+            dueTime: [{hours:hours, minutes:minutes}],
+            dueDate: dueDate,
+            dueTimeZone: timeZone,
+            occasion: occasion,
+            title: title
+            })
+        .then((response)=>{
+          console.log(response.data)
+          props.history.push('/welcome')
+      })
+        .catch(error => {
+            // setUser({ errorMessage: error.message });
+            console.error('There was an error!', error);
+        });
       
-    //   console.log('line 33' , localStorage.user)
-    //   }
+      console.log('line 33' , localStorage.user)
+      }
 
     // "modal-one" | "modal-two" | "close" >("close")
     const [modalState, setModalState] = useState("close")
@@ -245,7 +254,7 @@ function CreateNewCard() {
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={handleClose}>Schedule Later</Button> 
-            <Button onClick={handleClose}>Close</Button>
+            <Button onClick={handleSubmit}>Close</Button>
           </Modal.Footer>
         </Modal>
       </div>
