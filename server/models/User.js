@@ -7,10 +7,6 @@ const userSchema = new Schema({
   username: {
     type: String,
     required: true,
-  },
-  email: {
-    type: String,
-    required: true,
     unique: true,
   },
   password: {
@@ -21,7 +17,7 @@ const userSchema = new Schema({
   role: {
     type: String,
     enum: ["Creator", "Contributor", "Recipient"],
-    default: "Contributor",
+    default: "Recipient",
   },
   contactList: [
     {
@@ -35,9 +31,15 @@ const userSchema = new Schema({
   facebookId: {
     type: String,
   },
-}).plugin(permissions);
+});
+// }).plugin(permissions);
 
 userSchema.plugin(passportLocalMongoose);
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
+// // email: {
+  //   type: String,
+  //   required: true,
+  //   unique: true,
+  // },
