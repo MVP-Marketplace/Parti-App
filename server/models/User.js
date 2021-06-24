@@ -25,6 +25,12 @@ const userSchema = new Schema({
       ref: "User",
     },
   ],
+  cardsList: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "GreetingCard",
+		}
+  ],
   googleId: {
     type: String,
   },
@@ -38,8 +44,3 @@ userSchema.plugin(passportLocalMongoose);
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
-// // email: {
-  //   type: String,
-  //   required: true,
-  //   unique: true,
-  // },

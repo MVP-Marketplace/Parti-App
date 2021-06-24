@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
-
-
 const styles = {
   position: "relative",
   minHeight: "100vh",
@@ -14,40 +12,71 @@ const styles = {
 
 const UserForm = (props) => {
 
-  const [user, setUser] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [setUser, setState] = useState({
+    username: '',
+    password: ''
+  });
 
-  // "Test11@gmail.com", password: "123456"
   const handleSubmit = async (e) =>{
     // stop form reloading aka browser default behavior
     e.preventDefault();
-    axios.post('/users/login', {username: username, password: password})
-        .then((response)=>{
-          const user = response.data
-          localStorage.setItem('user', JSON.stringify(response.data));
-          setUser(user)
-          props.history.push('/');
-      })
+    axios.post('/users/login', {username: "Test10", email: "Test10@gmail.com", password: "123456"})
+        .then(response => setState({ }))
         .catch(error => {
-            setUser({ errorMessage: error.message });
+            setState({ errorMessage: error.message });
             console.error('There was an error!', error);
         });
-      
-      console.log('line 33' , localStorage)
-      }
+
+
+
+  //   try {
+  //     // console.log('inside login')
+  //     const user = await axios({
+  //       method: 'POST',
+  //       url: `/users/login`,
+  //       // username: username.value, 
+  //       // password: password.value,
+       
+  //       username: "Test10", 
+  //       email: "Test10@gmail.com",
+  //       password: "123456"}
+       
+  //       // withCredentials: "include",
+  //     )
+  //     // console.log('user: ', username)
+  //     // setUser(user.user)
+  //     localStorage.setItem('user', JSON.stringify(user.user));
+  //     // console.log(user.data)
+  //     // setLoading(true);
+  //     console.log(JSON.parse(sessionStorage.getItem('user')))
+  //   //  console.log(user.data)
+  //    props.history.push('/');
+  //   } catch (error) {
+  //     console.log('Failed to Log In')
+  //   }
+  //   // setLoading(false)
+  // }
+ 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setState((prevState) => ({
+      ...prevState,
+      [name]: value
+    }))
+    console.log('set statete', setState);
+  };
 
   return (
     <div style={styles}>
     <Form className="register-form" onSubmit={handleSubmit}>
-      <h1>Login to an account </h1>
+      <h1>Create an account </h1>
       
         <Form.Group controlId="username">
           <Form.Control
             type="text"
             placeholder="Email"
-            name="username"
-            onChange={event => setUsername(event.target.value)}
+            name="email"
+            onChange={handleInputChange}
           />
         </Form.Group>
         <Form.Group controlId="password">
@@ -55,7 +84,7 @@ const UserForm = (props) => {
             type="password"
             placeholder="Password"
             name="password"
-            onChange={event => setPassword(event.target.value)}
+            onChange={handleInputChange}
           />
         </Form.Group>
         <Form.Group controlId="confirm-password">
@@ -67,7 +96,7 @@ const UserForm = (props) => {
           />
         </Form.Group>
         
-        <Button variant="primary" type="submit" >
+        <Button variant="primary" type="submit">
           Sign up
         </Button>
         <p>or Sign up with</p>
@@ -82,7 +111,18 @@ const UserForm = (props) => {
       </Form>
     </div>
   );
-
 };
+
+const useFormInput = initialValue => {
+  const [value, setValue] = useState(initialValue);
+ 
+  const handleChange = e => {
+    setValue(e.target.value);
+  }
+  return {
+    value,
+    onChange: handleChange
+  }
+}}
  
 export default UserForm;
