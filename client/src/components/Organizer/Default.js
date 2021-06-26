@@ -1,7 +1,7 @@
 import { Container, Col, Row } from 'react-bootstrap'
 import Nav from './Nav'
-import Preview from './Preview'
-import LSide from './Sidebar/LSide'
+import Contributors from './Options/Contributors'
+import SideSelect from './Sidebar/SideSelect'
 
 
 function Default() {
@@ -9,14 +9,8 @@ function Default() {
     <div>
       <Nav />
       <Container>
-        <Row>
-          <Col>
-            <LSide />
-          </Col>
-          <Col>
-            <Preview />
-          </Col>
-        </Row>
+        {/* <SideSelect /> */}
+        <Contributors />
       </Container>
     </div>
   )
