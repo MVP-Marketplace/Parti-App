@@ -5,9 +5,11 @@ import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 ReactDOM.render(
-	<Router>
-		<App />
-	</Router>,
-	document.getElementById('root')
+  <Router>
+    <App />
+    {/* <Default /> */}
+  </Router>,
+  document.getElementById("root")
 );

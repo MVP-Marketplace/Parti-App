@@ -12,7 +12,8 @@ passport.use(new localStrategy(User.authenticate()));
 
 // create User with Passport  
 const createUser = (req, res) => {
-    User.register(({username: req.body.username, email: req.body.email, role: req.body.role}), req.body.password, function(err, user){
+    User.register(({username: req.body.username, role: req.body.role}), req.body.password, function(err, user){
+    // User.register(({email: req.body.email, role: req.body.role}), req.body.password, function(err, user){
     if(err){
       console.log(err);
 		// return res.render("../views/register.ejs") 
@@ -21,19 +22,20 @@ const createUser = (req, res) => {
 	else{
         passport.authenticate("local")(req, res, function(){
 		res.send({user: user}) 
-        res.redirect("/")
+        console.log(user) // res.redirect("/")
         })
     }} 
 )};
-
 
 const newUser = (req, res) => {
 	res.render("../views/register.ejs")
 }
 
 const login = (req, res) => {
-	console.log(req.user);
-	res.render("../views/login.ejs");
+	const user = req.body
+	console.log('LINE 36 controllers/users' , user) 
+	res.send({user: user})
+	// res.render("../views/login.ejs");
 };
 
 const logout = (req, res) => {
@@ -47,7 +49,6 @@ const logout = (req, res) => {
 		}
 	});
 };
-
 
 module.exports = {
 	logout,
