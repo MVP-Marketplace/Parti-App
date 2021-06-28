@@ -8,7 +8,7 @@ import StepByStep from "./StepByStep";
 function Default() {
   return (
     <div>
-      <Container fluid>
+      <Container>
         <Nav />
         <About />
         <Showcase />

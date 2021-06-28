@@ -1,8 +1,8 @@
 import { Container } from "react-bootstrap";
 import Nav from "./Nav";
 import Header from "./Header";
-import Send from "./Send";
-import DraftJS from "../DraftJS";
+// import Send from "./Send";
+import EmailJS from "./EmailJS";
 
 function Default() {
   return (
@@ -10,10 +10,9 @@ function Default() {
       <Container>
         <Nav />
         <Header />
-        <Container fluid>
-          <DraftJS />
+        <Container fluid className="email">
+          <EmailJS />
         </Container>
-        <Send />
       </Container>
     </div>
   );

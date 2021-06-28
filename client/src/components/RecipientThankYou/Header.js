@@ -16,6 +16,7 @@ function Header() {
             Let your contributors know how much you appreciate their
             contributions
           </h6>
+          <br />
         </div>
       </Col>
     </Container>
