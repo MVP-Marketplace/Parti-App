@@ -1,4 +1,4 @@
-import { Container, Card, CardColumns } from "react-bootstrap";
+import { Container, Col, Card, CardColumns } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "./index.css";
 
@@ -16,44 +16,40 @@ function Showcase() {
       </div>
       <CardColumns>
         <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
-          <Card.Body>
-            <Card.Title>Card title that wraps to a new line</Card.Title>
-            <Card.Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-              viverra placerat purus, a efficitur nibh rutrum vel. Suspendisse
-              tincidunt velit Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Cras viverra placerat purus, a efficitur nibh rutrum vel.
-              Suspendisse tincidunt velit
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <Card className="p-3">
-          <blockquote className="blockquote mb-0 card-body">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-              viverra placerat purus, a efficitur nibh rutrum vel. Suspendisse
-              tincidunt velit Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Cras viverra placerat purus, a efficitur nibh rutrum vel.
-              Suspendisse tincidunt velit
-            </p>
-          </blockquote>
+          <Card.Img
+            variant="top"
+            src="https://via.placeholder.com/293x524.png"
+          />
         </Card>
         <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              TLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-              viverra placerat purus, a efficitur nibh rutrum vel. Suspendisse
-              tincidunt velit Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Cras viverra placerat purus, a efficitur nibh rutrum vel.
-              Suspendisse tincidunt velit{" "}
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
+          <Card.Img
+            variant="top"
+            src="https://via.placeholder.com/293x202.png"
+          />
+        </Card>
+        <Card>
+          <Card.Img
+            variant="top"
+            src="https://via.placeholder.com/293x524.png"
+          />
+        </Card>
+        <Card>
+          <Card.Img
+            variant="top"
+            src="https://via.placeholder.com/293x305.png"
+          />
+        </Card>
+        <Card>
+          <Card.Img
+            variant="top"
+            src="https://via.placeholder.com/293x311.png"
+          />
+        </Card>
+        <Card>
+          <Card.Img
+            variant="top"
+            src="https://via.placeholder.com/293x311.png"
+          />
         </Card>
         <Card bg="primary" text="white" className="text-center p-3">
           <blockquote className="blockquote mb-0 card-body">
@@ -64,49 +60,41 @@ function Showcase() {
             </div>
           </blockquote>
         </Card>
-        <Card className="text-center">
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-              viverra placerat purus, a efficitur nibh rutrum vel. Suspendisse
-              tincidunt velit Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Cras viverra placerat purus, a efficitur nibh rutrum vel.
-              Suspendisse tincidunt velit{" "}
-            </Card.Text>
-            <Card.Text>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Text>
-          </Card.Body>
+        <Card>
+          <Card.Img
+            variant="top"
+            src="https://via.placeholder.com/293x222.png"
+          />
         </Card>
         <Card>
-          <Card.Img src="holder.js/100px160" />
-        </Card>
-        <Card className="text-right">
-          <blockquote className="blockquote mb-0 card-body">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              posuere erat a ante.
-            </p>
-            <footer className="blockquote-footer">
-              <small className="text-muted">
-                Someone famous in <cite title="Source Title">Source Title</cite>
-              </small>
-            </footer>
-          </blockquote>
+          <Card.Img
+            variant="top"
+            src="https://via.placeholder.com/293x311.png"
+          />
         </Card>
         <Card>
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
-            </Card.Text>
-            <Card.Text>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Text>
-          </Card.Body>
+          <Card.Img
+            variant="top"
+            src="https://via.placeholder.com/293x202.png"
+          />
+        </Card>
+        <Card>
+          <Card.Img
+            variant="top"
+            src="https://via.placeholder.com/293x756.png"
+          />
+        </Card>
+        <Card>
+          <Card.Img
+            variant="top"
+            src="https://via.placeholder.com/293x295.png"
+          />
+        </Card>
+        <Card>
+          <Card.Img
+            variant="top"
+            src="https://via.placeholder.com/293x547.png"
+          />
         </Card>
       </CardColumns>
     </Container>

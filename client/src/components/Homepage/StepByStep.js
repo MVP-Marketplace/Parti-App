@@ -7,7 +7,7 @@ import {
   ListGroup,
 } from "react-bootstrap";
 
-import "./index.css";
+// import "./index.css";
 
 function StepByStep() {
   return (
@@ -29,53 +29,54 @@ function StepByStep() {
             </ListGroup.Item>
           </ListGroup>
         </Row>
+        <br />
         <Row>
           <CardDeck>
             <Card>
-              <Card.Img variant="top" src="holder.js/100px160" />
+              <Card.Img
+                variant="top"
+                src="https://via.placeholder.com/228x247.png"
+              />
               <Card.Body>
                 <Card.Text>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
                   viverra placerat purus, a efficitur nibh rutrum vel.
-                  Suspendisse tincidunt velit Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit. Cras viverra placerat purus, a
-                  efficitur nibh rutrum vel. Suspendisse tincidunt velit
                 </Card.Text>
               </Card.Body>
             </Card>
             <Card>
-              <Card.Img variant="top" src="holder.js/100px160" />
+              <Card.Img
+                variant="top"
+                src="https://via.placeholder.com/229x247.png"
+              />
               <Card.Body>
                 <Card.Text>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
                   viverra placerat purus, a efficitur nibh rutrum vel.
-                  Suspendisse tincidunt velit Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit. Cras viverra placerat purus, a
-                  efficitur nibh rutrum vel. Suspendisse tincidunt velit{" "}
                 </Card.Text>
               </Card.Body>
             </Card>
             <Card>
-              <Card.Img variant="top" src="holder.js/100px160" />
+              <Card.Img
+                variant="top"
+                src="https://via.placeholder.com/214x247.png"
+              />
               <Card.Body>
                 <Card.Text>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
                   viverra placerat purus, a efficitur nibh rutrum vel.
-                  Suspendisse tincidunt velit Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit. Cras viverra placerat purus, a
-                  efficitur nibh rutrum vel. Suspendisse tincidunt velit
                 </Card.Text>
               </Card.Body>
             </Card>
             <Card>
-              <Card.Img variant="top" src="holder.js/100px160" />
+              <Card.Img
+                variant="top"
+                src="https://via.placeholder.com/215x247.png"
+              />
               <Card.Body>
                 <Card.Text>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
                   viverra placerat purus, a efficitur nibh rutrum vel.
-                  Suspendisse tincidunt velit Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit. Cras viverra placerat purus, a
-                  efficitur nibh rutrum vel. Suspendisse tincidunt velit
                 </Card.Text>
               </Card.Body>
             </Card>
