@@ -62,10 +62,9 @@ function CreateNewCard(props) {
           props.history.push('/welcome')
       })
         .catch(error => {
-            // setUser({ errorMessage: error.message });
             console.error('There was an error!', error);
         });
-      
+      setModalState("close")
       console.log('line 33' , localStorage.user)
       }
 
