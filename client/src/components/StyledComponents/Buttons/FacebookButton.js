@@ -8,7 +8,16 @@ const Button = styled.Button`
   width: 10.359375rem;
   left: 0rem;
   top: 0rem;
-  
+  &:hover {
+    background-color: #135cbb, 100%;
+  }
+  &:focus {
+    border: 2px solid #262523;
+    background: #1877f2, 100%;
+  }
+  &:active {
+    background: #1877f2, 60%;
+  }
 `;
 
 const Image = styled.Image`
