@@ -8,6 +8,8 @@ import Register from '../components/AccountSetUp/Register'
 import Welcome from '../components/AccountSetUp/Welcome'
 import NewCard from '../components/Card/NewCard'
 import NewCardSuccess from '../components/Card/NewCardSuccess'
+// import TimeZone from '../components/Card/TimeZone'
+// import Time from '../components/Card/Time'
 
 
 
@@ -25,6 +27,7 @@ const Routes = () => (
     <Route path='/welcome' component={ Welcome } />
     <Route path='/create-card' component={ NewCard } />
     <Route path='/create-card-success' component={ NewCardSuccess } />
+    {/* <Route path='/create-card-success' component={ Time } /> */}
   </Switch>
 );
 

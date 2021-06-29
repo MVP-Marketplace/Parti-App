@@ -2,48 +2,57 @@ import React, { useState } from 'react';
 import { Card, Button, Form, Modal, Row, Col, Dropdown, DropdownButton, ButtonGroup} from 'react-bootstrap';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
- 
+import TimezoneSelect from 'react-timezone-select'
+
+
 import "react-datepicker/dist/react-datepicker.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function CreateNewCard(props) {
 
+    
 
-    // const [user, setUser] = useState();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
+    const [title, setTitle] = useState('');
     const [occasion, setOccasion] = useState('');
-    const [dueDate, setdueDate] = useState('');
-    // dueTime
+
+
+    const [calendarDate, setcalendarDate] = useState('');
+
+    const [selectedTimezone, setSelectedTimezone] = useState('')
+    const [dueDate, setDueDate] = useState('');
+   
     const [hours, setHours] = useState('');
     const [minutes, setMinutes] = useState('');
-    const [timeZone, setTimeZone] = useState('');
+    // const [timeZone, setTimeZone] = useState('');
     
-    const [title, setTitle] = useState('');
 
- 
     const handleSelect=(evtKey, event)=>{
       console.log(evtKey, event.target.innerText);
       setOccasion(event.target.innerText)
     }
-    const handleTimeZoneSelect=(evtKey, event)=>{
-      console.log(evtKey, event.target.innerText);
-      setTimeZone(event.target.innerText)
-    }
+    // const handleTimeZoneSelect=(evtKey, event)=>{
+    //   console.log(evtKey, event.target.innerText);
+    //   setTimeZone(event.target.innerText)
+    // }
 
-    const handleDueDateChange = (date) => {
-      setdueDate(date)
+    const handlecalendarDateChange = (date) => {
+      setcalendarDate(date)
     }
   
     const onFormSubmit = (e) => {
       e.preventDefault();
-      console.log(dueDate)
+      console.log(calendarDate)
     }
+
     const handleSubmit = async (e) =>{
+      setLocalZone(calendarDate, selectedTimezone)
+    
     // stop form reloading aka browser default behavior
     e.preventDefault();
-    // const userID =   localStorage.getItem('user')
+    setLocalZone(calendarDate, selectedTimezone)
     const userId = JSON.parse(localStorage.getItem('user'))
     console.log(userId)
     axios.post('/card', {
@@ -53,13 +62,13 @@ function CreateNewCard(props) {
             recipientLastName: lastName,
             dueTime: [{hours:hours, minutes:minutes}],
             dueDate: dueDate,
-            dueTimeZone: timeZone,
+            // dueTimeZone: selectedTimezone,
             occasion: occasion,
             title: title
             })
         .then((response)=>{
           console.log(response.data)
-          props.history.push('/create-card-success',{ dueDate , dueTimeZone: timeZone, occasion: occasion, title: title} )
+          props.history.push('/create-card-success',{ dueDate :dueDate , occasion: occasion, title: title} )
       })
         .catch(error => {
             console.error('There was an error!', error);
@@ -81,6 +90,28 @@ function CreateNewCard(props) {
      
      const handleClose = () => {
       setModalState("close")
+     }
+
+     const handConvertedDate = () => {
+      setLocalZone(calendarDate, selectedTimezone)
+     }
+
+     const moment = require('moment-timezone')
+   
+     // converts current time zone to selected time zone 
+     const setLocalZone = (calendarDate, selectedTimezone) => {
+
+       console.log('line 92','calendarDate:',  calendarDate , "timeZone:" , selectedTimezone)
+       const dateWithoutZone = moment
+         .tz(calendarDate, selectedTimezone.altName)
+         .format("YYYY-MM-DDTHH:mm")
+      const localZone = moment(dateWithoutZone).format("Z")
+      const dateWithLocalZone = [dateWithoutZone, selectedTimezone.value].join(" ")
+      console.log('line 104','dateWithLocalZone:',  dateWithLocalZone)
+      
+      // TODO 
+      // fix issue with setDueDate not saving
+      setDueDate(dateWithLocalZone)
      }
 
      return (
@@ -199,21 +230,29 @@ function CreateNewCard(props) {
           <DatePicker
               name="startDate"
               dateFormat="MM/dd/yyyy"
-              selected={dueDate}
-              onChange={handleDueDateChange}
+              showTimeSelect
+              timeFormat="HH:mm"
+              timeIntervals={60}
+              timeCaption="time"
+              dateFormat="MMMM d, yyyy h:mm aa"
+              selected={calendarDate}
+              onChange={handlecalendarDateChange}
           />
         </div>
         </form>
             <Col sm="5">
             </Col>
             </Form.Group>
-            
-
+       
+                
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
             <Form.Label column sm="2">
               Delivery Time
             </Form.Label>
             <Col sm="5">
+
+
+   
             <Form.Control 
               type="text" 
               placeholder="Hour"
@@ -224,8 +263,7 @@ function CreateNewCard(props) {
               placeholder="Minutes"
               onChange={event => setMinutes(event.target.value)} />
             </Col>
-            </Form.Group>
-
+            </Form.Group> 
 
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
             <Form.Label column sm="2">
@@ -233,7 +271,13 @@ function CreateNewCard(props) {
             </Form.Label>
             <Col sm="5"> 
 
-            <DropdownButton id="dropdown-menu-align-right" title="Eastern Standart Time" onSelect={handleTimeZoneSelect}>  
+            <TimezoneSelect
+              value={selectedTimezone}
+              onChange={setSelectedTimezone}
+              onSelect={handConvertedDate}
+        />
+
+            {/* <DropdownButton id="dropdown-menu-align-right" title="Eastern Standart Time" onSelect={handleTimeZoneSelect}>  
             {['Eastern Standart Time', 'Central Standart Time', 'Mountain Standart Time', 'Pacific Standart Time'].map((variant) => (
             <Dropdown.Item
                 key={variant}
@@ -245,7 +289,10 @@ function CreateNewCard(props) {
               </Dropdown.Item>
             ),
           )}
-          </DropdownButton>
+          </DropdownButton> */}
+
+
+          {/* <Button onClick={setLocalZone(calendarDate , selectedTimezone )}>GET new Date </Button> */}
             </Col>
             </Form.Group>
 
