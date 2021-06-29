@@ -59,7 +59,7 @@ function CreateNewCard(props) {
             })
         .then((response)=>{
           console.log(response.data)
-          props.history.push('/welcome')
+          props.history.push('/create-card-success',{ dueDate , dueTimeZone: timeZone, occasion: occasion, title: title} )
       })
         .catch(error => {
             console.error('There was an error!', error);
@@ -160,8 +160,6 @@ function CreateNewCard(props) {
             ),
           )}
           </DropdownButton>
-
-
             </Col>
             </Form.Group>
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
@@ -196,13 +194,13 @@ function CreateNewCard(props) {
               Choose Delivery
             </Form.Label>
 
-       <form onSubmit={onFormSubmit }>
+       <form onSubmit={onFormSubmit}>
         <div className="form-group">
           <DatePicker
               name="startDate"
               dateFormat="MM/dd/yyyy"
-              selected={ dueDate }
-              onChange={handleDueDateChange }
+              selected={dueDate}
+              onChange={handleDueDateChange}
           />
         </div>
         </form>

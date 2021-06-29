@@ -7,6 +7,7 @@ import Login from '../components/AccountSetUp/Login'
 import Register from '../components/AccountSetUp/Register'
 import Welcome from '../components/AccountSetUp/Welcome'
 import NewCard from '../components/Card/NewCard'
+import NewCardSuccess from '../components/Card/NewCardSuccess'
 
 
 
@@ -23,6 +24,7 @@ const Routes = () => (
     <Route path='/upload' component={ Upload } />
     <Route path='/welcome' component={ Welcome } />
     <Route path='/create-card' component={ NewCard } />
+    <Route path='/create-card-success' component={ NewCardSuccess } />
   </Switch>
 );
 
