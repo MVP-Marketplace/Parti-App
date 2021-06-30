@@ -1,8 +1,9 @@
 import React  from "react";
 import "./App.css";
-import DraftJS from "./components/DraftJS";
+// import DraftJS from "./components/DraftJS/DraftJS";
 import VideoPlayer from "./components/VideoPlayer";
 import Routes from "./Config/routes";
+import UploadVideo from './components/Contributor/UploadVideo/UploadVideo'
 
 
 function App() {
@@ -10,6 +11,8 @@ function App() {
   return (
     <div className="container">
       <Routes/>
+      <UploadVideo />
+      <VideoPlayer/>
     </div>
   );
 }
