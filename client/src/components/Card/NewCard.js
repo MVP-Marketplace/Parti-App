@@ -54,8 +54,9 @@ function CreateNewCard(props) {
             title: title
             })
         .then((response)=>{
-          console.log(response.data)
-          props.history.push('/create-card-success',{ dueDate :convertedDate , occasion: occasion, title: title} )
+          console.log("LINE 57", response.data)
+          console.log("LINE 58", response.data.createdCard._id)
+          props.history.push('/create-card-success',{ dueDate :convertedDate , occasion: occasion, title: title, cardId: response.data.createdCard._id} )
       })
         .catch(error => {
             console.error('There was an error!', error);

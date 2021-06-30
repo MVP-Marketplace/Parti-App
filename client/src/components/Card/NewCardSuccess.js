@@ -3,10 +3,11 @@ import { Card, Button } from "react-bootstrap";
 function NewCardSuccess(props) {
 
   const occasion = props.location.state.occasion
-
+  const cardId = props.location.state.cardId
+  console.log("Line 7 CardId ", cardId)
 
   const handleSubmit = async (e) =>{
-    props.history.push('/create-card-select-theme',{  occasion: occasion} )
+    props.history.push('/create-card-select-theme',{  occasion: occasion, cardId:cardId} )
       }
     return (
         <Card>
