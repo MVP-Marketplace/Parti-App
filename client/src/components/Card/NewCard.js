@@ -155,7 +155,7 @@ function CreateNewCard(props) {
             <Col sm="5">
 
             <DropdownButton id="dropdown-menu-align-right" title="Birthday" onSelect={handleSelect}>  
-            {['Anniversary', 'Baby', 'Birthday', 'Graduation', 'Promotion', 'Wedding'].map((variant) => (
+            {['Anniversary', 'Birthday', 'Graduation', 'Promotion', 'Wedding'].map((variant) => (
             <Dropdown.Item
                 key={variant}
                 id={`dropdown-variants-${variant}`}
