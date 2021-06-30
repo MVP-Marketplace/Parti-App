@@ -50,7 +50,10 @@ const greetingCardSchema = new Schema({
   },
   title: {
     type: String
-  }
+  }, 
+  theme: {
+    type: String,
+  },
 }, 
 { timestamps: true })
 
