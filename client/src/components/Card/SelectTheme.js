@@ -7,6 +7,7 @@ import styles from './card.module.css';
 
 function SelectTheme(props) {
 
+    const occasion = props.location.state.occasion.toLowerCase()
     // const array = ["1", "2", "3", "4", "5"];
 
     // const images = array.map(num => {
@@ -17,23 +18,22 @@ function SelectTheme(props) {
     return (
 
         <CardGroup>
-  <Card>
-    <Card.Img variant="top" src="./stockPhotos/anniversary/anniversary1.png" width="362" height="158" />
-  </Card>
-  <Card>
-    <Card.Img variant="top" src="./stockPhotos/anniversary/anniversary2.png" width="362" height="158"/>
-  </Card>
-  <Card>
-    <Card.Img variant="top" src="./stockPhotos/anniversary/anniversary3.png" width="362" height="158" />
-  </Card>
-  <Card>
-    <Card.Img variant="top" src="./stockPhotos/anniversary/anniversary4.png" width="362" height="158" />
-  </Card>
-  <Card>
-    <Card.Img variant="top" src="./stockPhotos/anniversary/anniversary5.png"  width="362" height="158"/>
-  </Card>
-</CardGroup>
-
+            <Card>
+                <Card.Img variant="top" src={`./stockPhotos/${occasion}/${occasion}1.png`} width="362" height="158" />
+            </Card>
+            <Card>
+                <Card.Img variant="top" src={`./stockPhotos/${occasion}/${occasion}2.png`} width="362" height="158"/>
+            </Card>
+            <Card>
+                <Card.Img variant="top" src={`./stockPhotos/${occasion}/${occasion}3.png`} width="362" height="158" />
+            </Card>
+            <Card>
+                <Card.Img variant="top" src={`./stockPhotos/${occasion}/${occasion}4.png`} width="362" height="158" />
+            </Card>
+            <Card>
+                <Card.Img variant="top" src={`./stockPhotos/${occasion}/${occasion}5.png`} width="362" height="158"/>
+            </Card>
+        </CardGroup>
     );
   }
   
