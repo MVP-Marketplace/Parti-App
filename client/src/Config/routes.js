@@ -7,6 +7,10 @@ import Login from '../components/AccountSetUp/Login'
 import Register from '../components/AccountSetUp/Register'
 import Welcome from '../components/AccountSetUp/Welcome'
 import NewCard from '../components/Card/NewCard'
+import NewCardSuccess from '../components/Card/NewCardSuccess'
+import SelectTheme from '../components/Card/SelectTheme'
+// import TimeZone from '../components/Card/TimeZone'
+// import Time from '../components/Card/Time'
 
 
 
@@ -23,6 +27,8 @@ const Routes = () => (
     <Route path='/upload' component={ Upload } />
     <Route path='/welcome' component={ Welcome } />
     <Route path='/create-card' component={ NewCard } />
+    <Route path='/create-card-success' component={ NewCardSuccess } />
+    <Route path='/create-card-select-theme' component={ SelectTheme } /> 
   </Switch>
 );
 

@@ -24,13 +24,13 @@ const destroy = (req, res) => {
 };
 
 const update = (req, res) => {
-  db.Card.findByIdAndUpdate(
+  db.Card.findOneAndUpdate(
     req.params.id,
     req.body,
     {new: true},
     (err, updatedCard) => {
       if (err) console.log(err)
-      res.json(updatedCard)
+      res.send({updatedCard: updatedCard} )
   });
 };
 
