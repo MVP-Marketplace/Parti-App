@@ -1,6 +1,13 @@
 import { Card, Button } from "react-bootstrap";
 
 function NewCardSuccess(props) {
+
+  const occasion = props.location.state.occasion
+
+
+  const handleSubmit = async (e) =>{
+    props.history.push('/create-card-select-theme',{  occasion: occasion} )
+      }
     return (
         <Card>
         <Card.Body>
@@ -11,7 +18,12 @@ function NewCardSuccess(props) {
             Scheduled:{props.location.state.dueDate}
           </Card.Text>
           <Button href="/create-card" variant="primary"> Invite Contributors</Button>
-          <Card.Link href="#"> Start Designing  </Card.Link>
+          <Button 
+           onClick={handleSubmit}
+           variant="primary"> 
+           Start Designing 
+           </Button>
+         
         </Card.Body>
       </Card>
     );
