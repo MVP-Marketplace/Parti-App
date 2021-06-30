@@ -10,24 +10,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function CreateNewCard(props) {
 
-    
-
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [title, setTitle] = useState('');
     const [occasion, setOccasion] = useState('');
-
-
     const [calendarDate, setcalendarDate] = useState('');
-
     const [selectedTimezone, setSelectedTimezone] = useState('')
     const [dueDate, setDueDate] = useState('');
-   
     const [hours, setHours] = useState('');
     const [minutes, setMinutes] = useState('');
-    // const [timeZone, setTimeZone] = useState('');
-    
+
 
     const handleSelect=(evtKey, event)=>{
       console.log(evtKey, event.target.innerText);
