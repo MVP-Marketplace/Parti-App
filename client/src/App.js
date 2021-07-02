@@ -12,8 +12,8 @@ function App() {
   return (
     <div className="container">
       <Routes/>
-      <UploadVideo />
-      <VideoPlayer/>
+      {/* <UploadVideo />
+      <VideoPlayer/> */}
     </div>
   );
 }

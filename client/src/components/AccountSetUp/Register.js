@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
+import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
 const styles = {
   position: "relative",
   minHeight: "100vh",
@@ -52,17 +53,14 @@ const UserForm = (props) => {
 //       console.log('line 52' , localStorage)
 //       }
     
-    
-      // TODO 
-      // Google register 
-      // Facebook Register 
   
   return (
     <div style={styles}>
     <Form className="register-form" onSubmit={handleSubmit}>
-      <h1>Create an account </h1>
-      
+      <h3>Welcome to Parti Greetings </h3>
+      <h4>Let's create an account </h4>
         <Form.Group controlId="username">
+
           <Form.Control
             type="text"
             placeholder="Email"
@@ -92,6 +90,7 @@ const UserForm = (props) => {
         </Button>
         <p>or Sign up with</p>
         <Form.Group>
+        <SmallGreenButton> Sign Up </SmallGreenButton>
         <Button variant="primary" type="submit">
           FACEBOOK
         </Button> 
