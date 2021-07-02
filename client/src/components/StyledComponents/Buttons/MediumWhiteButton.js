@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MediumWhiteButton = styled.button`
   width: 298px;
   height: 42px;
-  background: #ffffff;
+  background-color: #ffffff;
   box-shadow: 0px 4px 9px rgba(53, 53, 53, 0.2);
   border-radius: 6px;
   &:hover {
@@ -26,4 +26,6 @@ export const MediumWhiteButton = styled.button`
     box-shadow: 0px 4px 9px rgba(53, 53, 53, 0.2);
     border-radius: 6px;
   }
-`;
+`
+
+export default MediumWhiteButton;
