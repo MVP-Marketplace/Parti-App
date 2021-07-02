@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Google from "../../../images/google.svg";
 
 const Button = styled.button`
+  margin: 5px;
   height: 3.125rem;
   width: 10.359375rem;
   background: #ffffff;

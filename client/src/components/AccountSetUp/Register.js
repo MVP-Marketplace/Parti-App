@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Card} from 'react-bootstrap';
 import axios from 'axios';
 import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
 import { FacebookButton } from '../StyledComponents/Buttons/FacebookButton';
 import { GoogleButton } from '../StyledComponents/Buttons/GoogleButton';
-import NewCard from '../StyledComponents/Cards/NewCard';
+import './accountSetUp.css'
 
 const styles = {
   position: "relative",
@@ -14,7 +14,6 @@ const styles = {
   alignItems: "center",
   justifyContent: "space-between",
 }
-
 
 const UserForm = (props) => {
 
@@ -60,13 +59,12 @@ const UserForm = (props) => {
     
   
   return (
-    <div style={styles}>
-    <NewCard> 
+    // <div style={styles}>
+    <Card className="text-center"> 
+  <h3> Welcome to Parti Greetings  </h3>  
+    <h4> Let's create an account  </h4> 
     <Form className="register-form" onSubmit={handleSubmit}>
-      <h3>Welcome to Parti Greetings </h3>
-      <h4>Let's create an account </h4>
-        <Form.Group controlId="username">
-
+        <Form.Group controlId="username"> 
           <Form.Control
             type="text"
             placeholder="Email"
@@ -90,20 +88,28 @@ const UserForm = (props) => {
             // onChange={}
           />
         </Form.Group>
-        
+    
         <SmallGreenButton type="submit">
           Sign up
           </SmallGreenButton>
-        <p>or Sign up with</p>
+    
+      
+        <Card.Text> or </Card.Text>
+        <Card.Text> Sign up with </Card.Text>
         <FacebookButton type="submit"/> 
         <GoogleButton type="submit" href="http://localhost:3001/users/auth/google" /> 
-      </Form>
-      <div className='register-annotation'> 
-      <p> Already have an account?<a href="/login" target="_self">Click here to Sign In</a>
-       </p> 
-      </div> 
-      </NewCard>
-    </div>
+      </Form>  
+      <Card.Text> 
+       Already have an account?
+       <a href="/login" target="_self"> Click here to Sign In</a>
+      </Card.Text>
+    
+      </Card>
+      
+     
+    
+    // </div>
+    
    
   );
 

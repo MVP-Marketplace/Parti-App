@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Facebook from "../../../images/facebook.svg";
 
 const Button = styled.button`
+  margin: 5px;
   background: #1877f2;
   border-radius: 0.375rem;
   height: 3.125rem;
