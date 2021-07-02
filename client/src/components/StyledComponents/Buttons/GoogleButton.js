@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Google from "../../../images/google.svg";
 
 const Button = styled.button`
+  height: 3.125rem;
+  width: 10.359375rem;
   background: #ffffff;
   border: 0.015625rem solid #000000;
   box-sizing: border-box;
@@ -19,9 +21,8 @@ const Button = styled.button`
     box-sizing: border-box;
     border-radius: 6px;
   }
-`;
-
-const Image = styled.Image`
+`
+const Image = styled.image`
   height: 2.0625rem;
   width: 6rem;
   left: 2.175781rem;

@@ -10,7 +10,7 @@ const styles = {
   justifyContent: "space-between",
 }
 
-const UserForm = (props) => {
+const Login = (props) => {
 
   const [setUser, setState] = useState({
     username: '',
@@ -123,6 +123,7 @@ const useFormInput = initialValue => {
     value,
     onChange: handleChange
   }
-}}
+}
+}
  
-export default UserForm;
+export default Login;

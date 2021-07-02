@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
+import { FacebookButton } from '../StyledComponents/Buttons/FacebookButton';
+import { GoogleButton } from '../StyledComponents/Buttons/GoogleButton';
+import NewCard from '../StyledComponents/Cards/NewCard';
+
 const styles = {
   position: "relative",
   minHeight: "100vh",
@@ -10,6 +14,7 @@ const styles = {
   alignItems: "center",
   justifyContent: "space-between",
 }
+
 
 const UserForm = (props) => {
 
@@ -56,6 +61,7 @@ const UserForm = (props) => {
   
   return (
     <div style={styles}>
+    <NewCard> 
     <Form className="register-form" onSubmit={handleSubmit}>
       <h3>Welcome to Parti Greetings </h3>
       <h4>Let's create an account </h4>
@@ -85,21 +91,20 @@ const UserForm = (props) => {
           />
         </Form.Group>
         
-        <Button variant="primary" type="submit">
+        <SmallGreenButton type="submit">
           Sign up
-        </Button>
+          </SmallGreenButton>
         <p>or Sign up with</p>
-        <Form.Group>
-        <SmallGreenButton> Sign Up </SmallGreenButton>
-        <Button variant="primary" type="submit">
-          FACEBOOK
-        </Button> 
-        </Form.Group>
-        <Button variant="primary" href="http://localhost:3001/users/auth/google">
-          Google
-        </Button>
+        <FacebookButton type="submit"/> 
+        <GoogleButton type="submit" href="http://localhost:3001/users/auth/google" /> 
       </Form>
+      <div className='register-annotation'> 
+      <p> Already have an account?<a href="/login" target="_self">Click here to Sign In</a>
+       </p> 
+      </div> 
+      </NewCard>
     </div>
+   
   );
 
 };

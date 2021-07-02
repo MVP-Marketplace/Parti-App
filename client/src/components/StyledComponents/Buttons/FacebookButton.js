@@ -1,4 +1,5 @@
 import styled from "styled-components";
+// import Facebook from "../../../images/facebook.svg";
 import Facebook from "../../../images/facebook.svg";
 
 const Button = styled.button`
@@ -20,7 +21,7 @@ const Button = styled.button`
   }
 `;
 
-const Image = styled.Image`
+const Image = styled.image`
   height: 1.275902rem;
   width: 6.505744rem;
   left: 1.926758rem;
