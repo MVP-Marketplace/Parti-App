@@ -1,8 +1,8 @@
 import styled from 'styled-components'; 
 
 export const SmallGreenButton = styled.button `
-width: 116px;
-height: 42px;
+height: 3.125rem;
+width: 10.359375rem;
 background: #93E9BE;
 box-shadow: 0px 4px 9px rgba(53, 53, 53, 0.2);
 border-radius: 6px;
