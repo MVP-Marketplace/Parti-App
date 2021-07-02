@@ -1,6 +1,6 @@
 import styled from 'styled-components'; 
 
-export const MediumGreenButton = styled.button `
+const MediumGreenButton = styled.button `
 width: 298px;
 height: 42px;
 background: #93E9BE, 100%;
@@ -20,3 +20,4 @@ border-radius: 6px;
     border-radius: 6px;
 }
 `
+export default MediumGreenButton

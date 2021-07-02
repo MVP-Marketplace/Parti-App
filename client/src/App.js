@@ -4,6 +4,8 @@ import "./App.css";
 import VideoPlayer from "./components/VideoPlayer";
 import Routes from "./Config/routes";
 import UploadVideo from './components/Contributor/UploadVideo/UploadVideo'
+// import Homepage from "./components/Homepage/Default"
+
 
 
 function App() {
@@ -11,8 +13,8 @@ function App() {
   return (
     <div className="container">
       <Routes/>
-      <UploadVideo />
       <VideoPlayer/>
+      
     </div>
   );
 }

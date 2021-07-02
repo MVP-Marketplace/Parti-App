@@ -1,9 +1,9 @@
 import styled from 'styled-components'; 
 
-export const LargeGreenButton = styled.button `
+const LargeGreenButton = styled.button `
 height: 42px;
 width: 356px;
-background: #93E9BE, 100%;
+background-color: #93E9BE, 100%;
 box-shadow: 0px 4px 9px rgba(53, 53, 53, 0.2);
 border-radius: 6px;
 &:hover {
@@ -20,3 +20,4 @@ border-radius: 6px;
     border-radius: 6px;
 }
 `
+export default LargeGreenButton

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button, Form, Modal, Row, Col } from 'react-bootstrap';
 import DraftJS from '../../DraftJS/DraftJS-UploadVideo';
 import Upload from '../../Upload'
+import MediumGreenButton from "../../StyledComponents/Buttons/MediumGreenButton";
+
 import './styles.css';
 
 function UploadVideo() {
@@ -44,7 +46,7 @@ function UploadVideo() {
 
     return (
         <>
-            <Button onClick={handleShowModalOne}>Upload Video</Button>
+            <MediumGreenButton onClick={handleShowModalOne}>Get Started</MediumGreenButton>
 
             {/* <Modal
                 show={modalState === "modal-one"}
