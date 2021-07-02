@@ -19,7 +19,7 @@ const Routes = () => (
 
   <Switch>
 
-    <Route exact path='/' component={ Default } />
+    {/* <Route exact path='/' component={ Default } /> */}
 
     <Route exact path='/' component={ Home } />
     <Route path='/login' component={ Login } />

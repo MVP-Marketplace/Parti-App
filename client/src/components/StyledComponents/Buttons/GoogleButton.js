@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Google from "../../../images/google.svg";
 
-const Button = styled.Button`
+const Button = styled.button`
   background: #ffffff;
   border: 0.015625rem solid #000000;
   box-sizing: border-box;
