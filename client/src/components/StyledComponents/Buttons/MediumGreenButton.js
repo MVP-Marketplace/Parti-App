@@ -20,4 +20,6 @@ border-radius: 6px;
     border-radius: 6px;
 }
 `
+
 export default MediumGreenButton;
+
