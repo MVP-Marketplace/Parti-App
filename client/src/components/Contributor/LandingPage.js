@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Card, Col, Row, CardGroup, Image } from 'react-bootstrap';
-import './styles.css';
 import UploadVideo from "./UploadVideo/UploadVideo";
 import Photo1 from "../../images/rafiki.svg";
 import Photo2 from "../../images/rafikiChill.svg";
@@ -12,7 +11,7 @@ import Photo4 from "../../stockPhotos/c-landingpage-photo.png";
 
 
 
-function ContributorDashboard() {
+function ContributorLandingPage() {
 
     // const [modalState, setModalState] = useState("close")
 
@@ -67,11 +66,11 @@ function ContributorDashboard() {
                         <Image src={Photo4} />
                     </Card>
                 </Col>
-                <Col className="justify-content-md-center m-3">
-                    <Card className="text-center" border="0" style={{ width: '24rem' }}>
+                <Col className="justify-content-md m-3">
+                    <Card border="0" style={{ width: '24rem' }}>
                         <Card.Title>What is Parti Greetings?</Card.Title>
                         <Card.Body>
-                            <Card.Subtitle className="justify-content-center">
+                            <Card.Subtitle>
                                 Parti provides a new way to digitally celebrate events.
                                 Remove the need for video editing and time lost to long video
                                 montages, and take back the enjoyment of the celebration by
@@ -79,9 +78,9 @@ function ContributorDashboard() {
                                 You can also revisit your events anytime you want and easily
                                 find the messages you'd like to see.
                             </Card.Subtitle>
-                            <Card.Footer className="justify-content-center m-2" border="0">
-                                <UploadVideo />
-                            </Card.Footer>
+                            <Card.Subtitle className="justify-content-md-center m-3">
+                                <UploadVideo/>
+                            </Card.Subtitle>
                         </Card.Body>
                     </Card>
                 </Col>
@@ -95,4 +94,4 @@ function ContributorDashboard() {
 
 }
 
-export default ContributorDashboard;
+export default ContributorLandingPage;

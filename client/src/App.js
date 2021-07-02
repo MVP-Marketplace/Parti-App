@@ -1,10 +1,11 @@
 import React  from "react";
+import { components } from "react-select";
 import "./App.css";
 // import DraftJS from "./components/DraftJS/DraftJS";
 import VideoPlayer from "./components/VideoPlayer";
 import Routes from "./Config/routes";
-import UploadVideo from './components/Contributor/UploadVideo/UploadVideo'
 // import Homepage from "./components/Homepage/Default"
+import ContributorLandingPage from "./components/Contributor/LandingPage"
 
 
 
@@ -13,10 +14,10 @@ function App() {
 
   return (
     <div className="container">
-      <Routes/>
-      <VideoPlayer/>
-      {/* <UploadVideo />
+      {/* <Routes/>
       <VideoPlayer/> */}
+      <ContributorLandingPage/>
+     
     </div>
   );
 }
