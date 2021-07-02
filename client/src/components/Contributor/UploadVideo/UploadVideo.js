@@ -4,8 +4,6 @@ import DraftJS from '../../DraftJS/DraftJS-UploadVideo';
 import Upload from '../../Upload'
 import MediumGreenButton from "../../StyledComponents/Buttons/MediumGreenButton";
 
-import './styles.css';
-
 function UploadVideo() {
 
 
