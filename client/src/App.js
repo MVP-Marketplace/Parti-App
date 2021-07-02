@@ -8,13 +8,15 @@ import UploadVideo from './components/Contributor/UploadVideo/UploadVideo'
 
 
 
+
 function App() {
 
   return (
     <div className="container">
       <Routes/>
       <VideoPlayer/>
-      
+      {/* <UploadVideo />
+      <VideoPlayer/> */}
     </div>
   );
 }

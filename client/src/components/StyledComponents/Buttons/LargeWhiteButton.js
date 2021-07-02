@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LargeWhiteButton = styled.button`
+ const LargeWhiteButton = styled.button`
   height: 42px;
   width: 356px;
   background: #ffffff;
@@ -27,3 +27,4 @@ export const LargeWhiteButton = styled.button`
     border-radius: 6px;
   }
 `;
+export default LargeWhiteButton;

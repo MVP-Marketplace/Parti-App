@@ -19,18 +19,18 @@ const Routes = () => (
 
   <Switch>
 
-    <Route exact path='/' component={ Default } />
+    {/* <Route exact path='/' component={ Default } /> */}
 
     <Route exact path='/' component={ Home } />
     <Route path='/login' component={ Login } />
     <Route path='/register' component={ Register } />
-
-    <Route path='/upload' component={ Upload } />
     <Route path='/welcome' component={ Welcome } />
     <Route path='/create-card' component={ NewCard } />
     <Route path='/create-card-success' component={ NewCardSuccess } />
     <Route path='/create-card-select-theme' component={ SelectTheme } /> 
-    <Route path='/test' component={ ThemesShowcase } /> 
+    
+    <Route path='/upload' component={ Upload } />
+    <Route path='/test' component={ Upload } /> 
   </Switch>
 );
 
