@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Image, Video, Transformation } from 'cloudinary-react';
+//import { Image, Video, Transformation } from 'cloudinary-react';
 import DraftJS from './DraftJS';
 import VideoPlayer from './VideoPlayer';
 
