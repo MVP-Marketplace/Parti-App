@@ -3,7 +3,7 @@ import { Image, Video, Transformation } from 'cloudinary-react';
 import DraftJS from './DraftJS';
 import VideoPlayer from './VideoPlayer';
 
-export default function Home() {
+export default function CardVideos() {
 	const [imageIds, setImageIds] = useState();
 	const loadImages = async () => {
 		try {

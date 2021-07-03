@@ -1,7 +1,7 @@
 import { Container, Col, Row } from 'react-bootstrap'
 import Nav from './Nav'
 import Preview from './Preview'
-import LSide from './Sidebar/LSide'
+import LSide from '../Sidebar/LSide'
 
 
 function Default() {

@@ -1,17 +1,21 @@
-import React  from "react";
-import "./App.css";
-import DraftJS from "./components/DraftJS";
-import VideoPlayer from "./components/VideoPlayer";
-import Routes from "./Config/routes";
-
+import React from 'react';
+import './App.css';
+import Routes from './Config/routes';
+// import { Switch, Route } from 'react-router-dom';
+// import Upload from './components/Upload';
+// import Homepage from './pages/Homepage';
+// import Default from './components/Organizer/Default';
+// import Login from './components/AccountSetUp/Login';
+// import Register from './components/AccountSetUp/Register';
+// import Welcome from './components/AccountSetUp/Welcome';
+// import NewCard from './components/Card/NewCard';
 
 function App() {
-
-  return (
-    <div className="container">
-      <Routes/>
-    </div>
-  );
+	return (
+		<div className='container'>
+			<Routes />
+		</div>
+	);
 }
 
 export default App;
