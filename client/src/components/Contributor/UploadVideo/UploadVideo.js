@@ -50,7 +50,7 @@ function UploadVideo() {
                 show={modalState === "modal-one"}
                 size="md"
                 aria-labelledby="contained-modal-title-vcenter"
-                centered>
+                centered>n
 
                 <Modal.Header closeButton>
                     <Modal.Title>Record Your Video</Modal.Title>
