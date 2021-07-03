@@ -14,9 +14,9 @@ function App() {
 
   return (
     <div className="container">
-      {/* <Routes/>
-      <VideoPlayer/> */}
-      <ContributorLandingPage/>
+    <Routes/> 
+      {/* <VideoPlayer/> */}
+      {/* <ContributorLandingPage/> */}
      
     </div>
   );

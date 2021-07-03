@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import "./index.css";
 
 const containerStyle = {
-  backgroundColor: "#ffffff",
+  backgroundColor: "#93E9BE",
 };
 
 function Showcase() {
