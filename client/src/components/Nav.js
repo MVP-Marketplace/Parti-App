@@ -27,4 +27,5 @@ function Nav() {
 			</Row>
 		</Navbar>
 	);
-}
+} 
+export default Nav;
