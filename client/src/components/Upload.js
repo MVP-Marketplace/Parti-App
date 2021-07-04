@@ -61,7 +61,7 @@ export default function Upload() {
 }
 	return (
 		<div>
-			<h1 className='title'>Upload a Video</h1>
+			{/* <h1 className='title'>Upload a Video</h1> */}
 			<Alert msg={errMsg} type='danger' />
 			<Alert msg={successMsg} type='success' />
 			<form onSubmit={handleSubmitFile} className='form'>

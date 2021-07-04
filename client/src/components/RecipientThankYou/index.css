@@ -19,6 +19,12 @@ h6 {
   color: #000000;
 }
 
+.email {
+  border-style: ridge;
+  border-width: 2px;
+  padding: 5px;
+}
+
 /* .button {
   margin: 0;
   width: "184";

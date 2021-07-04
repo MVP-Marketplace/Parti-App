@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Card} from 'react-bootstrap';
 import axios from 'axios';
+import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
+import { FacebookButton } from '../StyledComponents/Buttons/FacebookButton';
+import { GoogleButton } from '../StyledComponents/Buttons/GoogleButton';
+import './accountSetUp.css'
+
 const styles = {
   position: "relative",
   minHeight: "100vh",
@@ -52,17 +57,14 @@ const UserForm = (props) => {
 //       console.log('line 52' , localStorage)
 //       }
     
-    
-      // TODO 
-      // Google register 
-      // Facebook Register 
   
   return (
-    <div style={styles}>
+    // <div style={styles}>
+    <Card className="text-center"> 
+  <h3> Welcome to Parti Greetings  </h3>  
+    <h4> Let's create an account  </h4> 
     <Form className="register-form" onSubmit={handleSubmit}>
-      <h1>Create an account </h1>
-      
-        <Form.Group controlId="username">
+        <Form.Group controlId="username"> 
           <Form.Control
             type="text"
             placeholder="Email"
@@ -86,21 +88,29 @@ const UserForm = (props) => {
             // onChange={}
           />
         </Form.Group>
-        
-        <Button variant="primary" type="submit">
+    
+        <SmallGreenButton type="submit">
           Sign up
-        </Button>
-        <p>or Sign up with</p>
-        <Form.Group>
-        <Button variant="primary" type="submit">
-          FACEBOOK
-        </Button> 
-        </Form.Group>
-        <Button variant="primary" href="http://localhost:3001/users/auth/google">
-          Google
-        </Button>
-      </Form>
-    </div>
+          </SmallGreenButton>
+    
+      
+        <Card.Text> or </Card.Text>
+        <Card.Text> Sign up with </Card.Text>
+        <FacebookButton type="submit"/> 
+        <GoogleButton type="submit" href="http://localhost:3001/users/auth/google" /> 
+      </Form>  
+      <Card.Text> 
+       Already have an account?
+       <a href="/login" target="_self"> Click here to Sign In</a>
+      </Card.Text>
+    
+      </Card>
+      
+     
+    
+    // </div>
+    
+   
   );
 
 };

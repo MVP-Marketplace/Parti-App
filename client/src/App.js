@@ -1,6 +1,6 @@
-import React from 'react';
-import './App.css';
-import Routes from './Config/routes';
+import React from "react";
+import "./App.css";
+import Routes from "./Config/routes";
 // import { Switch, Route } from 'react-router-dom';
 // import Upload from './components/Upload';
 // import Homepage from './pages/Homepage';
@@ -11,11 +11,11 @@ import Routes from './Config/routes';
 // import NewCard from './components/Card/NewCard';
 
 function App() {
-	return (
-		<div className='container'>
-			<Routes />
-		</div>
-	);
+  return (
+    <div className="container">
+      <Routes />
+    </div>
+  );
 }
 
 export default App;

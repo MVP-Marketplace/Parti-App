@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 //import { Image, Video, Transformation } from 'cloudinary-react';
-import DraftJS from './DraftJS';
-import VideoPlayer from './VideoPlayer';
+import DraftJS from "./DraftJS";
+import VideoPlayer from "./VideoPlayer";
 
 export default function CardVideos() {
-	const [imageIds, setImageIds] = useState();
-	const loadImages = async () => {
-		try {
-			const res = await fetch('/images-view');
-			const data = await res.json();
-			setImageIds(data);
-		} catch (err) {
-			console.error(err);
-		}
-	};
-	useEffect(() => {
-		loadImages();
-	}, []);
-	return (
-		<div>
-			<h1 className='title'>Card Videos</h1>
-			<div className='gallery'>
-				{/* {imageIds &&
+  const [imageIds, setImageIds] = useState();
+  const loadImages = async () => {
+    try {
+      const res = await fetch("/images-view");
+      const data = await res.json();
+      setImageIds(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  useEffect(() => {
+    loadImages();
+  }, []);
+  return (
+    <div>
+      <h1 className="title">Card Videos</h1>
+      <div className="gallery">
+        {/* {imageIds &&
 					imageIds.map((imageId, index) => (
 						<Image
 							key={index}
@@ -31,9 +31,9 @@ export default function CardVideos() {
 							crop='scale'
 						/>
 					))} */}
-			</div>
-			<DraftJS />
-			<VideoPlayer />
-		</div>
-	);
+      </div>
+      <DraftJS />
+      <VideoPlayer />
+    </div>
+  );
 }

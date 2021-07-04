@@ -1,6 +1,6 @@
 import { Container, Col, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import "./index.css";
+// import "./index.css";
 
 function Send() {
   return (
@@ -9,7 +9,7 @@ function Send() {
         <Col>
           <div>
             <div className="button">
-              <Button variant="outline-secondary">Send to All</Button>{" "}
+              <Button variant="outline-secondary">Choose Who to Send</Button>{" "}
             </div>
           </div>
         </Col>
@@ -22,7 +22,7 @@ function Send() {
                 textAlign: "left",
               }}
             >
-              <Button variant="outline-secondary">Choose Who to Send</Button>{" "}
+              <Button variant="outline-secondary">Send</Button>{" "}
             </div>
           </div>
         </Col>
