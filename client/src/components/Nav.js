@@ -28,5 +28,3 @@ function Nav() {
 		</Navbar>
 	);
 }
-
-export default Nav;

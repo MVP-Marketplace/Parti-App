@@ -1,23 +1,19 @@
-import React  from "react";
-import { components } from "react-select";
+import React from "react";
 import "./App.css";
-// import DraftJS from "./components/DraftJS/DraftJS";
-// import VideoPlayer from "./components/VideoPlayer";
-// import Routes from "./Config/routes";
-import Homepage from "./components/Homepage/Default";
-// import ContributorLandingPage from "./components/Contributor/LandingPage"
-
-
-
+import Routes from "./Config/routes";
+// import { Switch, Route } from 'react-router-dom';
+// import Upload from './components/Upload';
+// import Homepage from './pages/Homepage';
+// import Default from './components/Organizer/Default';
+// import Login from './components/AccountSetUp/Login';
+// import Register from './components/AccountSetUp/Register';
+// import Welcome from './components/AccountSetUp/Welcome';
+// import NewCard from './components/Card/NewCard';
 
 function App() {
-
   return (
     <div className="container">
-      {/* <Routes/>
-      <VideoPlayer/> */}
-      
-     <Homepage/>
+      <Routes />
     </div>
   );
 }
