@@ -9,10 +9,11 @@ import Routes from "./Config/routes";
 // import Register from './components/AccountSetUp/Register';
 // import Welcome from './components/AccountSetUp/Welcome';
 // import NewCard from './components/Card/NewCard';
-
+import Nav from './components/NavbarMarkMade'
 function App() {
   return (
     <div className="container">
+      <Nav/>
       <Routes />
     </div>
   );

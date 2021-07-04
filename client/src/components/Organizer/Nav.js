@@ -1,5 +1,5 @@
 import { Navbar, Row } from 'react-bootstrap';
-import Logo from '../images/PartiLogo.svg';
+import Logo from '../../images/PartiLogo.svg';
 const navStyle = {
 	backgroundColor: '#d7b0ff',
 	height: '80px',

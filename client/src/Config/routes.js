@@ -8,6 +8,8 @@ import Register from "../components/AccountSetUp/Register";
 import Welcome from "../components/AccountSetUp/Welcome";
 import NewCard from "../components/Card/NewCard";
 import Dashboard from "../pages/Dashboard";
+import LandingPage from "../components/Contributor/LandingPage"
+
 const Routes = () => (
   <Switch>
     <Route exact path="/organizer" component={Default} />
@@ -16,7 +18,7 @@ const Routes = () => (
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
 
-    <Route path="/upload" component={LandingPage} />
+    <Route path="/upload" component={Upload} />
     <Route path="/welcome" component={Welcome} />
     <Route path="/create-card" component={NewCard} />
     <Route path="/dashboard" component={Dashboard} />
