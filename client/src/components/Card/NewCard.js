@@ -27,11 +27,7 @@ function CreateNewCard(props) {
     const fistModalHandleClose = ()=> {
       setState( false );
   };
-  
-    const handleSelect=(evtKey, event)=>{
-      console.log(evtKey, event.target.innerText);
-      setOccasion(event.target.innerText)
-    }
+
     const handlecalendarDateChange = (date) => {
       setcalendarDate(date)
     }
@@ -101,26 +97,25 @@ function CreateNewCard(props) {
      return (
       <div>
          <Modal 
-         size="lg"
-         aria-labelledby="contained-modal-title-vcenter"
-         centered
-         className='my-modal'
-         show={show} 
-         onHide={fistModalHandleClose}
-         dialogClassName="modal-80w"
-         fullscreen='xl-down'
-         className="my-modal">
-                    <Modal.Title
-                    style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    fontSize: "34px"}
-                    }> New Parti Card</Modal.Title>
-                    <hr></hr>
-                    <Modal.Body>
-                    <h4>Who is this Parti card for?</h4>
-                    <Form>
+            show={show}
+            onHide={fistModalHandleClose}
+            className='my-modal'
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+            dialogClassName="modal-80w"
+            fullscreen='xl-down'>
+            <Modal.Title
+            style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            fontSize: "34px"}
+            }> New Parti Card</Modal.Title>
+            <hr></hr>
+            <Modal.Body>
+            <h4>Who is this Parti card for?</h4>
+            <Form>
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
             <Form.Label column sm="2">
               First Name
@@ -175,53 +170,83 @@ function CreateNewCard(props) {
           </Modal>
 
 
-        <Modal show={modalState === "modal-one"}
-               size="lg"
-               aria-labelledby="contained-modal-title-vcenter"
-               centered>
-          <Modal.Body>
-     
+        <Modal 
+          show={modalState === "modal-one"}
+          className='my-modal'
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+          dialogClassName="modal-80w"
+          fullscreen='xl-down'>
+        <Modal.Title
+          style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: "34px"}
+          }> New Parti Card
+          </Modal.Title>
+            <hr></hr>
+            
+        <Modal.Body>
           <Form>
-            <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-            <Form.Label column sm="2">
-              What is the occasion? 
-            </Form.Label>
-            <Col sm="5">
+          <h4>What’s the Occasion?</h4>
 
-            <DropdownButton id="dropdown-menu-align-right" title="Birthday" onSelect={handleSelect}>  
-            {['Anniversary', 'Birthday', 'Graduation', 'Promotion', 'Wedding'].map((variant) => (
-            <Dropdown.Item
+          <Form.Group  as={Row} className="mb-3" controlId="formPlaintextPassword">
+          <Form.Label column sm="2">
+              Occasion
+            </Form.Label>
+            <Col sm="5"> 
+          <Form.Control as="select" 
+                        value={occasion} 
+                        custom 
+                        className="me-sm-2" 
+                        onChange={e => {
+                        setOccasion(e.target.value)}}
+                        style={{
+                              width: '150%',
+                              height:'calc(2.5em + .75rem + 2px)'}}
+                        >
+          {['Anniversary', 'Birthday', 'Graduation', 'Promotion', 'Wedding'].map((variant) => (
+            <option
                 key={variant}
                 id={`dropdown-variants-${variant}`}
                 variant={variant.toLowerCase()}
                 title={variant}
-                value = {variant}
+                value={variant.toLowerCase()}
               >{variant}
-              </Dropdown.Item>
+              </option>
             ),
           )}
-          </DropdownButton>
-            </Col>
-            </Form.Group>
+      </Form.Control>
+      </Col>
+      </Form.Group>
+            
+            
+            <h4>Name Your Card</h4>
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
             <Form.Label column sm="2">
-              Name Your Card 
+              Title
             </Form.Label>
-            <Col sm="5">
+            
+           
+            <Col sm="5"> 
               <Form.Control
               type="text" 
               placeholder="Title"
               onChange={event => setTitle(event.target.value)}
+              style={{
+                    width: '150%',
+                    height:'calc(2.5em + .75rem + 2px)'}}
               />
             </Col>
             </Form.Group>
           </Form>
           
-          
+          <div className='next-button'> <SmallGreenButton 
+            onClick={handleShowModalTwo} 
+            >Next </SmallGreenButton></div>
           </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={handleShowModalTwo}>Next</Button>
-          </Modal.Footer>
         </Modal>
 
         
