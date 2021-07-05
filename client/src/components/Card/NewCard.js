@@ -165,7 +165,7 @@ function CreateNewCard(props) {
           <div className='next-button'> <SmallGreenButton 
             onClick={handleShowModalOne} 
             >Next </SmallGreenButton></div>
-          
+
           </Modal.Body>
           </Modal>
 
@@ -198,7 +198,7 @@ function CreateNewCard(props) {
             </Form.Label>
             <Col sm="5"> 
           <Form.Control as="select" 
-                        value={occasion} 
+                        value={occasion}
                         custom 
                         className="me-sm-2" 
                         onChange={e => {
@@ -213,7 +213,7 @@ function CreateNewCard(props) {
                 id={`dropdown-variants-${variant}`}
                 variant={variant.toLowerCase()}
                 title={variant}
-                value={variant.toLowerCase()}
+                value={variant}
               >{variant}
               </option>
             ),
@@ -252,35 +252,50 @@ function CreateNewCard(props) {
         
      
         <Modal show={modalState === "modal-two"}
+               className='my-modal'
                size="lg"
                aria-labelledby="contained-modal-title-vcenter"
-               centered>
-          <Modal.Body>When should we deliver the card?
-          
-          <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-            <Form.Label column sm="2">
-              Choose Delivery
-            </Form.Label>
+               centered
+               dialogClassName="modal-80w"
+               fullscreen='xl-down'
+               >
+               <Modal.Title
+              style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              fontSize: "34px"}
+              }> New Parti Card</Modal.Title>
+              <hr></hr>
+            <Modal.Body>
+            <h4>When should we deliver the card?</h4>
 
-       <form onSubmit={onFormSubmit}>
-        <div className="form-group">
-          <DatePicker
-              name="startDate"
-              dateFormat="MM/dd/yyyy"
-              showTimeSelect
-              timeFormat="HH:mm"
-              timeIntervals={60}
-              timeCaption="time"
-              dateFormat="MMMM d, yyyy h:mm aa"
-              selected={calendarDate}
-              onChange={handlecalendarDateChange}
-          />
-        </div>
-        </form>
-            <Col sm="5">
+          <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+            <Form.Label column sm="3,5">
+            Choose Delivery Date
+            </Form.Label>
+            <Col sm="5"> 
+            
+          <form onSubmit={onFormSubmit}>
+            <div className="form-group">
+              <DatePicker
+                  className="date-picker"
+                  name="startDate"
+                  dateFormat="MM/dd/yyyy"
+                  showTimeSelect
+                  timeFormat="HH:mm"
+                  timeIntervals={60}
+                  timeCaption="time"
+                  dateFormat="MMMM d, yyyy h:mm aa"
+                  selected={calendarDate}
+                  onChange={handlecalendarDateChange}
+              />
+            </div>
+            </form>  
             </Col>
             </Form.Group>
-            <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+
+            {/* <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
             <Form.Label column sm="2">
               Delivery Time
             </Form.Label>
@@ -296,25 +311,31 @@ function CreateNewCard(props) {
               placeholder="Minutes"
               onChange={event => setMinutes(event.target.value)} />
             </Col>
-            </Form.Group> 
+            </Form.Group>  */}
 
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-            <Form.Label column sm="2">
-              Select Time Zone
+            <Form.Label column sm="3,5">
+            Select Time Zone
             </Form.Label>
             <Col sm="5"> 
-
             <TimezoneSelect
+              className='time-zone'
               value={selectedTimezone}
-              onChange={setSelectedTimezone}/>
+              onChange={setSelectedTimezone}
+              style={{
+                    width: '150%',
+                    height:'calc(2.5em + .75rem + 2px)',
+                    paddingRight: '15px'}}
+              />
             </Col>
             </Form.Group>
-
+            <div className='next-button'> <SmallGreenButton 
+                 onClick={handleSubmit} 
+                 >Create Card
+            </SmallGreenButton>
+            <Button onClick={handleSubmit}>Close</Button></div>
           </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={handleClose}>Schedule Later</Button> 
-            <Button onClick={handleSubmit}>Close</Button>
-          </Modal.Footer>
+
         </Modal>
       </div>
      )

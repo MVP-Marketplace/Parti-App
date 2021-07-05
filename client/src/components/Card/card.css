@@ -55,7 +55,6 @@ hr{
     /* color: #D7B0FF, 100%; */
 }
 .modal-title {
-
     font-size: 34px;
     line-height: 51px;
 }
@@ -66,4 +65,59 @@ hr{
 }
 .next-button{
     text-align: right;
+}
+/* 
+.date-picker {
+    width: 310px;
+    height: calc(2.5em + .75rem + 2px) !important;
+    background: #FFFFFF;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+  } */
+/* .react-datepicker__header{
+    background: #FFFFFF;
+} */
+/* .date-picker react-datepicker-ignore-onclickoutside{
+    width: 310px;
+    height: calc(2.5em + .75rem + 2px) !important;
+    background: #FFFFFF;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+
+} */
+/* Time Zone input fields & text  */
+.css-yk16xz-control {
+    width: 310px;
+    height: calc(2.5em + .75rem + 2px);
+    background: #FFFFFF;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+  }
+
+.css-1pahdxg-control{
+    width: 310px;
+    height: calc(2.5em + .75rem + 2px) !important;
+    background: #FFFFFF;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+  }
+
+.css-1uccc91-singleValue{
+    position: static;
+    width: 269.62px;
+    height: 21px;
+    left: 30.38px;
+    top: 10px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+
+    letter-spacing: 0.02em;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
 }
