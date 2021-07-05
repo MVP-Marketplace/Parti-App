@@ -11,8 +11,6 @@ import NewCardSuccess from '../components/Card/NewCardSuccess'
 import SelectTheme from '../components/Card/SelectTheme'
 import ThemesShowcase from '../components/Card/ThemesShowcase'
 // import TimeZone from '../components/Card/TimeZone'
-// import Time from '../components/Card/Time'
-
 
 
 const Routes = () => (
@@ -30,7 +28,7 @@ const Routes = () => (
     <Route path='/create-card-select-theme' component={ SelectTheme } /> 
     
     <Route path='/upload' component={ Upload } />
-    <Route path='/test' component={ Upload } /> 
+    {/* <Route path='/test' component={ Test } />  */}
   </Switch>
 );
 

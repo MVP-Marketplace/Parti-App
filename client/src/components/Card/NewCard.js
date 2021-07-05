@@ -3,13 +3,16 @@ import { Card, Button, Form, Modal, Row, Col, Dropdown, DropdownButton, ButtonGr
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import TimezoneSelect from 'react-timezone-select'
+import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
+import './card.css'
 
 
 import "react-datepicker/dist/react-datepicker.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function CreateNewCard(props) {
-
+    
+    const [show , setState] = useState(true); // handles state for modal 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -21,7 +24,10 @@ function CreateNewCard(props) {
     const [hours, setHours] = useState('');
     const [minutes, setMinutes] = useState('');
 
-
+    const fistModalHandleClose = ()=> {
+      setState( false );
+  };
+  
     const handleSelect=(evtKey, event)=>{
       console.log(evtKey, event.target.innerText);
       setOccasion(event.target.innerText)
@@ -70,6 +76,7 @@ function CreateNewCard(props) {
     const [modalState, setModalState] = useState("close")
 
     const handleShowModalOne = () => {
+      setState(false )
       setModalState("modal-one")
      }
      
@@ -93,14 +100,27 @@ function CreateNewCard(props) {
 
      return (
       <div>
-        <Card>
-         <Card.Body>
-           <Card.Title as="h5"> New Parti Card </Card.Title>
-           <Card.Subtitle> Who is this Parti Card for? </Card.Subtitle>
-           <Card.Text>
-             <div>
-             {/* <Form onSubmit={handleSubmit}>           */}
-            <Form>
+         <Modal 
+         size="lg"
+         aria-labelledby="contained-modal-title-vcenter"
+         centered
+         className='my-modal'
+         show={show} 
+         onHide={fistModalHandleClose}
+         dialogClassName="modal-80w"
+         fullscreen='xl-down'
+         className="my-modal">
+                    <Modal.Title
+                    style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    fontSize: "34px"}
+                    }> New Parti Card</Modal.Title>
+                    <hr></hr>
+                    <Modal.Body>
+                    <h4>Who is this Parti card for?</h4>
+                    <Form>
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
             <Form.Label column sm="2">
               First Name
@@ -109,7 +129,11 @@ function CreateNewCard(props) {
               <Form.Control 
               type="text"
               placeholder="First Name" 
-              onChange={event => setFirstName(event.target.value)}/>
+              onChange={event => setFirstName(event.target.value)}
+              style={{
+                    width: '150%',
+                    height:'calc(2.5em + .75rem + 2px)'}}
+              />
             </Col>
             </Form.Group>
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
@@ -120,7 +144,11 @@ function CreateNewCard(props) {
               <Form.Control 
               type="text"
               placeholder="Last Name" 
-              onChange={event => setLastName(event.target.value)}/>
+              onChange={event => setLastName(event.target.value)}
+              style={{
+                    width: '150%',
+                    height:'calc(2.5em + .75rem + 2px)'}}
+              />
             </Col>
             </Form.Group>
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
@@ -132,22 +160,27 @@ function CreateNewCard(props) {
               type="text" 
               placeholder="Email" 
               onChange={event => setEmail(event.target.value)}
+              style={{
+                    width: '150%',
+                    height:'calc(2.5em + .75rem + 2px)'}}
               />
             </Col>
             </Form.Group>
           </Form>
-       </div>
-           </Card.Text>
-           <Button onClick={handleShowModalOne}>Next</Button>
-         </Card.Body>
-       </Card>
-     
+          <div className='next-button'> <SmallGreenButton 
+            onClick={handleShowModalOne} 
+            >Next </SmallGreenButton></div>
+          
+          </Modal.Body>
+          </Modal>
+
+
         <Modal show={modalState === "modal-one"}
                size="lg"
                aria-labelledby="contained-modal-title-vcenter"
                centered>
           <Modal.Body>
-
+     
           <Form>
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
             <Form.Label column sm="2">
@@ -190,6 +223,8 @@ function CreateNewCard(props) {
             <Button onClick={handleShowModalTwo}>Next</Button>
           </Modal.Footer>
         </Modal>
+
+        
      
         <Modal show={modalState === "modal-two"}
                size="lg"
@@ -220,8 +255,6 @@ function CreateNewCard(props) {
             <Col sm="5">
             </Col>
             </Form.Group>
-       
-                
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
             <Form.Label column sm="2">
               Delivery Time
@@ -248,8 +281,7 @@ function CreateNewCard(props) {
 
             <TimezoneSelect
               value={selectedTimezone}
-              onChange={setSelectedTimezone}
-        />
+              onChange={setSelectedTimezone}/>
             </Col>
             </Form.Group>
 

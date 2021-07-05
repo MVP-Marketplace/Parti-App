@@ -12,7 +12,13 @@ function Welcome() {
           <Card.Text as="h4">
             Your Account has been created!
           </Card.Text>
-          <SmallGreenButton type="submit" href="/create-card">
+          
+          <SmallGreenButton 
+            type="button"
+            // type="submit" 
+            href="http://localhost:3000/create-card"
+            target="_blank"
+            >
             Create Card
           </SmallGreenButton>
           <Card.Link href="#">Go to Dashboard</Card.Link>
