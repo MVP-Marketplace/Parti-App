@@ -5,7 +5,7 @@ const navStyle = {
 	height: '80px',
 };
 
-function Nav() {
+export default function Nav() {
 	return (
 		<Navbar style={navStyle}>
 			<div

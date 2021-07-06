@@ -1,9 +1,8 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import Nav from './components/Nav';
+import Nav from '../components/Nav';
 import About from '../components/Homepage/About';
 import Showcase from '../components/Homepage/Showcase';
-import HowTo from '../components/Homepage/HowTo';
 import StepByStep from '../components/Homepage/StepByStep';
 
 function Homepage() {
@@ -13,7 +12,6 @@ function Homepage() {
 			<Container fluid>
 				<About />
 				<Showcase />
-				<HowTo />
 				<StepByStep />
 			</Container>
 		</div>
