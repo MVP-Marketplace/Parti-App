@@ -1,19 +1,28 @@
 import { Card, Button } from "react-bootstrap";
+import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
+import SadCard from '../../images/SadCard.svg'
+import './accountSetUp.css'
 
 function Welcome() {
     return (
         <Card>
-        <Card.Body>
-          <Card.Title as="h5">Welcome to Parti Greetings</Card.Title>
-          <Card.Subtitle>Success!</Card.Subtitle>
-          <Card.Text>
+          <Card.Title as="h3">Welcome to Parti Greetings</Card.Title>
+          <Card.Subtitle as="h4">Success!</Card.Subtitle>
+          <Card.Img variant="top" src={SadCard}/>
+          <Card.Text as="h4">
             Your Account has been created!
           </Card.Text>
-          <Button href="/create-card" variant="primary"> Create Card</Button>
-          <Card.Link href="#">Take me to Dashboard </Card.Link>
-        </Card.Body>
+          
+          <SmallGreenButton 
+            type="button"
+            // type="submit" 
+            href="http://localhost:3000/create-card"
+            target="_blank"
+            >
+            Create Card
+          </SmallGreenButton>
+          <Card.Link href="#">Go to Dashboard</Card.Link>
       </Card>
-
     );
   }
   

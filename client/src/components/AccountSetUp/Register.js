@@ -1,22 +1,15 @@
 import React, { useState } from 'react';
-import { Form, Card} from 'react-bootstrap';
+import { Form, Card, Container, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
 import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
 import { FacebookButton } from '../StyledComponents/Buttons/FacebookButton';
 import { GoogleButton } from '../StyledComponents/Buttons/GoogleButton';
 import './accountSetUp.css'
 
-const styles = {
-  position: "relative",
-  minHeight: "100vh",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "space-between",
-}
-
 const UserForm = (props) => {
-
+  const containerStyle = {
+    backgroundColor: "#93E9BE",
+  };
   const [user, setUser] = useState();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -59,7 +52,9 @@ const UserForm = (props) => {
     
   
   return (
-    // <div style={styles}>
+
+    <Container fluid style={{ containerStyle }}>
+
     <Card className="text-center"> 
   <h3> Welcome to Parti Greetings  </h3>  
     <h4> Let's create an account  </h4> 
@@ -92,8 +87,7 @@ const UserForm = (props) => {
         <SmallGreenButton type="submit">
           Sign up
           </SmallGreenButton>
-    
-      
+
         <Card.Text> or </Card.Text>
         <Card.Text> Sign up with </Card.Text>
         <FacebookButton type="submit"/> 
@@ -103,14 +97,9 @@ const UserForm = (props) => {
        Already have an account?
        <a href="/login" target="_self"> Click here to Sign In</a>
       </Card.Text>
-    
       </Card>
-      
-     
+    </Container>
     
-    // </div>
-    
-   
   );
 
 };

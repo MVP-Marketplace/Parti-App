@@ -1,0 +1,171 @@
+/* .container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+      
+      
+.container .item {
+        flex: 1;
+    } */
+
+.my-modal .modal-content{
+    display:flex !important;
+    flex-direction: column;
+    justify-content: space-evenly !important;
+    padding: 3rem;
+    
+    align-content: center !important;
+    position: absolute !important;
+    
+    margin: auto;
+
+    width: 754px;
+    height: 535px;
+    left: 343px;
+
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), #D7B0FF;
+    /* Base/ Base */
+
+    border: 0.5px solid #EFEFEF;
+    box-sizing: border-box;
+    /* Drop */
+
+    box-shadow: 0px 4px 10px rgba(108, 88, 128, 0.4);
+    border-radius: 10px;
+}
+.modal-content {
+    width: 754px;
+    }
+.modal-dialog {
+    margin-left: 285px !important  
+    }
+@media screen and (max-width: 1000px) {
+.modal-dialog {
+     margin-left: 100px !important
+   }
+ }
+
+hr{
+    width: 70%;
+    text-align:left;
+    margin-left:10%;
+
+    /* color: #D7B0FF, 100%; */
+}
+.modal-title {
+    font-size: 34px;
+    line-height: 51px;
+}
+
+.modal-body h4{
+    font-size: 24px;
+    text-align: center;
+}
+.next-button{
+    text-align: right;
+}
+/* 
+.date-picker {
+    width: 310px;
+    height: calc(2.5em + .75rem + 2px) !important;
+    background: #FFFFFF;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+  } */
+/* .react-datepicker__header{
+    background: #FFFFFF;
+} */
+/* .date-picker react-datepicker-ignore-onclickoutside{
+    width: 310px;
+    height: calc(2.5em + .75rem + 2px) !important;
+    background: #FFFFFF;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+
+} */
+/* Time Zone input fields & text  */
+.css-yk16xz-control {
+    width: 310px;
+    height: calc(2.5em + .75rem + 2px);
+    background: #FFFFFF;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+  }
+
+.css-1pahdxg-control{
+    width: 310px;
+    height: calc(2.5em + .75rem + 2px) !important;
+    background: #FFFFFF;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+  }
+
+.css-1uccc91-singleValue{
+    position: static;
+    width: 269.62px;
+    height: 21px;
+    left: 30.38px;
+    top: 10px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+
+    letter-spacing: 0.02em;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 486.5px;
+    height: 27px;
+    left: 133px;
+    top: 291.59px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.01em;
+}
+.due-date{
+    display: flex;
+    justify-content: center;
+    width: 486.5px;
+    height: 25px;
+    left: 133px;
+    top: 338.3px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #262523;
+}
+.modal-image{
+    display: flex;
+    justify-content: center;
+
+}
+.modal-buttons{
+    display: flex;
+    justify-content: center;
+}

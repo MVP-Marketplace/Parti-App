@@ -23,14 +23,14 @@ const greetingCardSchema = new Schema({
   dueDate: {
     type: String,
   },
-  dueTime: [{
-    hours: {
-        type: Number, required: true, min: 0, max: 23
-    },
-    minutes: {
-        type: Number, required: true, min: 0, max: 59
-    }
-  }],
+  // dueTime: [{
+  //   hours: {
+  //       type: Number, required: true, min: 0, max: 23
+  //   },
+  //   minutes: {
+  //       type: Number, required: true, min: 0, max: 59
+  //   }
+  // }],
   // dueTimeZone: {
   //   type: String,
   //   enum: ['Eastern Standart Time', 'Central Standart Time', 'Mountain Standart Time', 'Pacific Standart Time']
