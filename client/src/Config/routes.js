@@ -14,7 +14,6 @@ import ViewCardPage from '../pages/ViewCardPage';
 const Routes = () => (
 	<Switch>
 		<Route exact path='/organizer' component={Default} />
-
 		<Route exact path='/' component={Homepage} />
 		<Route path='/login' component={Login} />
 		<Route path='/register' component={Register} />

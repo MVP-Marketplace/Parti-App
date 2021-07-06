@@ -6,7 +6,7 @@ import LSide from '../Sidebar/LSide';
 function Default() {
 	return (
 		<div>
-			<Nav />
+			<TopNavBar />
 			<Container>
 				<Row>
 					<Col>
