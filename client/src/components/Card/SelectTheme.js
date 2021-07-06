@@ -2,14 +2,10 @@ import React, { useState } from 'react';
 import { Card, CardGroup, Container, Badge, Image } from "react-bootstrap";
 import axios from 'axios';
 import ThemesShowcase from './ThemesShowcase';
-
+import './card.css'
 
 function SelectTheme(props) {
 
-    const imageStyle = {
-        width: "362", 
-        height: "158"
-      };
     const cardId = props.location.state.cardI
     const occasion = props.location.state.occasion.toLowerCase()
     const [selectedTheme, setTheme] = useState('')
@@ -29,60 +25,36 @@ function SelectTheme(props) {
           }
 
     return (
-        
-      <Container>  
-            <h1>
-            Select Your Background Theme 
-            
-            <Badge bg="secondary">   Based on your selection {props.location.state.occasion} </Badge>
-        </h1>
-        <CardGroup>
-       
-            <Card>
+        <div> 
+        <div> <h2>Select Your Background Theme </h2> </div>
+        <div className='theme-showcase'> 
+            <h3 bg="secondary"> Based on your selection {props.location.state.occasion} </h3>
+        <CardGroup className='card-group'>
                 <Image
-                variant="bottom"
                 src={`./stockPhotos/${occasion}/${occasion}1.png`} 
-                width = "362"
-                height = "158"
-                onClick={handleClick} />
-            </Card>
-            <Card>
-                <Card.Img 
-                variant="top" 
+                onClick={handleClick}
+                className='show-case-image' />
+                <Image
                 src={`./stockPhotos/${occasion}/${occasion}2.png`} 
-                width = "362"
-                height = "158"
+                className='show-case-image'
                 onClick={handleClick}/>
-            </Card>
-            <Card>
-                <Card.Img 
-                variant="top" 
+                <Image
                 src={`./stockPhotos/${occasion}/${occasion}3.png`} 
-                width = "362"
-                height = "158"
+                className='show-case-image'
                 onClick={handleClick} />
-            </Card>
-            <Card>
-                <Card.Img 
-                variant="top" 
+                <Image
                 src={`./stockPhotos/${occasion}/${occasion}4.png`} 
-                width = "362"
-                height = "158"
+                className='show-case-image'
                 onClick={handleClick} />
-            </Card>
-            <Card>
-                <Card.Img 
-                variant="top" 
+                <Image
                 src={`./stockPhotos/${occasion}/${occasion}5.png`} 
-                width = "362"
-                height = "158"
+                className='show-case-image'
                 onClick={handleClick}
                 />
-            </Card>
         </CardGroup>
-        
-        <ThemesShowcase />
-        </Container> 
+        </div>
+        <div> <ThemesShowcase/> </div>
+        </div> 
     );
   }
   

@@ -24,6 +24,7 @@ const Routes = () => (
 		<Route path='/dashboard' component={Dashboard} />
 		<Route path='/contributor' component={LandingPage} />
 	</Switch>
+
 );
 
 export default Routes;

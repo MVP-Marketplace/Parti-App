@@ -7,9 +7,7 @@ import { GoogleButton } from '../StyledComponents/Buttons/GoogleButton';
 import './accountSetUp.css'
 
 const UserForm = (props) => {
-  const containerStyle = {
-    backgroundColor: "#93E9BE",
-  };
+
   const [user, setUser] = useState();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -52,11 +50,8 @@ const UserForm = (props) => {
     
   
   return (
-
-    <Container fluid style={{ containerStyle }}>
-
-    <Card className="text-center"> 
-  <h3> Welcome to Parti Greetings  </h3>  
+    <Card className="register-card"> 
+    <h3> Welcome to Parti Greetings  </h3>  
     <h4> Let's create an account  </h4> 
     <Form className="register-form" onSubmit={handleSubmit}>
         <Form.Group controlId="username"> 
@@ -87,7 +82,6 @@ const UserForm = (props) => {
         <SmallGreenButton type="submit">
           Sign up
           </SmallGreenButton>
-
         <Card.Text> or </Card.Text>
         <Card.Text> Sign up with </Card.Text>
         <FacebookButton type="submit"/> 
@@ -98,7 +92,7 @@ const UserForm = (props) => {
        <a href="/login" target="_self"> Click here to Sign In</a>
       </Card.Text>
       </Card>
-    </Container>
+
     
   );
 
