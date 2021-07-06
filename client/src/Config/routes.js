@@ -8,7 +8,9 @@ import Register from "../components/AccountSetUp/Register";
 import Welcome from "../components/AccountSetUp/Welcome";
 import NewCard from "../components/Card/NewCard";
 import Dashboard from "../pages/Dashboard";
-import LandingPage from "../components/Contributor/LandingPage"
+import LandingPage from "../components/Contributor/LandingPage";
+import RecipientThankYou from "../components/RecipientThankYou/RecipientThankYou";
+import ContributorEmail from "../components/Contributor/ContributorEmail";
 
 const Routes = () => (
   <Switch>
@@ -23,6 +25,8 @@ const Routes = () => (
     <Route path="/create-card" component={NewCard} />
     <Route path="/dashboard" component={Dashboard} />
     <Route path="/contributor" component={LandingPage} />
+    <Route path="/recipient-thank-you" component={RecipientThankYou} />
+    <Route path="/contributor-email" component={ContributorEmail} />
   </Switch>
 );
 
