@@ -1,5 +1,4 @@
-
-.text-center{
+.register-card{
     margin: auto; 
     display: flex;
     flex-direction: column;
@@ -16,8 +15,6 @@
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), #D7B0FF  !important;
     box-shadow: 0px 4px 10px rgba(108, 88, 128, 0.4);
     border-radius: 10px;
-
-
 
     margin: auto; 
     display: flex;
