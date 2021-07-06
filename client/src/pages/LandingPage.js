@@ -1,12 +1,12 @@
 import React from 'react';
-import Nav from '../components/Nav';
+import TopNavBar from '../components/TopNavBar';
 import Upload from '../components/Upload';
 import VideoPlayer from '../components/VideoPlayer';
 
 function LandingPage(props) {
 	return (
 		<div>
-			<Nav />
+			<TopNavBar />
 			<Upload />
 			<VideoPlayer />
 		</div>
