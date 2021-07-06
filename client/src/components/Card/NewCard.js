@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Card, Button, Form, Modal, Row, Col, Dropdown, DropdownButton, ButtonGroup} from 'react-bootstrap';
+import { Card, Button, Form, Modal, Row, Col, Dropdown, DropdownButton, Image} from 'react-bootstrap';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import TimezoneSelect from 'react-timezone-select'
 import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
+import SadCard from '../../images/SadCard.svg'
+
 import './card.css'
 
 
@@ -13,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function CreateNewCard(props) {
     
     const [show , setState] = useState(true); // handles state for modal 
+    const [CardSuccessShow , setCardSuccessShow] = useState(false); // handles state for modal 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -21,8 +24,8 @@ function CreateNewCard(props) {
     const [calendarDate, setcalendarDate] = useState('');
     const [selectedTimezone, setSelectedTimezone] = useState('')
     const [dueDate, setDueDate] = useState('');
-    const [hours, setHours] = useState('');
-    const [minutes, setMinutes] = useState('');
+    // const [hours, setHours] = useState('');
+    // const [minutes, setMinutes] = useState('');
 
     const fistModalHandleClose = ()=> {
       setState( false );
@@ -49,7 +52,7 @@ function CreateNewCard(props) {
             recipientEmail: email,
             recipientFirstName: firstName,
             recipientLastName: lastName,
-            dueTime: [{hours:hours, minutes:minutes}],
+            // dueTime: [{hours:hours, minutes:minutes}],
             dueDate: convertedDate,
             // dueTimeZone: selectedTimezone,
             occasion: occasion,
@@ -59,12 +62,13 @@ function CreateNewCard(props) {
           console.log("LINE 57", response.data)
           console.log("LINE 58", response.data.createdCard._id)
           localStorage.setItem('cardId', JSON.stringify(response.data.createdCard._id));
-          props.history.push('/create-card-success',{ dueDate :convertedDate , occasion: occasion, title: title, cardId: response.data.createdCard._id} )
+          
       })
         .catch(error => {
             console.error('There was an error!', error);
         });
       setModalState("close")
+      setCardSuccessShow(true);
       console.log('line 33' , localStorage.user)
       }
 
@@ -333,10 +337,52 @@ function CreateNewCard(props) {
                  onClick={handleSubmit} 
                  >Create Card
             </SmallGreenButton>
-            <Button onClick={handleSubmit}>Close</Button></div>
+            </div>
           </Modal.Body>
-
         </Modal>
+
+
+        {/* New card Success Modal  */}
+        <Modal 
+          show={CardSuccessShow}
+          onHide={fistModalHandleClose}
+          className='my-modal'
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+          dialogClassName="modal-80w"
+          fullscreen='xl-down'>
+          <Modal.Title
+          style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: "34px"}
+          }> New Parti Card</Modal.Title>
+          <hr></hr>
+          <Modal.Body>
+          <Row className="justify-content-md-center">
+    <Col xs={12} sm={10} md={10}>
+    <div className='modal-image'> <Image src={SadCard}/> </div>
+   
+          
+          <h4>New Card Successfully Created!</h4>
+          <p className='title'> {title} </p>
+          <p className='due-date'>Scheduled :  {dueDate} </p>
+
+        <div className='modal-buttons'> 
+            <SmallGreenButton 
+          // onClick={handleShowModalOne} 
+            > Invite Contributors </SmallGreenButton>
+
+            <SmallGreenButton 
+              onClick={handleSubmit}>
+              Start Designing </SmallGreenButton></div>
+              </Col>
+</Row>
+        </Modal.Body>
+        </Modal>
+
       </div>
      )
   }

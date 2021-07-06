@@ -10,8 +10,7 @@ import NewCard from '../components/Card/NewCard'
 import NewCardSuccess from '../components/Card/NewCardSuccess'
 import SelectTheme from '../components/Card/SelectTheme'
 import ThemesShowcase from '../components/Card/ThemesShowcase'
-// import TimeZone from '../components/Card/TimeZone'
-
+import NewCardSuccess1 from '../components/Card/NewCardSuccess1';
 
 const Routes = () => (
 
@@ -28,7 +27,7 @@ const Routes = () => (
     <Route path='/create-card-select-theme' component={ SelectTheme } /> 
     
     <Route path='/upload' component={ Upload } />
-    {/* <Route path='/test' component={ Test } />  */}
+    <Route path='/test' component={ NewCardSuccess1 } /> 
   </Switch>
 );
 

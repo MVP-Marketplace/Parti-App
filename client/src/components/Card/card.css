@@ -14,7 +14,7 @@
     display:flex !important;
     flex-direction: column;
     justify-content: space-evenly !important;
-    padding: 45.5px;
+    padding: 3rem;
     
     align-content: center !important;
     position: absolute !important;
@@ -120,4 +120,52 @@ hr{
     order: 0;
     flex-grow: 0;
     margin: 0px 10px;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 486.5px;
+    height: 27px;
+    left: 133px;
+    top: 291.59px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.01em;
+}
+.due-date{
+    display: flex;
+    justify-content: center;
+    width: 486.5px;
+    height: 25px;
+    left: 133px;
+    top: 338.3px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #262523;
+}
+.modal-image{
+    display: flex;
+    justify-content: center;
+
+}
+.modal-buttons{
+    display: flex;
+    justify-content: center;
 }
