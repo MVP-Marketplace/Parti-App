@@ -18,11 +18,13 @@ const Routes = () => (
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
 
+
     <Route path="/upload" component={Upload} />
     <Route path="/welcome" component={Welcome} />
     <Route path="/create-card" component={NewCard} />
     <Route path="/dashboard" component={Dashboard} />
     <Route path="/contributor" component={LandingPage} />
+
   </Switch>
 );
 
