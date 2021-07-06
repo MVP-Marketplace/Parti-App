@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from '../components/Nav';
+import TopNavBar from '../components/TopNavBar';
 
 function ViewCardPage() {
 	return (
 		<div>
-			<Navbar />
+			<TopNavBar />
 		</div>
 	);
 }

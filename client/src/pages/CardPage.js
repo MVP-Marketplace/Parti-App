@@ -1,11 +1,11 @@
 import React from 'react';
 import SideBar from '../components/Sidebar/LSide';
-import Navbar from '../components/Navbar';
+import TopNavBar from '../components/TopNavBar';
 
 function CardPage() {
 	return (
 		<div>
-			<Navbar />
+			<TopNavBar />
 			<SideBar />
 		</div>
 	);

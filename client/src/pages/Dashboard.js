@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import TopNavBar from '../components/TopNavBar';
 // import { Link } from 'react-router-dom';
 // import { useState } from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
@@ -7,12 +7,12 @@ import { Card, Button, Row, Col } from 'react-bootstrap';
 function Dashboard({ cards, setCards }) {
 	return (
 		<div>
-			<Navbar />
+			<TopNavBar />
 			<Row className='dashboardHeading'>
 				<h1>Your Dashboard</h1>
 			</Row>
 			<Row>
-				<Card className='card'>
+				<Card className='dashboard-card'>
 					<Card.Link to='/view-card'>
 						<Button>View Card</Button>
 					</Card.Link>
