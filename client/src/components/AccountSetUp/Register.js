@@ -56,7 +56,7 @@ const UserForm = (props) => {
     <Container fluid style={{ containerStyle }}>
 
     <Card className="text-center"> 
-  <h3> Welcome to Parti Greetings  </h3>  
+    <h3> Welcome to Parti Greetings  </h3>  
     <h4> Let's create an account  </h4> 
     <Form className="register-form" onSubmit={handleSubmit}>
         <Form.Group controlId="username"> 

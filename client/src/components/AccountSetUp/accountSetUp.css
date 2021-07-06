@@ -1,4 +1,5 @@
-.card{
+
+.text-center{
     margin: auto; 
     display: flex;
     flex-direction: column;
@@ -8,15 +9,16 @@
     
     align-content: center !important;
     position: absolute !important;
-    width: 754px;
+    width: 754px !important;
     height: 720px;
     left: 343px;
     top: 136.78px;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), #D7B0FF  !important;
     box-shadow: 0px 4px 10px rgba(108, 88, 128, 0.4);
     border-radius: 10px;
-}
-.text-center card{
+
+
+
     margin: auto; 
     display: flex;
     flex-direction: column;

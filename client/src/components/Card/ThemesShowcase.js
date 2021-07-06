@@ -24,7 +24,8 @@ function ThemesShowcase(props) {
             });
           }
     return (
-        <Container> 
+        <div className='theme-showcase'> 
+         <h3 bg="secondary"> Other Themes </h3>
       <Tabs
         id="controlled-tab"
         activeKey={key}
@@ -33,234 +34,136 @@ function ThemesShowcase(props) {
       >
         <Tab eventKey="home" title="Anniversary">
         <CardGroup>
-       
-       {/* <Card> */}
            <Image
-           variant="bottom"
            src={`./stockPhotos/anniversary/anniversary1.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick} />
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/anniversary/anniversary2.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick}/>
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/anniversary/anniversary3.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick} />
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/anniversary/anniversary4.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick} />
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/anniversary/anniversary5.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick}
            />
-       {/* </Card> */}
+
    </CardGroup>
         </Tab>
         <Tab eventKey="birthday" title="Birthday">
         <CardGroup>
-       {/* <Card> */}
            <Image
-           variant="bottom"
            src={`./stockPhotos/birthday/birthday1.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick} />
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/birthday/birthday2.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick}/>
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/birthday/birthday3.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick} />
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+
+           <Image 
            src={`./stockPhotos/birthday/birthday4.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick} />
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+
+           <Image 
            src={`./stockPhotos/birthday/birthday5.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick}
            />
-        {/* </Card> */}
         </CardGroup>
         </Tab>
         <Tab eventKey="graduation" title="Graduation" >
         <CardGroup>
-       {/* <Card> */}
            <Image
-           variant="bottom"
            src={`./stockPhotos/graduation/graduation1.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick} />
-       {/* </Card>
-       <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/graduation/graduation2.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick}/>
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/graduation/graduation3.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick} />
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/graduation/graduation4.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick} />
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/graduation/graduation5.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick}
            />
-        {/* </Card> */}
         </CardGroup>
         </Tab>
 
         <Tab eventKey="promotion" title="Promotion" >
         <CardGroup>
-       {/* <Card> */}
            <Image
-           variant="bottom"
            src={`./stockPhotos/promotion/promotion1.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick} />
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/promotion/promotion2.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick}/>
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/promotion/promotion3.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick} />
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/promotion/promotion4.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick} />
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/promotion/promotion5.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick}
            />
-        {/* </Card> */}
         </CardGroup>
         </Tab>
         <Tab eventKey="wedding" title="Wedding" >
         <CardGroup>
-       {/* <Card> */}
            <Image
-           variant="bottom"
            src={`./stockPhotos/wedding/wedding1.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick} />
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/wedding/wedding2.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick}/>
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
            src={`./stockPhotos/wedding/wedding3.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick} />
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
-           src={`./stockPhotos/wedding/wedding4.png`} 
-           width = "362"
-           height = "158"
-           onClick={handleClick} />
-       {/* </Card> */}
-       {/* <Card> */}
-           <Card.Img 
-           variant="top" 
+           <Image 
+           src={`./stockPhotos/wedding/wedding4.png`}
+           className='show-case-image'
+           onClick={handleClick}/>
+           <Image 
            src={`./stockPhotos/wedding/wedding5.png`} 
-           width = "362"
-           height = "158"
+           className='show-case-image'
            onClick={handleClick}
            />
-        {/* </Card> */}
         </CardGroup>
         </Tab>
       </Tabs>
       <Button> Continue </Button>
-     </Container> 
+     </div> 
     );
   }
   

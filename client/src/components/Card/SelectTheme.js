@@ -24,7 +24,7 @@ function SelectTheme(props) {
             });
           }
 
-    return (    
+    return (
         <div> 
         <div> <h2>Select Your Background Theme </h2> </div>
         <div className='theme-showcase'> 
@@ -53,6 +53,7 @@ function SelectTheme(props) {
                 />
         </CardGroup>
         </div>
+        <div> <ThemesShowcase/> </div>
         </div> 
     );
   }

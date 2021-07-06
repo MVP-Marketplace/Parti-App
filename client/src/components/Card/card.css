@@ -25,12 +25,8 @@
     left: 343px;
 
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), #D7B0FF;
-    /* Base/ Base */
-
     border: 0.5px solid #EFEFEF;
     box-sizing: border-box;
-    /* Drop */
-
     box-shadow: 0px 4px 10px rgba(108, 88, 128, 0.4);
     border-radius: 10px;
 }
@@ -232,12 +228,13 @@ letter-spacing: 0.02em;
 }
 h3{
     font-family: Poppins;
-font-style: normal;
-font-weight: bold;
-font-size: 32px;
-line-height: 48px;
-/* identical to box height */
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 48px;
+    letter-spacing: -0.01em;
+    color: #000000;}
 
-letter-spacing: -0.01em;
-
-color: #000000;}
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+}

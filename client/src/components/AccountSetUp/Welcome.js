@@ -21,7 +21,7 @@ function Welcome() {
             >
             Create Card
           </SmallGreenButton>
-          <Card.Link href="#">Go to Dashboard</Card.Link>
+          <Card.Link href="/dashboard">Go to Dashboard</Card.Link>
       </Card>
     );
   }
