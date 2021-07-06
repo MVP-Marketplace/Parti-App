@@ -88,6 +88,11 @@ function CreateNewCard(props) {
       setModalState("close")
      }
 
+     const handleStartDesigning = () => {
+      setModalState("close")
+      props.history.push('/create-card-select-theme',{ occasion: occasion } )
+     }
+
      const moment = require('moment-timezone')
    
      // converts date to selected time zone 
@@ -318,7 +323,7 @@ function CreateNewCard(props) {
             </Form.Group>  */}
 
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-            <Form.Label column sm="3,5">
+            <Form.Label column sm="3,5" style={{marginRight: '30px'}}>
             Select Time Zone
             </Form.Label>
             <Col sm="5"> 
@@ -340,7 +345,6 @@ function CreateNewCard(props) {
             </div>
           </Modal.Body>
         </Modal>
-
 
         {/* New card Success Modal  */}
         <Modal 
@@ -375,11 +379,11 @@ function CreateNewCard(props) {
           // onClick={handleShowModalOne} 
             > Invite Contributors </SmallGreenButton>
 
-            <SmallGreenButton 
-              onClick={handleSubmit}>
+            <SmallGreenButton
+              onClick={handleStartDesigning}>
               Start Designing </SmallGreenButton></div>
               </Col>
-</Row>
+    </Row>
         </Modal.Body>
         </Modal>
 

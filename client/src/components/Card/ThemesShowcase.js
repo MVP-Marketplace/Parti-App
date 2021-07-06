@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, CardGroup, Container, Image, Button , Tab, Tabs} from "react-bootstrap";
 import axios from 'axios';
-
+import './card.css'
 
 function ThemesShowcase(props) {
     const [key, setKey] = useState('home');
@@ -34,39 +34,39 @@ function ThemesShowcase(props) {
         <Tab eventKey="home" title="Anniversary">
         <CardGroup>
        
-       <Card>
+       {/* <Card> */}
            <Image
            variant="bottom"
            src={`./stockPhotos/anniversary/anniversary1.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/anniversary/anniversary2.png`} 
            width = "362"
            height = "158"
            onClick={handleClick}/>
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/anniversary/anniversary3.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/anniversary/anniversary4.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/anniversary/anniversary5.png`} 
@@ -74,44 +74,44 @@ function ThemesShowcase(props) {
            height = "158"
            onClick={handleClick}
            />
-       </Card>
+       {/* </Card> */}
    </CardGroup>
         </Tab>
         <Tab eventKey="birthday" title="Birthday">
         <CardGroup>
-       <Card>
+       {/* <Card> */}
            <Image
            variant="bottom"
            src={`./stockPhotos/birthday/birthday1.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/birthday/birthday2.png`} 
            width = "362"
            height = "158"
            onClick={handleClick}/>
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/birthday/birthday3.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/birthday/birthday4.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/birthday/birthday5.png`} 
@@ -119,44 +119,44 @@ function ThemesShowcase(props) {
            height = "158"
            onClick={handleClick}
            />
-        </Card>
+        {/* </Card> */}
         </CardGroup>
         </Tab>
         <Tab eventKey="graduation" title="Graduation" >
         <CardGroup>
-       <Card>
+       {/* <Card> */}
            <Image
            variant="bottom"
            src={`./stockPhotos/graduation/graduation1.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card>
+       <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/graduation/graduation2.png`} 
            width = "362"
            height = "158"
            onClick={handleClick}/>
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/graduation/graduation3.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/graduation/graduation4.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/graduation/graduation5.png`} 
@@ -164,45 +164,45 @@ function ThemesShowcase(props) {
            height = "158"
            onClick={handleClick}
            />
-        </Card>
+        {/* </Card> */}
         </CardGroup>
         </Tab>
 
         <Tab eventKey="promotion" title="Promotion" >
         <CardGroup>
-       <Card>
+       {/* <Card> */}
            <Image
            variant="bottom"
            src={`./stockPhotos/promotion/promotion1.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/promotion/promotion2.png`} 
            width = "362"
            height = "158"
            onClick={handleClick}/>
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/promotion/promotion3.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/promotion/promotion4.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/promotion/promotion5.png`} 
@@ -210,44 +210,44 @@ function ThemesShowcase(props) {
            height = "158"
            onClick={handleClick}
            />
-        </Card>
+        {/* </Card> */}
         </CardGroup>
         </Tab>
         <Tab eventKey="wedding" title="Wedding" >
         <CardGroup>
-       <Card>
+       {/* <Card> */}
            <Image
            variant="bottom"
            src={`./stockPhotos/wedding/wedding1.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/wedding/wedding2.png`} 
            width = "362"
            height = "158"
            onClick={handleClick}/>
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/wedding/wedding3.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/wedding/wedding4.png`} 
            width = "362"
            height = "158"
            onClick={handleClick} />
-       </Card>
-       <Card>
+       {/* </Card> */}
+       {/* <Card> */}
            <Card.Img 
            variant="top" 
            src={`./stockPhotos/wedding/wedding5.png`} 
@@ -255,12 +255,12 @@ function ThemesShowcase(props) {
            height = "158"
            onClick={handleClick}
            />
-        </Card>
+        {/* </Card> */}
         </CardGroup>
         </Tab>
       </Tabs>
-      <Button>  Continue </Button>
-      </Container> 
+      <Button> Continue </Button>
+     </Container> 
     );
   }
   

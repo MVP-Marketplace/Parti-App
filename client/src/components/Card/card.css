@@ -3,13 +3,12 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-    }
-      
+}
+
       
 .container .item {
         flex: 1;
-    } */
-
+    }  */
 .my-modal .modal-content{
     display:flex !important;
     flex-direction: column;
@@ -48,10 +47,9 @@
  }
 
 hr{
-    width: 70%;
+    width: 80%;
     text-align:left;
     margin-left:10%;
-
     /* color: #D7B0FF, 100%; */
 }
 .modal-title {
@@ -66,25 +64,45 @@ hr{
 .next-button{
     text-align: right;
 }
-/* 
+
 .date-picker {
     width: 310px;
     height: calc(2.5em + .75rem + 2px) !important;
     background: #FFFFFF;
     border-radius: .25rem;
     border: 1px solid #ced4da;
-  } */
-/* .react-datepicker__header{
+  } 
+.react-datepicker__header{
     background: #FFFFFF;
-} */
-/* .date-picker react-datepicker-ignore-onclickoutside{
+} 
+.date-picker react-datepicker-ignore-onclickoutside{
     width: 310px;
-    height: calc(2.5em + .75rem + 2px) !important;
+    /* height: calc(2.5em + .75rem + 2px) !important; */
     background: #FFFFFF;
     border-radius: .25rem;
     border: 1px solid #ced4da;
+}
+.react-datepicker {
+    width: 328px;
+}
+.react-datepicker__header{
+    text-align: center;
+    /* background-color: #f0f0f0; */
+    border-bottom: 1px solid #aeaeae;
+    border-top-left-radius: 0.3rem;
+    padding: 8px 0;
+    position: relative;
+}
+.react-datepicker__time-list{
+    height: 215px;
+}
+.react-datepicker-time__header {
+    height: 46px;
+}
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box{
+    height: 196px;
+}
 
-} */
 /* Time Zone input fields & text  */
 .css-yk16xz-control {
     width: 310px;
@@ -121,7 +139,10 @@ hr{
     flex-grow: 0;
     margin: 0px 10px;
 }
-
+.css-g1d714-ValueContainer{
+    width: 150%; 
+    height: calc(2.5em + 0.75rem + 2px);
+}
 .title{
     display: flex;
     justify-content: center;
@@ -169,3 +190,54 @@ hr{
     display: flex;
     justify-content: center;
 }
+.form-label col-form-label col-sm-2{
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: 600;
+    display: flex;
+align-items: center;
+letter-spacing: 0.02em;
+}
+.time-zone-label{
+    margin-right: 10px;
+}
+.theme-showcase{
+    margin: 90px;
+    position: inherit;
+    width: 1214px;
+    height: 578.1px;
+    left: 113px;
+    top: 300.83px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(108, 88, 128, 0.4);
+    border-radius: 10px;
+}
+.card-group{
+   display: flex;
+   flex-flow: row wrap;
+   width: 1150px;
+   height: 350.75px;
+   left: 147px;
+   top: 420.83px;
+} 
+.show-case-image{
+    margin: 10px;
+    width: 362px;
+    height: 170px;
+    left: 935px;
+    top: 610.83px;
+    border: 1px solid #D7B0FF;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+h3{
+    font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 32px;
+line-height: 48px;
+/* identical to box height */
+
+letter-spacing: -0.01em;
+
+color: #000000;}

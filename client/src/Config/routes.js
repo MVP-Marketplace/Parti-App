@@ -11,6 +11,7 @@ import Dashboard from "../pages/Dashboard";
 import LandingPage from "../components/Contributor/LandingPage";
 import RecipientThankYou from "../components/RecipientThankYou/RecipientThankYou";
 import ContributorEmail from "../components/Contributor/ContributorEmail";
+import SelectTheme from "../components/Card/SelectTheme";
 
 const Routes = () => (
   <Switch>
@@ -24,6 +25,7 @@ const Routes = () => (
     <Route path="/upload" component={Upload} />
     <Route path="/welcome" component={Welcome} />
     <Route path="/create-card" component={NewCard} />
+    <Route path="/create-card-select-theme" component={SelectTheme} />
     <Route path="/dashboard" component={Dashboard} />
     <Route path="/contributor" component={LandingPage} />
 
