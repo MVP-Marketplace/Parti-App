@@ -6,6 +6,7 @@ import TopNavbar from './components/TopNavBar';
 function App() {
 	return (
 		<div className='container'>
+			<TopNavbar />
 			<Routes />
 		</div>
 	);

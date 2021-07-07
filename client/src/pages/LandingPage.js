@@ -6,7 +6,6 @@ import VideoPlayer from '../components/VideoPlayer';
 function LandingPage(props) {
 	return (
 		<div>
-			<TopNavBar />
 			<Upload />
 			<VideoPlayer />
 		</div>

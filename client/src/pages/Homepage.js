@@ -8,12 +8,10 @@ import StepByStep from '../components/Homepage/StepByStep';
 function Homepage() {
 	return (
 		<div>
-			<TopNavBar />
 			<Container fluid>
 				<About />
 				<Showcase />
 				<StepByStep />
-				<Showcase />
 			</Container>
 		</div>
 	);
