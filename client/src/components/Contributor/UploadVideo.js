@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, Form, Modal, Row, Col } from 'react-bootstrap';
-import DraftJS from '../../DraftJS/DraftJS-UploadVideo';
-import Upload from '../../Upload'
-import MediumGreenButton from "../../StyledComponents/Buttons/MediumGreenButton";
+import DraftJS from '../DraftJS/DraftJS-UploadVideo';
+import Upload from '../Upload'
+import MediumGreenButton from "../StyledComponents/Buttons/MediumGreenButton";
 
 function UploadVideo() {
 
