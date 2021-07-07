@@ -7,7 +7,7 @@ import Photo2 from "../../images/Group 412.svg";
 import Photo3 from "../../images/Group 413.svg";
 import Photo4 from "../../images/Group 323.svg";
 
-// import "./index.css";
+import "./homepage.css";
 
 function StepByStep() {
   return (
