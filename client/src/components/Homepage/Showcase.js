@@ -15,6 +15,7 @@ function Showcase() {
         <h3>Here's what we can do at</h3>
         <h3>Parti App for all celebrations</h3>
         <br />
+        <br />
       </div>
       <CardColumns>
         <Card>
