@@ -19,7 +19,7 @@ function TopNavbar() {
         </Navbar.Brand>
         <Nav className="me-auto">
           <form>
-            <SmallGreenButton onClick={() => History.push("/login")}>
+            <SmallGreenButton onClick={() => History.push("/register")}>
               Sign Up
             </SmallGreenButton>
           </form>
