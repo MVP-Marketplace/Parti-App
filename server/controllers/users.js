@@ -32,6 +32,7 @@ const newUser = (req, res) => {
 const login = (req, res) => {
 	const user = req.body
 	console.log('LINE 36 controllers/users' , user) 
+	console.log('LINE 35 controllers/users' , user.cardsList) 
 	res.send({user: user})
 };
 
