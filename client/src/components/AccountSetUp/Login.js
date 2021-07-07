@@ -1,129 +1,97 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Card, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
-const styles = {
-  position: "relative",
-  minHeight: "100vh",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "space-between",
-}
+import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
+import { FacebookButton } from '../StyledComponents/Buttons/FacebookButton';
+import { GoogleButton } from '../StyledComponents/Buttons/GoogleButton';
+import './accountSetUp.css'
 
 const Login = (props) => {
 
-  const [setUser, setState] = useState({
-    username: '',
-    password: ''
-  });
+  const [user, setUser] = useState();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) =>{
-    // stop form reloading aka browser default behavior
     e.preventDefault();
-    axios.post('/users/login', {username: "Test10", email: "Test10@gmail.com", password: "123456"})
-        .then(response => setState({ }))
+    axios.post('/users/login', {username: username, password: password})
+        .then((response)=>{
+          setUser(response.data)
+          localStorage.setItem('user', JSON.stringify(response.data._id));
+          localStorage.setItem('cardId', JSON.stringify(response.data.cardsList));
+          props.history.push('/dashboard')
+        })
         .catch(error => {
-            setState({ errorMessage: error.message });
             console.error('There was an error!', error);
         });
-
-
-
-  //   try {
-  //     // console.log('inside login')
-  //     const user = await axios({
-  //       method: 'POST',
-  //       url: `/users/login`,
-  //       // username: username.value, 
-  //       // password: password.value,
-       
-  //       username: "Test10", 
-  //       email: "Test10@gmail.com",
-  //       password: "123456"}
-       
-  //       // withCredentials: "include",
-  //     )
-  //     // console.log('user: ', username)
-  //     // setUser(user.user)
-  //     localStorage.setItem('user', JSON.stringify(user.user));
-  //     // console.log(user.data)
-  //     // setLoading(true);
-  //     console.log(JSON.parse(sessionStorage.getItem('user')))
-  //   //  console.log(user.data)
-  //    props.history.push('/');
-  //   } catch (error) {
-  //     console.log('Failed to Log In')
-  //   }
-  //   // setLoading(false)
-  // }
- 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setState((prevState) => ({
-      ...prevState,
-      [name]: value
-    }))
-    console.log('set statete', setState);
-  };
+    }
 
   return (
-    <div style={styles}>
+    <Card className="register-card text-center" centered> 
+    <h3> Welcome to Parti Greetings  </h3>  
+    <h4> Login to account </h4> 
     <Form className="register-form" onSubmit={handleSubmit}>
-      <h1>Create an account </h1>
-      
-        <Form.Group controlId="username">
-          <Form.Control
-            type="text"
-            placeholder="Email"
-            name="email"
-            onChange={handleInputChange}
-          />
-        </Form.Group>
-        <Form.Group controlId="password">
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            name="password"
-            onChange={handleInputChange}
-          />
-        </Form.Group>
-        <Form.Group controlId="confirm-password">
-          <Form.Control
-            type="password"
-            placeholder="Confirm Password"
-            name="email"
-            // onChange={}
-          />
-        </Form.Group>
-        
-        <Button variant="primary" type="submit">
-          Sign up
-        </Button>
-        <p>or Sign up with</p>
-        <Form.Group>
-        <Button variant="primary" type="submit">
-          FACEBOOK
-        </Button> 
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Google
-        </Button>
-      </Form>
-    </div>
-  );
-};
 
-const useFormInput = initialValue => {
-  const [value, setValue] = useState(initialValue);
- 
-  const handleChange = e => {
-    setValue(e.target.value);
-  }
-  return {
-    value,
-    onChange: handleChange
-  }
-}
-}
+    <Form.Group as={Row} className="mb-3" controlId="username">
+            <Form.Label column sm="3">
+              Email
+            </Form.Label>
+            <Col sm="5">
+              <Form.Control
+              onChange={event => setUsername(event.target.value)}
+              type="text"
+              placeholder="Email"
+              name='username'
+              style={{
+                    width: '334px',
+                    height:'calc(2.5em + .75rem + 2px)'}}
+              />
+            </Col>
+            </Form.Group>
+
+    <Form.Group as={Row} className="mb-3" controlId="password">
+            <Form.Label column sm="3">
+              Password
+            </Form.Label>
+            <Col sm="5">
+              <Form.Control 
+              onChange={event => setPassword(event.target.value)}
+              type="password"
+              name="password"
+              placeholder="Password"
+              style={{
+                    width: '334px',
+                    height:'calc(2.5em + .75rem + 2px)'}}
+              />
+            </Col>
+            </Form.Group>
+
+    <Form.Group as={Row} className="mb-3" controlId="confirm-password">
+            <Form.Label column sm="3">
+              Confirm Password
+            </Form.Label>
+            <Col sm="5">
+              <Form.Control 
+              type="password"
+              placeholder="Confirm Password"
+              style={{
+                    width: '334px',
+                    height:'calc(2.5em + .75rem + 2px)'}}
+              />
+            </Col>
+            </Form.Group>
+        <SmallGreenButton type="submit" onSubmit={handleSubmit}>
+            Sign up
+        </SmallGreenButton>
+        {/* <Card.Text> or </Card.Text>
+        <Card.Text> Sign up with </Card.Text> */}
+        {/* <FacebookButton type="submit"/> 
+        <GoogleButton type="submit" href="http://localhost:3001/users/auth/google" />  */}
+      </Form>  
+
+      </Card>
+  );
+
+};
  
 export default Login;

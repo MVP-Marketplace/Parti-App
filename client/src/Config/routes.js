@@ -10,6 +10,7 @@ import NewCard from '../components/Card/NewCard';
 import Dashboard from '../pages/Dashboard';
 import LandingPage from '../pages/LandingPage';
 import ViewCardPage from '../pages/ViewCardPage';
+import SelectTheme from '../components/Card/SelectTheme';
 
 const Routes = () => (
 	<Switch>
@@ -21,6 +22,7 @@ const Routes = () => (
 		<Route path='/upload' component={Upload} />
 		<Route path='/welcome' component={Welcome} />
 		<Route path='/create-card' component={NewCard} />
+		<Route path='/create-card-select-theme' component={SelectTheme} />
 		<Route path='/dashboard' component={Dashboard} />
 		<Route path='/contributor' component={LandingPage} />
 	</Switch>

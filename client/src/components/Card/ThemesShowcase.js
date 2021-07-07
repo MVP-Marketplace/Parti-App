@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Card, CardGroup, Container, Image, Button , Tab, Tabs} from "react-bootstrap";
 import axios from 'axios';
 import './card.css'
+import MediumGreenButton from '../StyledComponents/Buttons/MediumGreenButton';
+
 
 function ThemesShowcase(props) {
     const [key, setKey] = useState('home');
@@ -10,7 +12,6 @@ function ThemesShowcase(props) {
 
     console.log(cardId)
     const handleClick = async (e) =>{
-
         await setTheme(e.target.src)
         const cardId = props.state
         axios.put(`/card/${cardId}`, {
@@ -31,6 +32,10 @@ function ThemesShowcase(props) {
         activeKey={key}
         onSelect={(k) => setKey(k)}
         className="mb-5"
+        style={{
+                width: '150%',
+                height:'calc(1.0em + .75rem + 2px)',
+                marginBottom: "0rem!important"}}
       >
         <Tab eventKey="home" title="Anniversary">
         <CardGroup>
@@ -85,7 +90,7 @@ function ThemesShowcase(props) {
            />
         </CardGroup>
         </Tab>
-        <Tab eventKey="graduation" title="Graduation" >
+        <Tab eventKey="graduation" title="Graduation">
         <CardGroup>
            <Image
            src={`./stockPhotos/graduation/graduation1.png`} 
@@ -110,7 +115,6 @@ function ThemesShowcase(props) {
            />
         </CardGroup>
         </Tab>
-
         <Tab eventKey="promotion" title="Promotion" >
         <CardGroup>
            <Image
@@ -162,7 +166,14 @@ function ThemesShowcase(props) {
         </CardGroup>
         </Tab>
       </Tabs>
-      <Button> Continue </Button>
+
+      <div> <MediumGreenButton
+            style={{
+                margin: "2rem",
+                float: 'right'}}>
+            Continue
+            </MediumGreenButton>
+            </div>
      </div> 
     );
   }
