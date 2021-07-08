@@ -3,3 +3,16 @@ body {
     #93E9BE;
     padding-top: 50px;
 }
+h3 {
+    padding-top: 15px;
+}
+.iframe-container {
+    padding: 1rem;
+    
+}
+.link {
+    color: black;
+}
+.cards-list {
+    list-style-type: none;
+}

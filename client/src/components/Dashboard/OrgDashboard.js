@@ -5,35 +5,63 @@ import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
 import { Container, Card, Row, Col } from 'react-bootstrap';
 // import ViewCardPage from '../../pages/ViewCardPage';
 import './dashboard.css';
-import VideoPlayer from '../VideoPlayer';
+import VideoThumbnail from './VideoThumbnail';
 
 function Organizer(props) {
 	return (
 		<Container className='dashboard'>
 			<Row className='dashboardHeading'>
-				<h1>Your Dashboard</h1>
+				<h3>Your Dashboard</h3>
 			</Row>
-			<Row>
-				<Link>Sent</Link>
-				<Link>Received</Link>
-			</Row>
+			<div>
+				<Row justify-content-center>
+					<Col></Col>
+					{/* Here the Sent Link should only list those cards connected to this user that have been sent by this user. Invisible if no cards sent */}
+					<Col>
+						<div className='link'>
+							<Link to='/dashboard#sent' activeClassName='selected'>
+								Sent
+							</Link>
+						</div>
+					</Col>
+					{/* The Received Link should only list those cards connected to this user that have been received. Invisible if no cards received */}
+					<Col>
+						<div className='link'>
+							<Link to='dashboard#received' activeClassName='selected'>
+								Received
+							</Link>
+						</div>
+					</Col>
+					<Col></Col>
+					<Col></Col>
+				</Row>
+			</div>
 
 			<Row>
-				<Card className='text-center' inline>
-					<Col>
-						<VideoPlayer />
-					</Col>
-					<Col>
-						<Card.Body>
-							<Card.Text>Card Title</Card.Text>
-							<Card.Text>Date</Card.Text>
-							<Card.Text>Status:</Card.Text>
-						</Card.Body>
-					</Col>
-					<Col>
-						<SmallGreenButton href='/view-card'>View Card</SmallGreenButton>
-					</Col>
-				</Card>
+				<ul className='cards-list'>
+					<Card className='text-center' inline>
+						<Container fluid>
+							<Row xs={1} md={3}>
+								<Col>
+									<VideoThumbnail />
+								</Col>
+								<Col>
+									<Card.Body>
+										{/* This should render cards connected to the user/role and pull the title, date sent/due and status (open/closed) */}
+										<Card.Text>Card Title</Card.Text>
+										<Card.Text>Date</Card.Text>
+										<Card.Text>Status:</Card.Text>
+									</Card.Body>
+								</Col>
+								<Col justify-content-center>
+									<SmallGreenButton href='/view-card'>
+										View Card
+									</SmallGreenButton>
+								</Col>
+							</Row>
+						</Container>
+					</Card>
+				</ul>
 			</Row>
 		</Container>
 	);
