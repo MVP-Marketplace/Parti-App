@@ -11,6 +11,7 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const multer = require("multer");
+const path = require("path");
 
 const db = require("./server/models/index");
 const User = require("./server/models/User.js");
@@ -18,13 +19,6 @@ const User = require("./server/models/User.js");
 require("dotenv").config();
 const PORT = process.env.PORT || 3001;
 const app = express();
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join("build", "index.html"));
-  });
-}
 
 app.use(cors());
 const corsOptions = {
