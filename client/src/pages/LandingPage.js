@@ -77,12 +77,15 @@ function ContributorLandingPage() {
                 </Col>
             </Row>
         </div>
+);
 
-
-
-
-    );
-
+function LandingPage(props) {
+	return (
+		<div>
+			<Upload />
+			<VideoPlayer />
+		</div>
+	);
 }
 
 export default ContributorLandingPage;

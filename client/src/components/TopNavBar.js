@@ -18,6 +18,10 @@ function TopNavbar() {
           />
         </Navbar.Brand>
         <Nav className="me-auto">
+          <Nav.Link href='/dashboard'>Dashboard</Nav.Link>
+					{/* should change "How it works to Create new card when Organizer is logged in" */}
+					<Nav.Link href='/contributor'>How it works</Nav.Link>
+					{/* Button text should change to Sign Out when logged in */}
           <form>
             <SmallGreenButton onClick={() => History.push("/register")}>
               Sign Up
