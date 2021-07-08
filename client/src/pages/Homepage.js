@@ -10,8 +10,6 @@ function Homepage() {
   return (
     <div>
       <TopNavBar />
-      <br />
-      <br />
       <Container fluid>
         <About />
         <StepByStep />

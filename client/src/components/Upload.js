@@ -74,9 +74,6 @@ export default function Upload() {
 					className='form-input'
 					// tempFilePath = {fileInputState}
 				/>
-				<button className='btn' type='submit'>
-					Submit
-				</button>
 			</form>
 			{previewSource && (
 				<img src={previewSource} alt='chosen' style={{ height: '300px' }} />

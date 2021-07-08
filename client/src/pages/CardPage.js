@@ -7,6 +7,7 @@ function CardPage() {
 		<div>
 			<TopNavBar />
 			<SideBar />
+
 		</div>
 	);
 }

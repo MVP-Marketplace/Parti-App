@@ -1,19 +1,32 @@
 import React from "react";
 import { Card, Col, Row, CardGroup, Image } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import UploadVideo from "../components/Contributor/UploadVideo";
+import TopNavBar from '../components/TopNavBar';
 import Photo1 from "../images/rafiki.svg";
 import Photo2 from "../images/rafikiChill.svg";
 import Photo3 from "../images/amico.svg";
 import Photo4 from "../stockPhotos/c-landingpage-photo.png";
+import MediumGreenButton from "../components/StyledComponents/Buttons/MediumGreenButton";
 
 function ContributorLandingPage() {
+
+    const history = useHistory();
+    // const [firstName, setFirstName] = useState('');
+    // const [occasion, setOccasion] = useState('');
+    // const [organizer, setOrganizer] = useState('');
+
+
     return (
+
+        
         <div>
-            <Row className="justify-content-md-center m-5">
+            <TopNavBar />
+            <Row className="justify-content-md-center m-5 p-5" style={{ paddingTop: "150px" }}>
                 <Card className="text-center" border="0">
                     <Card.Body>
-                        <Card.Title>Welcome to Parti "userID"</Card.Title>
-                        <Card.Subtitle>We are celebrating "event" and "organizer" invited you to submit your own video.</Card.Subtitle>
+                        <Card.Title style={{ fontSize: 36 }}>Welcome to Parti ~firstName~</Card.Title>
+                        <Card.Subtitle style={{ fontSize: 18 }}>We are celebrating ~occasion~ and ~organizer~ invited you to submit your own video.</Card.Subtitle>
                     </Card.Body>
                 </Card>
             </Row >
@@ -48,7 +61,7 @@ function ContributorLandingPage() {
                     </Card>
                 </CardGroup>
             </Row>
-            <Row className="justify-content-md-center m-5">
+            <Row className="justify-content-md-center m-5 p-5">
                 <UploadVideo />
             </Row>
             <Row className="justify-content-md-center m-5">
@@ -70,7 +83,11 @@ function ContributorLandingPage() {
                                 find the messages you'd like to see.
                             </Card.Subtitle>
                             <Card.Subtitle className="justify-content-md-center m-3">
-                                <UploadVideo/>
+                                <MediumGreenButton 
+                                onClick={()=> history.push("/upload")}
+                                >
+                                    Get Started
+                                </MediumGreenButton>
                             </Card.Subtitle>
                         </Card.Body>
                     </Card>

@@ -6,7 +6,7 @@ import PartiLogo from "../images/logo.svg";
 
 function TopNavbar() {
   return (
-    <Navbar fixed="top" bg="light" variant="light">
+    <Navbar fixed="top" bg="light" variant="light" className="mb-5">
       <Container>
         <Navbar.Brand href="#home">
           <img
