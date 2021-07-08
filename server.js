@@ -11,6 +11,7 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const multer = require("multer");
+const path = require("path");
 
 const db = require("./server/models/index");
 const User = require("./server/models/User.js");
@@ -111,17 +112,17 @@ passport.deserializeUser((id, done) => {
 // middleware to set the user
 function setUser(req, res, next) {
   const user = req.body.user;
-  console.log('line 114 server.js', user )
+  console.log("line 114 server.js", user);
   if (user) {
     req.user = User.find((user) => User.id === userId);
-    console.log(user, userId)
+    console.log(user, userId);
   }
   next();
 }
 //homepage route
-app.get("/", (req, res) => {
-  res.send("Parti-App homepage");
-});
+// app.get("/", (req, res) => {
+//   res.send("Parti-App homepage");
+// });
 
 // Draft-js
 app.use("/static", express.static(__dirname + "/uploads"));
@@ -150,6 +151,15 @@ app.use("/users", userRouter);
 app.use("/", cloudinaryRouter);
 app.use("/card", cardRouter);
 app.use("/api/posts", posts);
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "client/build")));
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+});
 
 // Server connection.
 app.listen(PORT, () => {
