@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Upload from "../components/Upload";
+import Upload from "../pages/CardPage";
 import Homepage from "../pages/Homepage";
 import Default from "../components/Organizer/Default";
 import Login from "../components/AccountSetUp/Login";

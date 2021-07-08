@@ -6,6 +6,7 @@ function CardPage() {
 	return (
 		<div>
 			<SideBar />
+
 		</div>
 	);
 }
