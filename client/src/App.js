@@ -5,9 +5,9 @@ import TopNavBar from "./components/TopNavBar";
 
 function App() {
   return (
-    // <div className="container">
-    <Routes />
-    // </div>
+    <div className="container">
+      <Routes />
+    </div>
   );
 }
 
