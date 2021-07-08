@@ -12,6 +12,7 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const multer = require("multer");
 const path = require("path");
+const routes = require("./server/routes");
 
 const db = require("./server/models/index");
 const User = require("./server/models/User.js");
@@ -160,6 +161,9 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
 }
+
+// Add routes, both API and view
+app.use(routes);
 
 // Server connection.
 app.listen(PORT, () => {
