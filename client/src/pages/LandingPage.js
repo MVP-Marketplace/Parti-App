@@ -96,12 +96,12 @@ export default function ContributorLandingPage() {
 		</div>
 	);
 
-	function LandingPage(props) {
-		return (
-			<div>
-				<Upload />
-				<VideoPlayer />
-			</div>
-		);
-	}
+	// function LandingPage(props) {
+	// 	return (
+	// 		<div>
+	// 			<Upload />
+	// 			<VideoPlayer />
+	// 		</div>
+	// 	);
+	// }
 }
