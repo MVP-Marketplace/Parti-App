@@ -5,7 +5,7 @@ import PartiLogo from '../images/logo.svg';
 
 function TopNavbar() {
 	return (
-		<Navbar className='' expand='lg' variant='light' sticky='top' bg='white'>
+		<Navbar variant='light' fixed='top' bg='white'>
 			<Container>
 				<Navbar.Brand href='#home'>
 					<img
@@ -18,7 +18,9 @@ function TopNavbar() {
 				</Navbar.Brand>
 				<Nav className='me-auto'>
 					<Nav.Link href='/dashboard'>Dashboard</Nav.Link>
+					{/* should change "How it works to Create new card when Organizer is logged in" */}
 					<Nav.Link href='/contributor'>How it works</Nav.Link>
+					{/* Button text should change to Sign Out when logged in */}
 					<SmallGreenButton>Sign Up</SmallGreenButton>
 				</Nav>
 			</Container>
