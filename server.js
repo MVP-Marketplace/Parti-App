@@ -19,6 +19,13 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join("build", "index.html"));
+  });
+}
+
 app.use(cors());
 const corsOptions = {
   origin: "http://example.com",
@@ -111,10 +118,10 @@ passport.deserializeUser((id, done) => {
 // middleware to set the user
 function setUser(req, res, next) {
   const user = req.body.user;
-  console.log('line 114 server.js', user )
+  console.log("line 114 server.js", user);
   if (user) {
     req.user = User.find((user) => User.id === userId);
-    console.log(user, userId)
+    console.log(user, userId);
   }
   next();
 }
