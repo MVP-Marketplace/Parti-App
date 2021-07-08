@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { Card, Col, Row, CardGroup, Image } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import UploadVideo from "../components/Contributor/UploadVideo";
@@ -100,6 +100,12 @@ function ContributorLandingPage() {
 
     );
 
+// function LandingPage(props) {
+	// 	return (
+	// 		<div>
+	// 			<Upload />
+	// 			<VideoPlayer />
+	// 		</div>
+	// 	);
+	// }
 }
-
-export default ContributorLandingPage;

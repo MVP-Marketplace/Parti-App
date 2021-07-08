@@ -5,7 +5,6 @@ import TopNavBar from '../components/TopNavBar';
 function CardPage() {
 	return (
 		<div>
-			<TopNavBar />
 			<SideBar />
 
 		</div>

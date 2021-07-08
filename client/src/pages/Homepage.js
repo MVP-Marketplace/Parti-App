@@ -7,17 +7,15 @@ import StepByStep from "../components/Homepage/StepByStep";
 import Footer from "../components/Footer/Footer";
 
 function Homepage() {
-  return (
-    <div>
-      <TopNavBar />
-      <Container fluid>
-        <About />
-        <StepByStep />
-        <Showcase />
-        <Footer />
-      </Container>
-    </div>
-  );
+	return (
+		<div>
+			<Container fluid>
+				<About />
+				<Showcase />
+				<StepByStep />
+			</Container>
+		</div>
+	);
 }
 
 export default Homepage;
