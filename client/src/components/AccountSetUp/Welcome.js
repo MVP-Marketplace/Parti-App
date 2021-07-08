@@ -1,11 +1,15 @@
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import { useHistory } from 'react-router-dom';
 import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
 import SadCard from '../../images/SadCard.svg'
 import './accountSetUp.css'
 
 function Welcome() {
+
+    const history = useHistory();
+
     return (
-        <Card>
+        <Card className="register-card text-center">
           <Card.Title as="h3">Welcome to Parti Greetings</Card.Title>
           <Card.Subtitle as="h4">Success!</Card.Subtitle>
           <Card.Img variant="top" src={SadCard}/>
@@ -13,10 +17,9 @@ function Welcome() {
             Your Account has been created!
           </Card.Text>
           
-          <SmallGreenButton 
-            type="button"
-            // type="submit" 
-            href="http://localhost:3000/create-card"
+          <SmallGreenButton
+            type='submit' 
+            onClick={()=> history.push("/create-card")}
             target="_blank"
             >
             Create Card

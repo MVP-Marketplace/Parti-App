@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { EditorState, Editor, convertToRaw } from "draft-js";
 // import Emoji from "./Emoji/emoji";
 import "@draft-js-plugins/emoji/lib/plugin.css";
-import Toolbar from "../StyleToolbar/toolbar.js";
+import Toolbar from "./StyleToolbar/toolbar.js";
 import '@draft-js-plugins/static-toolbar/lib/plugin.css'
 import { stateToHTML } from "draft-js-export-html";
 

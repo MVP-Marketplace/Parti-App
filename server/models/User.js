@@ -38,7 +38,7 @@ const userSchema = new Schema({
     type: String,
   },
 });
-// }).plugin(permissions);
+
 
 userSchema.plugin(passportLocalMongoose);
 const User = mongoose.model("User", userSchema);
