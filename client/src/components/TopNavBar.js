@@ -1,4 +1,4 @@
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { SmallGreenButton } from './StyledComponents/Buttons/SmallGreenButton';
 import History from '../components/History/History';
 // import Register from '../components/AccountSetUp/Register'
@@ -6,17 +6,15 @@ import PartiLogo from '../images/logo.svg';
 
 function TopNavbar() {
 	return (
-		<Navbar fixed='top' bg='light' variant='light'>
-			<Container fluid>
-				<Navbar.Brand href='#home'>
+		<Navbar fixed='top' bg='white' expand='lg'>
+			<Container>
+				<Navbar.Brand href='/'>
 					<img
 						src={PartiLogo}
 						width='35%'
-						height='auto'
-						max-width='40%'
-						className='d-inline-block align-top'
+						height='30em'
+						className=''
 						alt='Parti App Logo'
-						min-width='25px'
 					/>
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
