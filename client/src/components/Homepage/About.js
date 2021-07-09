@@ -7,8 +7,8 @@ import "./homepage.css";
 
 function About() {
   return (
-    <Container style={{ backgroundImage: `url(${PurpleGreenBackground})` }}>
-      <Row className="justify-content-md-center m-5">
+    <Container style={{ backgroundImage: `url(${PurpleGreenBackground})`, paddingTop: "150px"}}>
+      <Row className="justify-content-md-center m-3" >
         <Col className="justify-content-md-center m-3">
           <Card className="text-center" border="0" style={{ width: "25rem" }}>
             <Image src={Photo4} />

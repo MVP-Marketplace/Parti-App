@@ -44,31 +44,9 @@ function UploadVideo() {
 
     return (
         <>
-            <MediumGreenButton onClick={handleShowModalOne}>Get Started</MediumGreenButton>
+            <MediumGreenButton onClick={handleShowModalOne}>Upload</MediumGreenButton>
 
-            {/* <Modal
-                show={modalState === "modal-one"}
-                size="md"
-                aria-labelledby="contained-modal-title-vcenter"
-                centered>n
-
-                <Modal.Header closeButton>
-                    <Modal.Title>Record Your Video</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    The best videos are 2 minutes, so try to aim for that in your recording.
-                    Maximum video length is 3 minutes
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Cancel
-                    </Button>
-                    <Button onClick={handleShowModalTwo}>Continue</Button>
-                </Modal.Footer>
-            </Modal> */}
-
-
-
+          
             <Modal
                 show={modalState === "modal-one"}
                 size="md"
@@ -88,7 +66,7 @@ function UploadVideo() {
                     <Button variant="secondary" onClick={handleClose} >
                         Cancel
                     </Button>
-                    <Button onClick={handleShowModalTwo}>Upload</Button>
+                    <Button onClick={handleShowModalTwo}>Next</Button>
                 </Modal.Footer>
             </Modal>
 
@@ -102,14 +80,14 @@ function UploadVideo() {
                     <Modal.Title>Video Uploaded</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    Would you like to add a personal touch to your video?
+                    Would you like to add a personal touch to your picture or video?
                 </Modal.Body>
                 <Modal.Footer className="justify-content-md-center">
                     <Button variant="secondary" onClick={handleClose}>
                         Cancel
                     </Button>
                     <Button onClick={handleShowModalThree}>Customize</Button>
-                    <Button onClick={handleShowModalFour}>Submit</Button>
+                    <Button onClick={handleShowModalFour}>Preview</Button>
                 </Modal.Footer>
             </Modal>
 
@@ -119,16 +97,16 @@ function UploadVideo() {
                 aria-labelledby="contained-modal-title-vcenter"
                 centered>
                 <Form closeButton>
-                    <Form.Control
-                        placeholder="Add a Title" />
-
+                <Modal.Header className="text-center">
+                    <Modal.Title className="mt-3">Add Rich Text and Emojis</Modal.Title>
+                </Modal.Header>
                     <DraftJS />
 
                     <Modal.Footer className="justify-content-md-center">
-                        <Button variant="secondary" onClick={handleShowModalFour}>
+                        <Button variant="secondary" onClick={handleShowModalTwo}>
                             Back
                         </Button>
-                        <Button onClick={handleShowModalFour}>Submit Video</Button>
+                        <Button onClick={handleShowModalFour}>Preview</Button>
                     </Modal.Footer>
                 </Form>
             </Modal>
@@ -149,7 +127,7 @@ function UploadVideo() {
                     Message From ~Organizer~
                 </Modal.Body>
                 <Modal.Body>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                   Media and Text Card Preview inserted here
                 </Modal.Body>
                 <Modal.Footer className="justify-content-md-center">
                     <Button variant="secondary" onClick={handleClose}>

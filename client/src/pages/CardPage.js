@@ -5,6 +5,7 @@ import Organizer from '../components/Organizer/Default';
 function CardPage() {
 	return (
 		<div>
+
 			<TopNavBar />
 			<Organizer />
 		</div>

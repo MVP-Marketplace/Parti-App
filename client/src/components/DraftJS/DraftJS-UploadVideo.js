@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { EditorState, Editor, convertToRaw } from "draft-js";
-// import Emoji from "./Emoji/emoji";
 import "@draft-js-plugins/emoji/lib/plugin.css";
 import Toolbar from "./StyleToolbar/toolbar.js";
 import '@draft-js-plugins/static-toolbar/lib/plugin.css'
@@ -11,7 +10,6 @@ export default function TextBox() {
   const [name, setName] = useState("");
   const [content, setContent] = useState(EditorState.createEmpty());
   const history = useHistory();
-  // const [handleKeyCommand, setHandleKeyCommand] = useState(editorState)
 
   const convertDescriptionFromJSONToHTML = () => {
     try {
@@ -71,22 +69,12 @@ export default function TextBox() {
 
 
   return (
-    <div className="editorContainer">
+    <div className="editorContainer" border="0">
       <form noValidate onSubmit={onSubmit}>
-        {/* <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div> */}
-       
         <div className="editors">
        
           <Editor
+            border="0"
             editorState={content}
             wrapperClassName="wrapper-class"
             editorClassName="editor-class"
@@ -99,9 +87,6 @@ export default function TextBox() {
           <Toolbar/>
         </div>
         <div dangerouslySetInnerHTML={convertDescriptionFromJSONToHTML()}></div>
-        {/* <button type="submit" className="btn btn-lg btn-primary btn-block">
-          Submit Message
-        </button> */}
       </form>
     </div>
   );
