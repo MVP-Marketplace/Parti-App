@@ -23,7 +23,7 @@ function VideoPlayer(props) {
 					className='responsive-iframe'
 					title='Cloud Hosted Video Player'
 					src={url}
-					width='160'
+					width='200'
 					height='120'
 					allow='autoplay; fullscreen; encrypted-media; picture-in-picture'
 					allowFullScreen

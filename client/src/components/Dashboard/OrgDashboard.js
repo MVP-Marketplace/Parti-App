@@ -42,22 +42,24 @@ function Organizer(props) {
 					<Card className='text-center' inline>
 						<Container fluid>
 							<Row xs={1} md={3}>
-								<Col>
+								<Col className='card-thumbnail'>
 									<VideoThumbnail />
 								</Col>
-								<Col>
+								<Col className='card-col' xl={6}>
 									<Card.Body>
 										{/* This should render cards connected to the user/role and pull the title, date sent/due and status (open/closed) */}
 										<Card.Text>Card Title</Card.Text>
-										<Card.Text>Date</Card.Text>
+										<Card.Text>Event Date: </Card.Text>
 										<Card.Text>Status:</Card.Text>
 									</Card.Body>
 								</Col>
-								<Col justify-content-center>
-									<SmallGreenButton href='/view-card'>
-										View Card
-									</SmallGreenButton>
-								</Col>
+								<div className='card-col'>
+									<Col>
+										<SmallGreenButton href='/view-card'>
+											View Card
+										</SmallGreenButton>
+									</Col>
+								</div>
 							</Row>
 						</Container>
 					</Card>
