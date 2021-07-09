@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Google from "../../../images/google.svg";
+import google from '../../../images/google.png'
 
 const Button = styled.button`
   margin: 5px;
@@ -34,7 +34,7 @@ const Image = styled.image`
 export const GoogleButton = () => {
   return (
     <Button>
-      <Image src={Google} alt="google logo" />
+      <img src={google} alt="google logo" />
     </Button>
   );
 };

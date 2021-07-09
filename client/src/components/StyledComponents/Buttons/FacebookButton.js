@@ -1,6 +1,5 @@
 import styled from "styled-components";
-// import Facebook from "../../../images/facebook.svg";
-import Facebook from "../../../images/facebook.svg";
+import facebook from './facebook.png'
 
 const Button = styled.button`
   margin: 5px;
@@ -33,7 +32,7 @@ const Image = styled.image`
 export const FacebookButton = () => {
   return (
     <Button>
-      <Image src={Facebook} alt="facebook logo" />
+      <img src={facebook} alt="facebook logo" />
     </Button>
   );
 };
