@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import facebook from './facebook.png'
+import facebook from "../../../images/facebook.svg";
 
 const Button = styled.button`
   margin: 5px;
@@ -22,17 +22,17 @@ const Button = styled.button`
 `;
 
 const style = {
-  height: '2.0625rem',
-  width: '6rem', 
-  left: '2.175781rem',
-  top: '0.71875rem', 
-  borderRadius: '0rem',
-}
+  height: "2.0625rem",
+  width: "6rem",
+  left: "2.175781rem",
+  top: "0.71875rem",
+  borderRadius: "0rem",
+};
 
 export const FacebookButton = () => {
   return (
     <Button>
-      <img src={facebook} alt="facebook logo" style={{style}} />
+      <img src={facebook} alt="facebook logo" style={{ style }} />
     </Button>
   );
 };
