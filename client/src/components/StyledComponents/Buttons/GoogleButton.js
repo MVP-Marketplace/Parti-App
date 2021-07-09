@@ -23,18 +23,18 @@ const Button = styled.button`
     border-radius: 6px;
   }
 `
-const Image = styled.image`
-  height: 2.0625rem;
-  width: 6rem;
-  left: 2.175781rem;
-  top: 0.71875rem;
-  border-radius: 0rem;
-`;
+const style = {
+  height: '2.0625rem',
+  width: '6rem', 
+  left: '2.175781rem',
+  top: '0.71875rem', 
+  borderRadius: '0rem',
+}
 
 export const GoogleButton = () => {
   return (
     <Button>
-      <img src={google} alt="google logo" />
+      <img src={google} alt="google logo" style={{style}} />
     </Button>
   );
 };
