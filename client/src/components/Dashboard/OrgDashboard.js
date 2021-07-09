@@ -55,9 +55,9 @@ function Organizer(props) {
 								</Col>
 								<div className='card-col'>
 									<Col>
-										<SmallGreenButton href='/view-card'>
-											View Card
-										</SmallGreenButton>
+										<Link to='/card'>
+											<SmallGreenButton>View Card</SmallGreenButton>
+										</Link>
 									</Col>
 								</div>
 							</Row>
