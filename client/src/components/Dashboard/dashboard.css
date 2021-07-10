@@ -24,7 +24,3 @@ h3 {
     display: flex;
     align-items: center;
 }
-
-@media (max-width: 500px) {
-    .body { padding-top: 15rem;}
-}
