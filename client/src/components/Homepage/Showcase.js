@@ -1,17 +1,26 @@
 import { Container, Card, Row } from "react-bootstrap";
 import { SmallGreenButton } from "../StyledComponents/Buttons/SmallGreenButton";
-import GreenBackground from "../../images/green-background.png"
-import PartiCard1 from "../../images/particard1.png"
-import PartiCard2 from "../../images/particard2.png"
+import GreenBackground from "../../images/green-background.png";
+import PartiCard1 from "../../images/particard1.png";
+import PartiCard2 from "../../images/particard2.png";
 import History from "../History/History";
 import "./homepage.css";
 
-
 function Showcase() {
   return (
-    <Container style={{ backgroundImage: `url(${GreenBackground})`, backgroundRepeat: 'no-repeat'  }}>
+    <div
+      style={{
+        backgroundImage: `url(${GreenBackground})`,
+        backgroundSize: "100% 100%",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <Row className="justify-content-lg-center m-5">
-        <Card className="m-5" border="0" style={{ backgroundColor: 'transparent'}}>
+        <Card
+          className="m-5"
+          border="0"
+          style={{ backgroundColor: "transparent" }}
+        >
           <Card.Title style={{ fontSize: 36 }}>
             Check out some of our favorite Parti Cards!
           </Card.Title>
@@ -19,25 +28,29 @@ function Showcase() {
       </Row>
 
       <Row className="justify-content-lg-center">
-          <Card border="0" style={{ backgroundColor: 'transparent' }}>
-            <Card.Img
-              variant="top"
-              src={PartiCard1}
-              style={{ width: "32rem", minHeight: "32rem" }}
-            />
-          </Card>
-        
-          <Card border="0" style={{ backgroundColor: 'transparent' }}>
-            <Card.Img
-              variant="top"
-              src={PartiCard2}
-              style={{ width: "32rem", minHeight: "32rem" }}
-            />
-          </Card>
+        <Card border="0" style={{ backgroundColor: "transparent" }}>
+          <Card.Img
+            variant="top"
+            src={PartiCard1}
+            style={{ width: "32rem", minHeight: "32rem" }}
+          />
+        </Card>
+
+        <Card border="0" style={{ backgroundColor: "transparent" }}>
+          <Card.Img
+            variant="top"
+            src={PartiCard2}
+            style={{ width: "32rem", minHeight: "32rem" }}
+          />
+        </Card>
       </Row>
 
       <Row className="justify-content-lg-center m-5">
-        <Card className="m-5" border="0" style={{ backgroundColor: 'transparent' }}>
+        <Card
+          className="m-5"
+          border="0"
+          style={{ backgroundColor: "transparent" }}
+        >
           <Card.Title style={{ fontSize: 36 }}>
             Let's start making memories!
           </Card.Title>
@@ -53,7 +66,7 @@ function Showcase() {
           </SmallGreenButton>
         </form>
       </Row>
-    </Container>
+    </div>
   );
 }
 

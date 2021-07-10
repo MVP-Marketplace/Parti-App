@@ -105,27 +105,29 @@ const UserForm = (props) => {
 						/>
 					</Col>
 				</Form.Group>
-
-				<SmallGreenButton type='submit' onSubmit={handleSubmit}>
-					Sign up
-				</SmallGreenButton>
-				<Card.Text> or </Card.Text>
-				<Card.Text> Sign up with </Card.Text>
-				<FacebookButton type='submit' />
-				<GoogleButton
-					type='submit'
-					href='http://localhost:3001/users/auth/google'
-				/>
-			</Form>
-			<Card.Text>
-				Already have an account?
-				<a href='/login' target='_self'>
-					{' '}
-					Click here to Sign In
-				</a>
-			</Card.Text>
-		</Card>
-	);
+        <SmallGreenButton type="submit" onSubmit={handleSubmit}>
+          Sign up
+        </SmallGreenButton>
+        <Card.Text> or </Card.Text>
+        <Card.Text> Sign up with </Card.Text>
+        <FacebookButton
+          type="submit"
+          href="http://localhost:3001/auth/facebook"
+        />
+        <GoogleButton
+          type="submit"
+          href="http://localhost:3001/users/auth/google"
+        />
+      </Form>
+      <Card.Text>
+        Already have an account?
+        <a href="/login" target="_self">
+          {" "}
+          Click here to Sign In
+        </a>
+      </Card.Text>
+    </Card>
+  );
 };
 
 export default UserForm;
