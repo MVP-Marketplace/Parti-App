@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Card, CardGroup, Container, Image, Button , Tab, Tabs} from "react-bootstrap";
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './card.css'
 import MediumGreenButton from '../StyledComponents/Buttons/MediumGreenButton';
@@ -179,4 +180,3 @@ function ThemesShowcase(props) {
   }
   
   export default ThemesShowcase;
-  
