@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import google from '../../../images/google.png'
+import google from "../../../images/google.svg";
 
 const Button = styled.button`
   margin: 5px;
-  height: 3.125rem;
+  height: 3.125rem/
   width: 10.359375rem;
   background: #ffffff;
   border: 0.015625rem solid #000000;
@@ -22,19 +22,19 @@ const Button = styled.button`
     box-sizing: border-box;
     border-radius: 6px;
   }
-`
+`;
 const style = {
-  height: '2.0625rem',
-  width: '6rem', 
-  left: '2.175781rem',
-  top: '0.71875rem', 
-  borderRadius: '0rem',
-}
+  height: "2.0625rem",
+  width: "6rem",
+  left: "2.175781rem",
+  top: "0.71875rem",
+  borderRadius: "0rem",
+};
 
 export const GoogleButton = () => {
   return (
     <Button>
-      <img src={google} alt="google logo" style={{style}} />
+      <img src={google} alt="google logo" style={{ style }} />
     </Button>
   );
 };

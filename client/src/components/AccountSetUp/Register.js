@@ -111,7 +111,7 @@ const UserForm = (props) => {
         </SmallGreenButton>
         <Card.Text> or </Card.Text>
         <Card.Text> Sign up with </Card.Text>
-        <FacebookButton type="submit" />
+        <FacebookButton type="submit" href="/auth/facebook" />
         <GoogleButton
           type="submit"
           href="http://localhost:3001/users/auth/google"

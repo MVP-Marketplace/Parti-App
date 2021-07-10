@@ -63,7 +63,7 @@ Install dependencies: run npm install
 - mongoose: ^5.9.27
 - mongoose-permissions: ^1.0.0
 - multer: ^1.4.2
-- bpassport: ^0.4.1
+- passport: ^0.4.1
 - passport-facebook: ^3.0.0
 - passport-google-oauth: ^2.0.0
 - passport-local-mongoose: ^6.1.0
