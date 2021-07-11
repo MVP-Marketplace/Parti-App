@@ -7,13 +7,15 @@ import Photo1 from "../images/rafiki.svg";
 import Photo2 from "../images/rafikiChill.svg";
 import Photo3 from "../images/amico.svg";
 import Photo4 from "../stockPhotos/c-landingpage-photo.png";
-import MediumGreenButton from "../components/StyledComponents/Buttons/MediumGreenButton";
 
 function LandingPage() {
   const history = useHistory();
+
   // const [firstName, setFirstName] = useState('');
   // const [occasion, setOccasion] = useState('');
   // const [organizer, setOrganizer] = useState('');
+
+  //   const userId = JSON.parse(localStorage.getItem('user'))
 
   return (
     <div>
@@ -25,7 +27,7 @@ function LandingPage() {
         <Card className="text-center" border="0">
           <Card.Body>
             <Card.Title style={{ fontSize: 36 }}>
-              Welcome to Parti ~firstName~
+              Welcome to Parti userID
             </Card.Title>
             <Card.Subtitle style={{ fontSize: 18 }}>
               We are celebrating ~occasion~ and ~organizer~ invited you to
@@ -80,6 +82,7 @@ function LandingPage() {
         </CardGroup>
       </Row>
       <Row className="justify-content-md-center m-5 p-5">
+        {/* This component will display as the upload button */}
         <UploadVideo />
       </Row>
       <Row className="justify-content-md-center m-5">
@@ -101,9 +104,8 @@ function LandingPage() {
                 messages you'd like to see.
               </Card.Subtitle>
               <Card.Subtitle className="justify-content-md-center m-3">
-                <MediumGreenButton onClick={() => history.push("/upload")}>
-                  Get Started
-                </MediumGreenButton>
+                {/* This component will display as the upload button */}
+                <UploadVideo />
               </Card.Subtitle>
             </Card.Body>
           </Card>
