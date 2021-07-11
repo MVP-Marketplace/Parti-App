@@ -1,9 +1,10 @@
 import React from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
+import PurpleBackground from "../../images/purple-background.png";
 
 const footerStyle = {
-  backgroundColor: "#D7B0FF",
   borderRadius: "5px",
+  margin: "top:0px",
 };
 
 const cardStyle = {
@@ -13,7 +14,12 @@ const cardStyle = {
 
 const FooterPage = () => {
   return (
-    <Container style={footerStyle}>
+    <div
+      style={{
+        backgroundImage: `url(${PurpleBackground})`,
+        footerStyle,
+      }}
+    >
       <Row>
         <Col sm>
           <Card style={cardStyle}>
@@ -26,7 +32,7 @@ const FooterPage = () => {
         <Col sm>
           <Card style={cardStyle}>
             <Card.Body>
-              <h4>hello@partiapp.com</h4>
+              <h4>hello@particards.com</h4>
             </Card.Body>
           </Card>
         </Col>
@@ -49,7 +55,7 @@ const FooterPage = () => {
           </Card>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 };
 

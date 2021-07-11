@@ -1,4 +1,4 @@
-import { Container, Card, Row } from "react-bootstrap";
+import { Card, Row } from "react-bootstrap";
 import { SmallGreenButton } from "../StyledComponents/Buttons/SmallGreenButton";
 import GreenBackground from "../../images/green-background.png";
 import PartiCard1 from "../../images/particard1.png";
@@ -11,7 +11,6 @@ function Showcase() {
     <div
       style={{
         backgroundImage: `url(${GreenBackground})`,
-        backgroundSize: "100% 100%",
         backgroundRepeat: "no-repeat",
       }}
     >
