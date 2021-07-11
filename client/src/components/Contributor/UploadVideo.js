@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 import {
-  Card,
   Button,
   Form,
   Modal,
-  Row,
-  Col,
-  Dropdown,
-  DropdownButton,
-  Image,
 } from "react-bootstrap";
-import axios from "axios";
+// import axios from "axios";
 import DraftJS from "../DraftJS/DraftJS-UploadVideo";
 import Upload from "../Upload";
 import MediumGreenButton from "../StyledComponents/Buttons/MediumGreenButton";
@@ -22,13 +16,13 @@ function UploadVideo(props) {
 
   //   const [modalState, setModalState] = useState("close");
 
-  const fistModalHandleClose = () => {
-    setState(false);
-  };
-  const onFormSubmit = (e) => {
-    e.preventDefault();
-    console.log("success");
-  };
+  // const firstModalHandleClose = () => {
+  //   setState(false);
+  // };
+  // const onFormSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("success");
+  // };
 
   // "modal-one" | "modal-two" | "close" >("close")
   const [modalState, setModalState] = useState("close");
@@ -54,48 +48,32 @@ function UploadVideo(props) {
     setModalState("modal-four");
   };
 
-  const handleShowModalFive = () => {
-    setModalState("modal-five");
-  };
-
-  const handleShowModalSix = () => {
-    setModalState("modal-six");
-  };
-
   const handleSubmit = () => {
     setModalState("submit");
   };
 
   return (
     <div>
+      <MediumGreenButton onClick={handleShowModalOne}>Upload</MediumGreenButton>
+
+
       <Modal
-        show={show}
-        onHide={fistModalHandleClose}
-        className="my-modal"
+        show={modalState === "modal-one"}
         size="md"
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        dialogClassName="modal-80w"
-        fullscreen="xl-down"
-        // show={modalState === "modal-one"}
-        // size="md"
-        // aria-labelledby="contained-modal-title-vcenter"
-        // centered
-        // className="justify-content-md-center"
+        className="justify-content-md-center"
       >
+
         <Modal.Header>
           <Modal.Title>Ready To Upload</Modal.Title>
         </Modal.Header>
         <Upload />
         <Modal.Body className="justify-content-md-center">
-          After you upload your video, you can use our text editor to add more
-          personal touches!
+          After you upload your video, you can use our text editor to add more personal touches!
         </Modal.Body>
         <Modal.Footer className="justify-content-md-center">
-          <MediumGreenButton onClick={handleShowModalOne}>
-            Upload
-          </MediumGreenButton>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClose} >
             Cancel
           </Button>
           <Button onClick={handleShowModalTwo}>Next</Button>
