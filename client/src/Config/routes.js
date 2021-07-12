@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Upload from "../components/Upload";
+import VideoPlayer from "../components/VideoPlayer";
 import Homepage from "../pages/Homepage";
 import Default from "../components/Organizer/Default";
 import Login from "../components/AccountSetUp/Login";
@@ -30,6 +31,9 @@ const Routes = () => (
     <Route path="/contributor" component={LandingPage} />
     <Route path="/card" component={CardPage} />
     <Route path="/contributor-email" component={ContributorEmail} />
+    <Route path="/test" component={Upload} />
+    <Route path="/play-video" component={VideoPlayer} />
+
   </Switch>
 );
 

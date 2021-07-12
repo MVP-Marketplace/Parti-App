@@ -26,8 +26,8 @@ function VideoPlayer(props) {
         <div>
 			<iframe
             
-			src="https://res.cloudinary.com/parti-app/video/upload/v1623368826/parti-app/jxfpte8dpnvtyijocntl.mp4"
-            // src="https://player.cloudinary.com/embed/?cloud_name=parti-app&public_id=cxkajd5jfjp1coyi3n0z&fluid=true&controls=true&source_types%5B0%5D=mp4"
+			// src="https://res.cloudinary.com/parti-app/video/upload/v1623368826/parti-app/jxfpte8dpnvtyijocntl.mp4"
+			src="https://res.cloudinary.com/parti-app/video/upload/ac_none,c_crop,g_south,h_100,w_160/v1626058345/parti-app/wtqykfnnw0wayyw2we5q.mp4"
 			width="640"
 			height="400"
 			allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
