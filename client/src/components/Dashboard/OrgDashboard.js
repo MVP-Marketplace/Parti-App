@@ -8,10 +8,14 @@ import './dashboard.css';
 import VideoThumbnail from './VideoThumbnail';
 
 function Organizer(props) {
+	// const userID = this.props.userID;
 	return (
 		<Container className='dashboard'>
 			<Row className='dashboardHeading'>
-				<h3>Your Dashboard</h3>
+				<h3>
+					{/* {userName} */}
+					Username's Dashboard
+				</h3>
 			</Row>
 			<div>
 				<Row justify-content-center>
@@ -39,6 +43,9 @@ function Organizer(props) {
 
 			<Row>
 				<ul className='cards-list'>
+					{/* {userID.map(function (userID, index) { */}
+					return ({/* <li key={index}> */}
+					{/* {userID} */}
 					<Card className='text-center' inline>
 						<Container fluid>
 							<Row xs={1} md={3}>
@@ -48,14 +55,21 @@ function Organizer(props) {
 								<Col className='card-col' xl={6}>
 									<Card.Body>
 										{/* This should render cards connected to the user/role and pull the title, date sent/due and status (open/closed) */}
-										<Card.Text>Card Title</Card.Text>
-										<Card.Text>Event Date: </Card.Text>
-										<Card.Text>Status:</Card.Text>
+										<Card.Text>{/* { cardTitle } */}</Card.Text>
+										<Card.Text>
+											Event Date:
+											{/* { dateDue }  */}
+										</Card.Text>
+										<Card.Text>
+											Status:
+											{/* { status } */}
+										</Card.Text>
 									</Card.Body>
 								</Col>
 								<div className='card-col'>
 									<Col>
 										<Link to='/card'>
+											{/* this should populate the specific card name  */}
 											<SmallGreenButton>View Card</SmallGreenButton>
 										</Link>
 									</Col>
@@ -63,6 +77,9 @@ function Organizer(props) {
 							</Row>
 						</Container>
 					</Card>
+					{/* </li> */}
+					{/* ); */}
+					{/* })} */}
 				</ul>
 			</Row>
 		</Container>
