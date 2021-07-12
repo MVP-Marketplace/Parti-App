@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, Modal, ModalBody, Form, Card } from "react-bootstrap";
 import { send } from "emailjs-com";
 import { init } from "emailjs-com";
-import ContributorEmail from "../Contributor/ContributorEmail";
 import SmallGreenButton from "../StyledComponents/Buttons/SmallGreenButton";
 import { SelectionState } from "draft-js";
 init("user_ruuSWVGbOAd5C8l0N2GFP");
@@ -29,13 +28,15 @@ function ContributorInvite(props) {
   });
 
   const onSubmit = (e) => {
-    alert("Your message has been sent!");
     e.preventDefault();
     send(service_id, template_id, toSend, user_id)
       .then((response) => {
+        alert("Your message has been sent!");
         console.log("SUCCESS!", response.status, response.text);
+        // setToSend({ send_to: "", from_name: "", contributor_link: "" });
       })
       .catch((err) => {
+        alert("Something went wrong, please check your emails and try again.");
         console.log("FAILED...", err);
       });
   };
@@ -43,9 +44,9 @@ function ContributorInvite(props) {
   const handleChange = (e) => {
     setToSend({ ...toSend, [e.target.name]: e.target.value });
   };
-  const clearState = () => {
-    SelectionState({ ...toSend });
-  };
+  //   const clearState = () => {
+  //     SelectionState({ ...toSend });
+  //   };
 
   return (
     <>
