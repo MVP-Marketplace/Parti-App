@@ -6,11 +6,71 @@ import {
 } from "react-bootstrap";
 // import axios from "axios";
 import DraftJS from "../DraftJS/DraftJS-UploadVideo";
-import Upload from "../Upload";
+import axios from 'axios';
 import MediumGreenButton from "../StyledComponents/Buttons/MediumGreenButton";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function UploadVideo(props) {
+
+  const [fileInputState, setFileInputState] = useState('');
+	const [previewSource, setPreviewSource] = useState('');
+	const [selectedFile, setSelectedFile] = useState();
+	const [successMsg, setSuccessMsg] = useState('');
+	const [errMsg, setErrMsg] = useState('');
+
+
+  const [fileId, setFileId ] = useState('');
+  const [message, SetMessage ] = useState('');
+
+	const handleFileInputChange = (e) => {
+		const file = e.target.files[0];
+		previewFile(file);
+		setSelectedFile(file);
+		setFileInputState(e.target.value);
+	};
+
+	const previewFile = (file) => {
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onloadend = () => {
+			setPreviewSource(reader.result);
+		};
+	};
+
+	const handleSubmitFile = (e) => {
+		e.preventDefault();
+		if (!selectedFile) return;
+	
+		const reader = new FileReader();
+		reader.readAsDataURL(selectedFile);
+		reader.onloadend = () => {
+			uploadImage(reader.result);
+		};
+		reader.onerror = () => {
+			console.error('AHHHH!!');
+			setErrMsg('something went wrong!');
+		};
+	};
+  
+  const uploadImage = async (data) => {
+    await axios.post(
+      'http://localhost:3001/image-upload',
+      {'file': data},
+      {headers: {'accept': 'application/json'}},
+      )
+      .then(function (response) {
+        //handle success
+        setFileInputState('');
+        setPreviewSource('');
+        setFileId(response.data.msg.secure_url)
+        setSuccessMsg('File uploaded successfully');
+      })
+      .catch(function (response) {
+        //handle error
+        console.log(response);
+      });
+  }
+
   const [show, setState] = useState(true); // handles state for modal
   const [CardSuccessShow, setCardSuccessShow] = useState(false); // handles state for modal
 
@@ -68,7 +128,20 @@ function UploadVideo(props) {
         <Modal.Header>
           <Modal.Title>Ready To Upload</Modal.Title>
         </Modal.Header>
-        <Upload />
+        {/* Upload content  */} 
+
+        <form  className='form' onSubmit={handleSubmitFile} >
+				<input
+					id='fileInput'
+					type='file'
+					name='file'
+					onChange={handleFileInputChange}
+					value={fileInputState}
+					className='form-input'
+				/>
+			<MediumGreenButton onSubmit={handleSubmitFile}> Upload </MediumGreenButton>
+			</form>
+
         <Modal.Body className="justify-content-md-center">
           After you upload your video, you can use our text editor to add more personal touches!
         </Modal.Body>

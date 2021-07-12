@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Alert from './Alert';
+import MediumGreenButton from './StyledComponents/Buttons/MediumGreenButton';
 import axios from 'axios';
 
 
@@ -33,6 +34,7 @@ export default function Upload() {
 		const reader = new FileReader();
 		reader.readAsDataURL(selectedFile);
 		reader.onloadend = () => {
+			console.log('reader.result' , reader.result )
 			uploadImage(reader.result);
 		};
 		reader.onerror = () => {
@@ -46,13 +48,13 @@ export default function Upload() {
 		'http://localhost:3001/image-upload',
 		{'file': data},
 		{headers: {'accept': 'application/json'}},
-	  )
+	  	)
 		.then(function (response) {
 		  //handle success
 		  setFileInputState('');
 		  setPreviewSource('');
 		  setSuccessMsg('File uploaded successfully');
-		  console.log(response);
+		  console.log('line 56  UPLOAD ', response);
 		})
 		.catch(function (response) {
 		  //handle error
@@ -60,11 +62,14 @@ export default function Upload() {
 		});
 }
 	return (
-		<div>
+		<div style={{
+			padding:'100px',
+			width: '150%',
+			height:'calc(2.5em + .75rem + 2px)'}}>
 			{/* <h1 className='title'>Upload a Video</h1> */}
 			<Alert msg={errMsg} type='danger' />
 			<Alert msg={successMsg} type='success' />
-			<form onSubmit={handleSubmitFile} className='form'>
+			<form  className='form' onSubmit={handleSubmitFile}>
 				<input
 					id='fileInput'
 					type='file'
@@ -74,9 +79,10 @@ export default function Upload() {
 					className='form-input'
 					// tempFilePath = {fileInputState}
 				/>
+			<MediumGreenButton onSubmit={handleSubmitFile}> Upload </MediumGreenButton>
 			</form>
 			{previewSource && (
-				<img src={previewSource} alt='chosen' style={{ height: '300px' }} />
+				<img src={previewSource} alt='chosen' style={{ height: '500px' }} />
 			)}
 		</div>
 	);
