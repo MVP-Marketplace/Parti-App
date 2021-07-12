@@ -35,7 +35,7 @@ const greetingCardSchema = new Schema({
   //   type: String,
   //   enum: ['Eastern Standart Time', 'Central Standart Time', 'Mountain Standart Time', 'Pacific Standart Time']
   // },
-  content: [{
+  contentId: [{
     type: Schema.Types.ObjectId,
     ref: 'Content'
   }],
