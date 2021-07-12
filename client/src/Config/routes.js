@@ -9,9 +9,10 @@ import Register from "../components/AccountSetUp/Register";
 import Welcome from "../components/AccountSetUp/Welcome";
 import NewCard from "../components/Card/NewCard";
 import Dashboard from "../pages/Dashboard";
-import LandingPage from "../pages/LandingPage";
+import LandingPage from "../pages/LandingPage-Contributor";
 import ViewCardPage from "../pages/ViewCardPage";
-import CardPage from "../pages/CardPage";
+import CardPageOrganizer from "../pages/CardPage-Organizer";
+import CardPageContributor from "../pages/CardPage-Contributor";
 import ContributorEmail from "../components/Contributor/ContributorEmail";
 import SelectTheme from "../components/Card/SelectTheme";
 import UploadVideo from "../components/Contributor/UploadVideo";
@@ -30,7 +31,8 @@ const Routes = () => (
     <Route path="/create-card-select-theme" component={SelectTheme} />
     <Route path="/dashboard" component={Dashboard} />
     <Route path="/contributor" component={LandingPage} />
-    <Route path="/card" component={CardPage} />
+    <Route path="/card-page-organizer" component={CardPageOrganizer} />
+    <Route path="/card-page-contributor" component={CardPageContributor} />
     <Route path="/contributor-email" component={ContributorEmail} />
     <Route path="/upload-video" component={UploadVideo} />
     <Route path="/contributor-invite" component={ContributorInvite} />
