@@ -14,6 +14,7 @@ import CardPage from "../pages/CardPage";
 import ContributorEmail from "../components/Contributor/ContributorEmail";
 import SelectTheme from "../components/Card/SelectTheme";
 import UploadVideo from "../components/Contributor/UploadVideo";
+import ContributorInvite from "../components/Contributor/ContributorInvite";
 
 const Routes = () => (
   <Switch>
@@ -30,6 +31,8 @@ const Routes = () => (
     <Route path="/contributor" component={LandingPage} />
     <Route path="/card" component={CardPage} />
     <Route path="/contributor-email" component={ContributorEmail} />
+    <Route path="/upload-video" component={UploadVideo} />
+    <Route path="/contributor-invite" component={ContributorInvite} />
   </Switch>
 );
 
