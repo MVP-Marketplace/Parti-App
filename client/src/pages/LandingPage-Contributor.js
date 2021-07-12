@@ -1,8 +1,13 @@
 import React from "react";
-import { Card, Col, Row, CardGroup, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import UploadVideo from "../components/Contributor/UploadVideo";
+
+// Components
 import TopNavBar from "../components/TopNavBar";
+import { Card, Col, Row, CardGroup, Image } from "react-bootstrap";
+import MediumGreenButton from "../components/StyledComponents/Buttons/MediumGreenButton";
+
+
+// Media
 import Photo1 from "../images/rafiki.svg";
 import Photo2 from "../images/rafikiChill.svg";
 import Photo3 from "../images/amico.svg";
@@ -82,8 +87,12 @@ function LandingPage() {
         </CardGroup>
       </Row>
       <Row className="justify-content-md-center m-5 p-5">
-        {/* This component will display as the upload button */}
-        <UploadVideo />
+        <MediumGreenButton
+          onClick={() => History.push("/card-page-contributor")}
+          className="m-3"
+        >
+          Get Started
+        </MediumGreenButton>
       </Row>
       <Row className="justify-content-md-center m-5">
         <Col className="justify-content-md-center m-3">
@@ -104,8 +113,12 @@ function LandingPage() {
                 messages you'd like to see.
               </Card.Subtitle>
               <Card.Subtitle className="justify-content-md-center m-3">
-                {/* This component will display as the upload button */}
-                <UploadVideo />
+                <MediumGreenButton
+                  onClick={() => history.push("/card-page-contributor")}
+                  className="m-3"
+                >
+                  Get Started
+                </MediumGreenButton>
               </Card.Subtitle>
             </Card.Body>
           </Card>
