@@ -1,30 +1,148 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Form,
-  Modal,
-} from "react-bootstrap";
-// import axios from "axios";
-import DraftJS from "../DraftJS/DraftJS-UploadVideo";
-import Upload from "../Upload";
+import { Button, Form, Modal } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import axios from 'axios';
+
+// Draft JS Imports
+import { EditorState, Editor, convertToRaw } from "draft-js";
+import "@draft-js-plugins/emoji/lib/plugin.css";
+import Toolbar from "../DraftJS/StyleToolbar/toolbar";
+import '@draft-js-plugins/static-toolbar/lib/plugin.css'
+import { stateToHTML } from "draft-js-export-html";
+
+// Style Imports
+
 import MediumGreenButton from "../StyledComponents/Buttons/MediumGreenButton";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function UploadVideo(props) {
+
+  const [fileInputState, setFileInputState] = useState('');
+	const [previewSource, setPreviewSource] = useState('');
+	const [selectedFile, setSelectedFile] = useState();
+	const [successMsg, setSuccessMsg] = useState('');
+	const [errMsg, setErrMsg] = useState('');
+
+
+  const [fileId, setFileId ] = useState('');
+  const [message, SetMessage ] = useState('');
+
+	const handleFileInputChange = (e) => {
+		const file = e.target.files[0];
+		previewFile(file);
+		setSelectedFile(file);
+		setFileInputState(e.target.value);
+	};
+
+	const previewFile = (file) => {
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onloadend = () => {
+			setPreviewSource(reader.result);
+		};
+	};
+
+	const handleSubmitFile = (e) => {
+		e.preventDefault();
+		if (!selectedFile) return;
+	
+		const reader = new FileReader();
+		reader.readAsDataURL(selectedFile);
+		reader.onloadend = () => {
+			uploadImage(reader.result);
+		};
+		reader.onerror = () => {
+			console.error('AHHHH!!');
+			setErrMsg('something went wrong!');
+		};
+	};
+  
+  const uploadImage = async (data) => {
+    await axios.post(
+      'http://localhost:3001/image-upload',
+      {'file': data},
+      {headers: {'accept': 'application/json'}},
+      )
+      .then(function (response) {
+        //handle success
+        setFileInputState('');
+        setPreviewSource('');
+        setFileId(response.data.msg.secure_url)
+        setSuccessMsg('File uploaded successfully');
+      })
+      .catch(function (response) {
+        //handle error
+        console.log(response);
+      });
+  }
+
   const [show, setState] = useState(true); // handles state for modal
   const [CardSuccessShow, setCardSuccessShow] = useState(false); // handles state for modal
 
-  //   const [modalState, setModalState] = useState("close");
 
-  // const firstModalHandleClose = () => {
-  //   setState(false);
-  // };
-  // const onFormSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log("success");
-  // };
+  // DraftJS Functions
+  const [name] = useState("");
+  const [content, setContent] = useState(EditorState.createEmpty());
+  const history = useHistory();
 
-  // "modal-one" | "modal-two" | "close" >("close")
+  const convertDescriptionFromJSONToHTML = () => {
+    try {
+      return { __html: stateToHTML(content.getCurrentContent()) };
+    } catch (exp) {
+      console.log(exp);
+      return { __html: "Error" };
+    }
+  };
+
+  const uploadCallback = (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    return new Promise((resolve, reject) => {
+      fetch("http://localhost:3001/uploadImage", {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((resData) => {
+          console.log(resData);
+          resolve({ data: { link: resData } });
+        })
+        .catch((error) => {
+          console.log(error);
+          reject(error.toString());
+        });
+    });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const newPost = {
+      name: name,
+      content: convertToRaw(content.getCurrentContent()),
+    };
+    console.log("POST: ", newPost);
+    fetch("http://localhost:3001/api/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPost),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setContent(EditorState.createEmpty());
+        history.goBack();
+      })
+      .catch((err) => console.log("ERROR:", err));
+  };
+  
+// End DraftJS Functions
+
+
+// Modal Functions
   const [modalState, setModalState] = useState("close");
 
   const handleShowModalOne = () => {
@@ -68,7 +186,21 @@ function UploadVideo(props) {
         <Modal.Header>
           <Modal.Title>Ready To Upload</Modal.Title>
         </Modal.Header>
-        <Upload />
+
+        {/* Upload content  */} 
+
+        <form  className='form' onSubmit={handleSubmitFile} >
+				<input
+					id='fileInput'
+					type='file'
+					name='file'
+					onChange={handleFileInputChange}
+					value={fileInputState}
+					className='form-input'
+				/>
+			<MediumGreenButton onSubmit={handleSubmitFile}> Upload </MediumGreenButton>
+			</form>
+
         <Modal.Body className="justify-content-md-center">
           After you upload your video, you can use our text editor to add more personal touches!
         </Modal.Body>
@@ -111,8 +243,27 @@ function UploadVideo(props) {
           <Modal.Header className="text-center">
             <Modal.Title className="mt-3">Add Rich Text and Emojis</Modal.Title>
           </Modal.Header>
-          <DraftJS />
+          <Modal.Body>
+            <div className="editorContainer">
+              <form noValidate onSubmit={onSubmit}>
+                <div className="editors">
 
+                  <Editor
+                    editorState={content}
+                    wrapperClassName="wrapper-class"
+                    editorClassName="editor-class"
+                    toolbarClassName="toolbar-class"
+                    wrapperStyle={{ border: "2px solid green", marginBottom: "20px" }}
+                    editorStyle={{ height: "300px", padding: "10px" }}
+                    toolbar={{ image: { uploadCallback } }}
+                    onEditorStateChange={(editorState) => setContent(editorState)}
+                  />
+                  <Toolbar />
+                </div>
+                <div dangerouslySetInnerHTML={convertDescriptionFromJSONToHTML()}></div>
+              </form>
+            </div>
+          </Modal.Body>
           <Modal.Footer className="justify-content-md-center">
             <Button variant="secondary" onClick={handleShowModalTwo}>
               Back
@@ -121,6 +272,8 @@ function UploadVideo(props) {
           </Modal.Footer>
         </Form>
       </Modal>
+
+
       <Modal
         show={modalState === "modal-four"}
         size="sm"
@@ -140,7 +293,7 @@ function UploadVideo(props) {
           <Button onClick={handleSubmit}>Create a Card</Button>
         </Modal.Footer>
       </Modal>
-    </div>
+    </div >
   );
 }
 
