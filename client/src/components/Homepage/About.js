@@ -3,7 +3,6 @@ import { SmallGreenButton } from "../StyledComponents/Buttons/SmallGreenButton";
 import Photo4 from "../../stockPhotos/c-landingpage-photo.png";
 import History from "../History/History";
 import PurpleGreenBackground from "../../images/purple-green-background.png";
-import "./homepage.css";
 
 function About() {
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Button, Modal, Row, Form , Col, Image } from "react-bootstrap";
+import {  Modal, Image } from "react-bootstrap";
 import './card.css'
 import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
 

@@ -4,7 +4,6 @@ import GreenBackground from "../../images/green-background.png";
 import PartiCard1 from "../../images/particard1.png";
 import PartiCard2 from "../../images/particard2.png";
 import History from "../History/History";
-import "./homepage.css";
 
 function Showcase() {
   return (
