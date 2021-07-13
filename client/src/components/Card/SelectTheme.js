@@ -15,7 +15,7 @@ function SelectTheme(props) {
 		setTheme(e.target.src);
 		const cardId = props.location.state.cardId;
 		axios
-			.put(`/view-card/${cardId}`, {
+			.put(`/card/${cardId}`, {
 				theme: selectedTheme,
 			})
 			.then((response) => {
@@ -71,7 +71,7 @@ function SelectTheme(props) {
 						className='show-case-image'
 						onClick={handleClick}
 					/>
-					<Link to='/card-page-organizer'>
+					<Link to='/card'>
 						<MediumGreenButton style={{ margin: '2rem', float: 'right' }}>
 							Continue
 						</MediumGreenButton>{' '}

@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 // Components
 import TopNavBar from "../components/TopNavBar";
 import { Card, Col, Row, CardGroup, Image } from "react-bootstrap";
-import MediumGreenButton from "../components/StyledComponents/Buttons/MediumGreenButton";
+import UploadContent from "../components/Contributor/UploadVideo";
 
 
 // Media
@@ -87,12 +87,7 @@ function LandingPage() {
         </CardGroup>
       </Row>
       <Row className="justify-content-md-center m-5 p-5">
-        <MediumGreenButton
-          onClick={() => History.push("/card-page-contributor")}
-          className="m-3"
-        >
-          Get Started
-        </MediumGreenButton>
+        <UploadContent />
       </Row>
       <Row className="justify-content-md-center m-5">
         <Col className="justify-content-md-center m-3">
@@ -113,12 +108,7 @@ function LandingPage() {
                 messages you'd like to see.
               </Card.Subtitle>
               <Card.Subtitle className="justify-content-md-center m-3">
-                <MediumGreenButton
-                  onClick={() => history.push("/card-page-contributor")}
-                  className="m-3"
-                >
-                  Get Started
-                </MediumGreenButton>
+                <UploadContent />
               </Card.Subtitle>
             </Card.Body>
           </Card>
