@@ -1,8 +1,13 @@
 import React from "react";
-import { Card, Col, Row, CardGroup, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import UploadVideo from "../components/Contributor/UploadVideo";
+
+// Components
 import TopNavBar from "../components/TopNavBar";
+import { Card, Col, Row, CardGroup, Image } from "react-bootstrap";
+import UploadContent from "../components/Contributor/UploadVideo";
+
+
+// Media
 import Photo1 from "../images/rafiki.svg";
 import Photo2 from "../images/rafikiChill.svg";
 import Photo3 from "../images/amico.svg";
@@ -82,8 +87,7 @@ function LandingPage() {
         </CardGroup>
       </Row>
       <Row className="justify-content-md-center m-5 p-5">
-        {/* This component will display as the upload button */}
-        <UploadVideo />
+        <UploadContent />
       </Row>
       <Row className="justify-content-md-center m-5">
         <Col className="justify-content-md-center m-3">
@@ -104,8 +108,7 @@ function LandingPage() {
                 messages you'd like to see.
               </Card.Subtitle>
               <Card.Subtitle className="justify-content-md-center m-3">
-                {/* This component will display as the upload button */}
-                <UploadVideo />
+                <UploadContent />
               </Card.Subtitle>
             </Card.Body>
           </Card>

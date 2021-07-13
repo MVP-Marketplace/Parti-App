@@ -9,7 +9,7 @@ import Register from "../components/AccountSetUp/Register";
 import Welcome from "../components/AccountSetUp/Welcome";
 import NewCard from "../components/Card/NewCard";
 import Dashboard from "../pages/Dashboard";
-import LandingPage from "../pages/LandingPage";
+import LandingPage from "../pages/LandingPage-Contributor";
 import ViewCardPage from "../pages/ViewCardPage";
 import CardPage from "../pages/CardPage";
 import SelectTheme from "../components/Card/SelectTheme";
