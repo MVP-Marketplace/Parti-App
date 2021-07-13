@@ -11,6 +11,7 @@ router.get('/register', userController.newUser)
 router.post('/register', userController.createUser)
 
 router.get('/logout', userController.logout)
+router.get('/:id', userController.view);
 
 router.post('/login', function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {

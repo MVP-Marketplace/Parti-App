@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import './card.css';
 
 function SelectTheme(props) {
-	const cardId = props.location.state.cardI;
+	const cardId = props.location.state.cardId;
 	const occasion = props.location.state.occasion.toLowerCase();
 	const [selectedTheme, setTheme] = useState('');
 
@@ -29,13 +29,13 @@ function SelectTheme(props) {
 	return (
 		<div>
 			<div>
-				{' '}
-				<h2>Select Your Background Theme </h2>{' '}
+				
+				<h2>Select Your Background Theme </h2>
 			</div>
 			<div className='theme-showcase'>
 				<h3 bg='secondary'>
-					{' '}
-					Based on your selection {props.location.state.occasion}{' '}
+					
+					Based on your selection {props.location.state.occasion}
 				</h3>
 				<CardGroup
 					className='card-group'
@@ -71,17 +71,17 @@ function SelectTheme(props) {
 						className='show-case-image'
 						onClick={handleClick}
 					/>
-					<Link to='/card'>
-						<MediumGreenButton style={{ margin: '2rem', float: 'right' }}>
+					<Link to='/dashboard'>
+          <MediumGreenButton style={{ margin: '2rem', float: 'right' }}>
 							Continue
-						</MediumGreenButton>{' '}
+						</MediumGreenButton>
 					</Link>
 				</CardGroup>
 			</div>
 
 			<div>
-				{' '}
-				<ThemesShowcase />{' '}
+				
+				<ThemesShowcase />
 			</div>
 		</div>
 	);
