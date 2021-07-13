@@ -12,15 +12,15 @@ import Dashboard from "../pages/Dashboard";
 import LandingPage from "../pages/LandingPage";
 import ViewCardPage from "../pages/ViewCardPage";
 import CardPage from "../pages/CardPage";
-import ContributorEmail from "../components/Contributor/ContributorEmail";
 import SelectTheme from "../components/Card/SelectTheme";
 import UploadVideo from "../components/Contributor/UploadVideo";
 import ContributorInvite from "../components/Contributor/ContributorInvite";
-
+import RecipientThankYou from "../components/RecipientThankYou/RecipientThankYou";
+import RecDashboard from "../components/Dashboard/RecDashboard";
 const Routes = () => (
   <Switch>
     <Route exact path="/organizer" component={Default} />
-    <Route exact path="/" component={Homepage} />
+    <Route exact path="/" component={RecDashboard} />
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
     <Route path="/view-card" component={ViewCardPage} />
@@ -31,11 +31,12 @@ const Routes = () => (
     <Route path="/dashboard" component={Dashboard} />
     <Route path="/contributor" component={LandingPage} />
     <Route path="/card" component={CardPage} />
-    <Route path="/contributor-email" component={ContributorEmail} />
     <Route path="/upload-video" component={UploadVideo} />
     <Route path="/contributor-invite" component={ContributorInvite} />
+    <Route path="/recipient-thank-you" component={RecipientThankYou} />
     <Route path="/test" component={Upload} />
     <Route path="/play-video" component={VideoPlayer} />
+    <Route path="/recipient-dashboard" component={RecDashboard} />
   </Switch>
 );
 
