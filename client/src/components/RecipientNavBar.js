@@ -3,6 +3,7 @@ import { SmallGreenButton } from "./StyledComponents/Buttons/SmallGreenButton";
 import History from "../components/History/History";
 // import Register from '../components/AccountSetUp/Register'
 import PartiLogo from "../images/logo.svg";
+import { BiUserCircle } from "react-icons/bi";
 import ContributorEmail from "./Contributor/ContributorEmail";
 
 function RecipientNavBar() {
@@ -25,8 +26,6 @@ function RecipientNavBar() {
             {/* should change "How it works" to "Create new card" when Organizer is logged in with href changing to /create-card instead of /contributor */}
             <Nav.Link href="/contributor">How it works</Nav.Link>
             {/* Button text Sign Up should change to Sign Out when logged in with functionality to logout */}
-            <Nav.Link href="/contributor-invite">Invite</Nav.Link>
-            {/* Button should appear in nav bar on contributor dashboard after card is created */}
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -35,6 +34,16 @@ function RecipientNavBar() {
           + New Card
         </SmallGreenButton>
       </form>
+      <div>
+        <BiUserCircle
+          style={{
+            width: "43px",
+            height: "43px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        />
+      </div>
     </Navbar>
   );
 }
