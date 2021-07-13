@@ -33,8 +33,6 @@ Install dependencies: run npm install
 - @draft-js-plugins/editor: ^4.1.0
 - @draft-js-plugins/emoji: ^4.5.4
 - @draft-js-plugins/static-toolbar: ^4.1.1
-- @giphy/js-fetch-api: 2.0.1
-- @giphy/react-components: 2.0.1
 - @testing-library/react: ^11.2.6
 - @testing-library/user-event: ^12.8.3
 - @sendgrid/mail: ^7.4.4
