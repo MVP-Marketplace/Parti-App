@@ -5,9 +5,47 @@ import { Container, Card, Row, Col } from 'react-bootstrap';
 // import ViewCardPage from '../../pages/ViewCardPage';
 import './dashboard.css';
 import VideoThumbnail from './VideoThumbnail';
+import axios from 'axios'; 
+
 
 function Organizer(props) {
-	// const userID = this.props.userID;
+	const userId = JSON.parse(localStorage.getItem('user')) 
+	// TODO 
+	// incorporate useEffect to have the list of card objects  
+		// get the list of cards LINE 25 and make a get request with every CARDID to database 
+
+	// React.useEffect(() => checkIfUserHasCards(handleSubmit), []) 
+
+	// create the get request to get the list of cards for current user 
+	const handleSubmit = async (e) =>{
+		console.log('line 17 ', userId)
+		axios.get(`/users/${userId}`, {
+				userId: userId
+				})
+			.then((response)=>{
+			  const CardsList = response.data.cardsList
+		  })
+			.catch(error => {
+				console.error('There was an error!', error);
+			});
+		  }
+
+	// handle call to greetingCard database 
+	const getGreetingCards = async (e) =>{
+
+		// map through CardsList to get the individual cardID
+		axios.get(`/card/${cardID}`, { 
+				userId: userId
+				})
+			.then((response)=>{
+			  console.log("LINE 20 OrgDashboard", response.data.cardsList)
+		  })
+			.catch(error => {
+				console.error('There was an error!', error);
+			});
+		  }
+
+
 	return (
 		<Container className='dashboard'>
 			<Row className='dashboardHeading'>
@@ -69,7 +107,7 @@ function Organizer(props) {
 									<Col>
 										<Link to='/card'>
 											{/* this should populate the specific card name  */}
-											<SmallGreenButton>View Card</SmallGreenButton>
+											<SmallGreenButton onClick={handleSubmit}>View Card</SmallGreenButton>
 										</Link>
 									</Col>
 								</div>

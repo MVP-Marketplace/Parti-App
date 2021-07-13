@@ -48,9 +48,17 @@ const logout = (req, res) => {
 	});
 };
 
+const view = (req, res) => {
+	User.findById(req.params.id, (err, foundUser) => {
+	  if (err) console.log(err)
+	  res.json(foundUser)
+	});
+  };
+
 module.exports = {
 	logout,
 	login,
 	createUser,
-	newUser
+	newUser, 
+	view
 };
