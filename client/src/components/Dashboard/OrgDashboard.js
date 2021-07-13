@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { SmallGreenButton } from "../StyledComponents/Buttons/SmallGreenButton";
@@ -32,19 +31,19 @@ function Organizer(props) {
   };
 
   // handle call to greetingCard database
-  const getGreetingCards = async (e) => {
-    // map through CardsList to get the individual cardID
-    axios
-      .get(`/card/${cardID}`, {
-        userId: userId,
-      })
-      .then((response) => {
-        console.log("LINE 20 OrgDashboard", response.data.cardsList);
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-      });
-  };
+  //   const getGreetingCards = async (e) => {
+  //     // map through CardsList to get the individual cardID
+  //     axios
+  //       .get(`/card/${cardID}`, {
+  //         userId: userId,
+  //       })
+  //       .then((response) => {
+  //         console.log("LINE 20 OrgDashboard", response.data.cardsList);
+  //       })
+  //       .catch((error) => {
+  //         console.error("There was an error!", error);
+  //       });
+  //   };
 
   return (
     <Container className="dashboard">
@@ -81,7 +80,7 @@ function Organizer(props) {
       <Row>
         <ul className="cards-list">
           {/* {userID.map(function (userID, index) { */}
-          return ({/* <li key={index}> */}
+          {/* <li key={index}> */}
           {/* {userID} */}
           <Card className="text-center" inline>
             <Container fluid>
