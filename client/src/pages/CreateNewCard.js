@@ -1,12 +1,14 @@
-import React from 'react';
-import NewCard from '../components/Card/NewCard';
+import React from "react";
+import NewCard from "../components/Card/NewCard";
+import TopNavbar from "../components/TopNavBar";
 
 function CreateNewCard() {
-	return (
-		<div>
-			<NewCard />
-		</div>
-	);
+  return (
+    <div>
+      <TopNavbar />
+      <NewCard />
+    </div>
+  );
 }
 
 export default CreateNewCard;
