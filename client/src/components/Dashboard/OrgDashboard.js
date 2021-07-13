@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { useState } from 'react';
 import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
 import { Container, Card, Row, Col } from 'react-bootstrap';
 // import ViewCardPage from '../../pages/ViewCardPage';
