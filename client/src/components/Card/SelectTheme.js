@@ -15,7 +15,7 @@ function SelectTheme(props) {
 		setTheme(e.target.src);
 		const cardId = props.location.state.cardId;
 		axios
-			.put(`/view-card/${cardId}`, {
+			.put(`/card/${cardId}`, {
 				theme: selectedTheme,
 			})
 			.then((response) => {
@@ -72,7 +72,7 @@ function SelectTheme(props) {
 						onClick={handleClick}
 					/>
 					<Link to='/dashboard'>
-						<MediumGreenButton style={{ margin: '2rem', float: 'right' }}>
+          <MediumGreenButton style={{ margin: '2rem', float: 'right' }}>
 							Continue
 						</MediumGreenButton>
 					</Link>
