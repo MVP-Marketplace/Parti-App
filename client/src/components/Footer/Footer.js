@@ -1,7 +1,9 @@
 import React from "react";
-import { Row, Col, Card } from "react-bootstrap";
+import { Row, Col, Card, Link } from "react-bootstrap";
 import PurpleBackground from "../../images/purple-background.png";
-
+import { FiTwitter } from "react-icons/fi";
+import { FiInstagram } from "react-icons/fi";
+import { FiFacebook } from "react-icons/fi";
 const footerStyle = {
   borderRadius: "5px",
   margin: "top:0px",
@@ -25,6 +27,15 @@ const FooterPage = () => {
           <Card style={cardStyle}>
             <Card.Body>
               <h4>Stay Connected </h4>
+              <a href="https://www.facebook.com/" className="facebook">
+                <FiFacebook icon={FiFacebook} />
+              </a>
+              <a href="https://www.instagram.com/" className="instagram">
+                <FiInstagram icon={FiInstagram} />
+              </a>
+              <a href="https://www.twitter.com/" className="twitter">
+                <FiTwitter icon={FiTwitter} />
+              </a>
             </Card.Body>
           </Card>
         </Col>
@@ -32,7 +43,7 @@ const FooterPage = () => {
         <Col sm>
           <Card style={cardStyle}>
             <Card.Body>
-              <h4>hello@particards.com</h4>
+              <Link>hello@particards.com</Link>
             </Card.Body>
           </Card>
         </Col>
