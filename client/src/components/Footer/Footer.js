@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Card, Link } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
 import PurpleBackground from "../../images/purple-background.png";
 import { FiTwitter } from "react-icons/fi";
 import { FiInstagram } from "react-icons/fi";
@@ -22,44 +22,35 @@ const FooterPage = () => {
         footerStyle,
       }}
     >
-      <Row>
-        <Col sm>
+      <Row style={cardStyle}>
+        <Col xs={6} md={6}>
           <Card style={cardStyle}>
             <Card.Body>
-              <h4>Stay Connected </h4>
-              <a href="https://www.facebook.com/" className="facebook">
-                <FiFacebook icon={FiFacebook} />
-              </a>
-              <a href="https://www.instagram.com/" className="instagram">
-                <FiInstagram icon={FiInstagram} />
-              </a>
-              <a href="https://www.twitter.com/" className="twitter">
-                <FiTwitter icon={FiTwitter} />
-              </a>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col sm />
-        <Col sm>
-          <Card style={cardStyle}>
-            <Card.Body>
-              <h4>hello@particards.com</h4>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-      <Row>
-        <Col sm>
-          <Card style={cardStyle}>
-            <Card.Body>
+              <div>
+                <h4>
+                  Stay Connected
+                  <a href="https://www.facebook.com/" className="facebook">
+                    <FiFacebook icon={FiFacebook} />
+                  </a>
+                  <a href="https://www.instagram.com/" className="instagram">
+                    <FiInstagram icon={FiInstagram} />
+                  </a>
+                  <a href="https://www.twitter.com/" className="twitter">
+                    <FiTwitter icon={FiTwitter} />
+                  </a>
+                </h4>
+              </div>
               <h8>© 2021 Parti Greetings</h8>
             </Card.Body>
           </Card>
         </Col>
-        <Col sm />
-        <Col sm>
+        <Col xs={6} md={2}>
+          <Card style={cardStyle}></Card>
+        </Col>
+        <Col xs={6} md={4}>
           <Card style={cardStyle}>
             <Card.Body>
+              <h4>hello@particards.com</h4>
               <h8>Terms of Service</h8> &nbsp;&nbsp;&nbsp;&nbsp;
               <h8>Privacy Policy</h8>
             </Card.Body>
