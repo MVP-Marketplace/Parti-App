@@ -43,7 +43,7 @@ const FooterPage = () => {
         <Col sm>
           <Card style={cardStyle}>
             <Card.Body>
-              <Link>hello@particards.com</Link>
+              <h4>hello@particards.com</h4>
             </Card.Body>
           </Card>
         </Col>
