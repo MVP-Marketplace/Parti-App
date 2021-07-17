@@ -119,10 +119,6 @@ function setUser(req, res, next) {
   }
   next();
 }
-//homepage route
-// app.get("/", (req, res) => {
-//   res.send("Parti-App homepage");
-// });
 
 // Draft-js
 app.use("/static", express.static(__dirname + "/uploads"));

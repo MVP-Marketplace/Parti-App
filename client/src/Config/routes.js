@@ -20,7 +20,7 @@ import RecDashboard from "../components/Dashboard/RecDashboard";
 const Routes = () => (
   <Switch>
     <Route exact path="/organizer" component={Default} />
-    <Route exact path="/" component={Homepage} />
+    <Route exact path="/" component={RecDashboard} />
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
     <Route path="/view-card" component={ViewCardPage} />

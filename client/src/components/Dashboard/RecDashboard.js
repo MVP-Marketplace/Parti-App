@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { useState } from 'react';
+import RecipientThankYou from "../RecipientThankYou/RecipientThankYou";
 import { SmallGreenButton } from "../StyledComponents/Buttons/SmallGreenButton";
 import { Container, Card, Row, Col } from "react-bootstrap";
-// import ViewCardPage from '../../pages/ViewCardPage';
 import "./dashboard.css";
 import VideoThumbnail from "./VideoThumbnail";
 import RecipientNavBar from "../RecipientNavBar";
@@ -51,14 +50,16 @@ function Recipient(props) {
             {/* {userID} */}
             <Card className="text-center" inline>
               <Container fluid>
-                <Row xs={1} md={3}>
+                <Row xs={1} md={6}>
                   <Col className="card-thumbnail">
                     <VideoThumbnail />
                   </Col>
                   <Col className="card-col" xl={3}>
                     <Card.Body>
                       {/* This should render cards connected to the user/role and pull the title, date sent/due and status (open/closed) */}
-                      <Card.Text>{/* { cardTitle } */}</Card.Text>
+                      <Card.Text>
+                        John's Birthday{/* { cardTitle } */}
+                      </Card.Text>
                       <Card.Text>
                         Event Date:
                         {/* { dateDue }  */}
@@ -80,6 +81,11 @@ function Recipient(props) {
                       <Link to="/card">
                         {/* this should populate the specific card name  */}
                         <SmallGreenButton>Play Video</SmallGreenButton>
+                      </Link>
+                    </Col>
+                    <Col>
+                      <Link>
+                        <RecipientThankYou />
                       </Link>
                     </Col>
                   </div>
