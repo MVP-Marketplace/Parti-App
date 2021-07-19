@@ -35,8 +35,8 @@ const greetingCardSchema = new Schema({
   //   type: String,
   //   enum: ['Eastern Standart Time', 'Central Standart Time', 'Mountain Standart Time', 'Pacific Standart Time']
   // },
-  contentId: [{
-    type: Schema.Types.ObjectId,
+  content: [{
+    type: Schema.Types.Object,
     ref: 'Content'
   }],
   status: {
@@ -54,7 +54,7 @@ const greetingCardSchema = new Schema({
   theme: {
     type: String,
   },
-}, 
+},
 { timestamps: true })
 
 const GreetingCard = mongoose.model('GreetingCard', greetingCardSchema)

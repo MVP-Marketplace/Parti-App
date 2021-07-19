@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 const contentSchema = new Schema(
   {
     name: {
-      type: String,
-      required: true,
+      type: String
     },
-    content: { type: Object, required: true },
+    content: { type: String },
     createdBy: { type: Schema.Types.ObjectId, ref: "User" },
+    greetingCardId: { type: Schema.Types.ObjectId, ref: "GreetingCard" },
   },
   { minimize: false }
 );
