@@ -67,7 +67,7 @@ const Login = (props) => {
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3" controlId="confirm-password">
+        {/* <Form.Group as={Row} className="mb-3" controlId="confirm-password">
           <Form.Label column sm="3">
             Confirm Password
           </Form.Label>
@@ -81,7 +81,7 @@ const Login = (props) => {
               }}
             />
           </Col>
-        </Form.Group>
+        </Form.Group> */}
         <SmallGreenButton type="submit" onSubmit={handleSubmit}>
           Log in
         </SmallGreenButton>
