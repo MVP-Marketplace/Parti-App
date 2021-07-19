@@ -3,24 +3,12 @@ import ContributorInvite from "../Contributor/ContributorInvite";
 import "./card.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  Button,
-  Form,
-  Modal,
-  ModalBody,
-  Row,
-  Col,
-  Image,
-  Card,
-} from "react-bootstrap";
+import { Form, Modal, Row, Col, Image } from "react-bootstrap";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import TimezoneSelect from "react-timezone-select";
 import { SmallGreenButton } from "../StyledComponents/Buttons/SmallGreenButton";
 import SadCard from "../../images/SadCard.svg";
-import { send } from "emailjs-com";
-import { init } from "emailjs-com";
-init("user_ruuSWVGbOAd5C8l0N2GFP");
 
 function CreateNewCard(props) {
   const [show, setState] = useState(true); // handles state for modal
@@ -98,18 +86,9 @@ function CreateNewCard(props) {
     setModalState("modal-two");
   };
 
-  // const handleShowModalThree = () => {
-  //   setModalState("modal-three");
-  // };
-
   const handleClose = () => {
     setModalState("close");
   };
-
-  // const inviteContributors = () => {
-  //   setModalState("close");
-  //   props.history.push("/contributor-invite");
-  // };
 
   const handleStartDesigning = () => {
     setModalState("close");
@@ -126,34 +105,6 @@ function CreateNewCard(props) {
     );
     console.log("line 104", "dateWithLocalZone:", dateWithOtherZone);
     return dateWithOtherZone;
-  };
-
-  // Code for email invite contributors modal //
-
-  const service_id = "service_3tnvm3l";
-  const template_id = "template_mo96d33";
-  const user_id = "user_ruuSWVGbOAd5C8l0N2GFP";
-
-  const [toSend, setToSend] = useState({
-    send_to: "",
-    from_name: "",
-    contributor_link: "",
-  });
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    send(service_id, template_id, toSend, user_id)
-      .then((response) => {
-        alert("Your message has been sent!");
-        console.log("SUCCESS!", response.status, response.text);
-      })
-      .catch((err) => {
-        alert("Something went wrong, please check your emails and try again.");
-        console.log("FAILED...", err);
-      });
-  };
-  const handleChange = (e) => {
-    setToSend({ ...toSend, [e.target.name]: e.target.value });
   };
 
   return (
@@ -406,25 +357,6 @@ function CreateNewCard(props) {
               </form>
             </Col>
           </Form.Group>
-
-          {/* <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-            <Form.Label column sm="2">
-              Delivery Time
-            </Form.Label>
-            <Col sm="5">
-   
-            <Form.Control 
-              type="text" 
-              placeholder="Hour"
-              onChange={event => setHours(event.target.value)}
-              />
-            <Form.Control 
-              type="text" 
-              placeholder="Minutes"
-              onChange={event => setMinutes(event.target.value)} />
-            </Col>
-            </Form.Group>  */}
-
           <Form.Group
             as={Row}
             className="mb-3"
@@ -500,57 +432,6 @@ function CreateNewCard(props) {
           </Row>
         </Modal.Body>
       </Modal>
-      {/* <Modal
-        show={CardSuccessShow === "modal-three"}
-        size="md"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-        className="justify-content-md-center"
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header
-          closeButton
-          className="mt-3"
-          onClick={handleClose}
-        ></Modal.Header>
-        <ModalBody>
-          <h6>Invite contributors by email</h6> <br />
-          <h6>*add multiples by seperating with a comma</h6>
-          <Card className="text-center">
-            <Card.Body>
-              <Form onSubmit={onSubmit}>
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Control
-                    type="email"
-                    name="send_to"
-                    placeholder="someone@aol.com, someoneelse@pinemail.com, anothersomeone@comcast.net"
-                    value={toSend.send_to}
-                    onChange={handleChange}
-                    as="textarea"
-                    rows={3}
-                  />
-                </Form.Group>
-                {/* code for greeting card link here... */}
-      {/* value={toSend.contributor_link} */}
-      {/* <SmallGreenButton type="submit">Submit</SmallGreenButton>
-              </Form>
-            </Card.Body>
-          </Card>
-        </ModalBody>
-        <ModalBody>
-          {/* Need to research a way to do this function, only found ways for React Native for mobile.  */}
-      {/* <Button variant="secondary" onClick={handleClose}>
-            + Import Contact List
-          </Button>
-        </ModalBody>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button> */}
-      {/* </Modal.Footer>  */}
-      {/* </Modal>  */}
     </div>
   );
 }
