@@ -3,3 +3,5 @@ const content = require('../controllers/content')
 
 
 router.post('/', content.create);
+
+module.exports = router;

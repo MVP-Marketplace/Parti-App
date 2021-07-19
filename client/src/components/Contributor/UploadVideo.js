@@ -68,10 +68,33 @@ function UploadVideo(props) {
         setFileInputState('');
         setPreviewSource('');
         setFileId(response.data.msg.secure_url)
+        console.log('LIne 71 ', response.data.msg.secure_url)
         setSuccessMsg('File uploaded successfully');
       })
       .catch(function (response) {
         //handle error
+        console.log(response);
+      });
+  }
+  // posts content to greeting card, returns updated greeting card to console 
+  // TODO: update greetingCardId 
+  const createContent = async () => {
+    const userId = JSON.parse(localStorage.getItem('user'));
+    const greetingCardId = JSON.parse(localStorage.getItem('cardId'));
+    const drft = JSON.stringify(content)
+    await axios.post(
+      'http://localhost:3001/content',
+      {'name': drft,
+      'content': fileId ,
+      'greetingCardId': '60e4e3771af03088508a1728',
+      'createdBy': userId , 
+        },
+      {headers: {'accept': 'application/json'}},
+      )
+      .then(function (response) {
+        console.log('Line 71 ', response)
+      })
+      .catch(function (response) {
         console.log(response);
       });
   }
@@ -85,58 +108,15 @@ function UploadVideo(props) {
   const [content, setContent] = useState(EditorState.createEmpty());
   const history = useHistory();
 
+  
   const convertDescriptionFromJSONToHTML = () => {
     try {
+      console.log('Line 90 ::::: ' , content.getCurrentContent())  
       return { __html: stateToHTML(content.getCurrentContent()) };
     } catch (exp) {
       console.log(exp);
       return { __html: "Error" };
     }
-  };
-
-  const uploadCallback = (file) => {
-    const formData = new FormData();
-    formData.append("file", file);
-
-    return new Promise((resolve, reject) => {
-      fetch("http://localhost:3001/uploadImage", {
-        method: "POST",
-        body: formData,
-      })
-        .then((res) => res.json())
-        .then((resData) => {
-          console.log(resData);
-          resolve({ data: { link: resData } });
-        })
-        .catch((error) => {
-          console.log(error);
-          reject(error.toString());
-        });
-    });
-  };
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-
-    const newPost = {
-      name: name,
-      content: convertToRaw(content.getCurrentContent()),
-    };
-    console.log("POST: ", newPost);
-    fetch("http://localhost:3001/api/posts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newPost),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setContent(EditorState.createEmpty());
-        history.goBack();
-      })
-      .catch((err) => console.log("ERROR:", err));
   };
   
 // End DraftJS Functions
@@ -167,6 +147,7 @@ function UploadVideo(props) {
   };
 
   const handleSubmit = () => {
+    createContent()
     setModalState("submit");
   };
 
@@ -245,7 +226,7 @@ function UploadVideo(props) {
           </Modal.Header>
           <Modal.Body>
             <div className="editorContainer">
-              <form noValidate onSubmit={onSubmit}>
+              {/* <form onSubmit={onChange}> */}
                 <div className="editors">
 
                   <Editor
@@ -255,13 +236,14 @@ function UploadVideo(props) {
                     toolbarClassName="toolbar-class"
                     wrapperStyle={{ border: "2px solid green", marginBottom: "20px" }}
                     editorStyle={{ height: "300px", padding: "10px" }}
-                    toolbar={{ image: { uploadCallback } }}
+                    // toolbar={{ image: { uploadCallback } }}
                     onEditorStateChange={(editorState) => setContent(editorState)}
+
                   />
                   <Toolbar />
                 </div>
                 <div dangerouslySetInnerHTML={convertDescriptionFromJSONToHTML()}></div>
-              </form>
+              {/* </form> */}
             </div>
           </Modal.Body>
           <Modal.Footer className="justify-content-md-center">

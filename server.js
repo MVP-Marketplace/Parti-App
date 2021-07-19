@@ -142,10 +142,12 @@ app.post("/uploadImage", upload.single("file"), (req, res) => {
 const userRouter = require("./server/routes/users.js");
 const cloudinaryRouter = require("./server/routes/cloudinary.js");
 const cardRouter = require("./server/routes/greetingCard.js");
+const contentRouter = require("./server/routes/content.js");
 const posts = require("./server/routes/api/posts");
 app.use("/users", userRouter);
 app.use("/", cloudinaryRouter);
 app.use("/card", cardRouter);
+app.use("/content", contentRouter);
 app.use("/api/posts", posts);
 
 // Serve static files from the React app

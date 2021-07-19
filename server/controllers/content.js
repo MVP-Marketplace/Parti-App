@@ -1,20 +1,24 @@
 const db = require('../models');
 const GreetingCard = require("../models/GreetingCard");
+const Content = require("../models/Content");
 
 const create = async (req, res) => {
-  console.log("line 24 req.body Content model ", req.body);
-	try {
-		const cretedContent = await db.Card.create(req.body);
-		GreetingCard.findById(req.body.cardId, (err, cretedContentard) => {
-			cretedContentard.content.push(cretedContentard);
-			cretedContentard.save();
-      res.send({cretedContentard: cretedContentard})
-      console.log(cretedContentard)
+	console.log("line 24 req.body", req.body);
+	  try {
+		  const createdContent =  new Content(req.body);
+		  console.log(createdContent)
+		  createdContent.save()
+ 
+		const card = await GreetingCard.findOneAndUpdate(req.body.greetingCardId, (err, createdContent) => {
+			card.content.push(createdContent);
+			card.save();
+			console.log(updatedCard)
 		});
-	} catch (err) {
-		console.log(err);
-	}
-};
+		res.send(card)
+	  } catch (err) {
+		  console.log(err);
+	  }
+  };
 
 module.exports = {
     create
