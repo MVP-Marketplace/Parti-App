@@ -1,20 +1,24 @@
 const db = require('../models');
 const User = require("../models/User");
+const GreetingCard = require("../models/GreetingCard");
 
 const create = async (req, res) => {
-  console.log("line 24 req.body", req.body);
-	try {
-		const createdCard = await db.Card.create(req.body);
-		User.findById(req.body.userId, (err, createdCard) => {
-			createdCard.cardsList.push(createdCard);
-			createdCard.save();
-      res.send({createdCard: createdCard})
-      console.log(createdCard)
+	console.log("line 24 req.body", req.body);
+	  try {
+		  const createdCard = new GreetingCard(req.body);
+
+		  const user = User.findOneAndUpdate(req.body.userId, (err, createdCard) => {
+		  user.cardsList.push(createdCard._id);
+		  user.save()
+      createdCard.save();
 		});
-	} catch (err) {
-		console.log(err);
-	}
-};
+    // res.status(status).send(body)
+    res.send({createdCard: createdCard})
+              // {user :user})
+	  } catch (err) {
+		  console.log(err);
+	  }
+  };
 
 const destroy = (req, res) => {
   db.Card.findByIdAndDelete(req.params.id, (err, deletedCard) => {
