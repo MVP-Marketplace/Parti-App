@@ -9,15 +9,18 @@ import '../../App.css';
 function Default() {
 
     const [greetingCard, setGreetingCard] = useState({});
-
+    const [contentList, setcontentList] = useState([]);
+     
 	useEffect(async () => {
 		const id = JSON.parse(localStorage.getItem("cardId"));
-		console.log(id);
+
 		// GET request using axios inside useEffect React hook
 		const result = await axios.get(`/card/${id}`, {id: id})
-			setGreetingCard(result.data)
+			setGreetingCard(result.data) // sets greetingCard object to state 
+			setcontentList(result.data.contentList) // sets  each content object to state 
 	}, []);
-	
+    
+
 	return (
 		<div className='organizer-page'>
 			<TopNavBar />
