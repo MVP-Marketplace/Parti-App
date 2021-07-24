@@ -23,22 +23,12 @@ const greetingCardSchema = new Schema({
   dueDate: {
     type: String,
   },
-  // dueTime: [{
-  //   hours: {
-  //       type: Number, required: true, min: 0, max: 23
-  //   },
-  //   minutes: {
-  //       type: Number, required: true, min: 0, max: 59
-  //   }
-  // }],
-  // dueTimeZone: {
-  //   type: String,
-  //   enum: ['Eastern Standart Time', 'Central Standart Time', 'Mountain Standart Time', 'Pacific Standart Time']
-  // },
-  content: [{
-    type: Schema.Types.Object,
-    ref: 'Content'
-  }],
+  contentList: [
+		{
+			type: mongoose.Schema.Types.Object,
+			ref: "Content",
+		}
+  ],
   status: {
     type: String,
     enum: ['Incomplete', 'Completed', 'Sent'],
@@ -59,8 +49,3 @@ const greetingCardSchema = new Schema({
 
 const GreetingCard = mongoose.model('GreetingCard', greetingCardSchema)
 module.exports = GreetingCard
-
-// dueTime: {
-  //   timestamps: true,
-  //   required: true
-  // },
