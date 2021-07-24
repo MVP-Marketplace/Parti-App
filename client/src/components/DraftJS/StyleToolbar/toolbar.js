@@ -15,10 +15,6 @@ import {
 } from '@draft-js-plugins/buttons';
 import editorStyles from './toolbar.css';
 
-
-
-
-
 const toolbarPlugin = createToolbarPlugin();
 const emojiPlugin = createEmojiPlugin();
 const { Toolbar } = toolbarPlugin;
@@ -61,16 +57,13 @@ export default class CustomToolbarEditor extends Component {
             ref={(element) => {
               this.editor = element;
             }}
-            
           />
           <EmojiSuggestions />
           <Toolbar>
-            {
-              
+            {  
               // may be use React.Fragment instead of div to improve perfomance after React 16
               (externalProps) => (
                 <div>
-                  
                   <BoldButton {...externalProps} />
                   <ItalicButton {...externalProps} />
                   <UnderlineButton {...externalProps} />
