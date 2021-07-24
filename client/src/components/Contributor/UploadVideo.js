@@ -79,6 +79,7 @@ function UploadVideo(props) {
         console.log(response);
       });
   }
+
   // posts content to greeting card, returns updated greeting card to console 
   // TODO: update greetingCardId 
   const createContent = async () => {
@@ -87,14 +88,13 @@ function UploadVideo(props) {
     const drft = JSON.stringify(content)
     await axios.post(
       'http://localhost:3001/content',
-      {
-        'name': drft,
-        'content': fileId,
-        'greetingCardId': '60e4e3771af03088508a1728',
-        'createdBy': userId,
-      },
-      { headers: { 'accept': 'application/json' } },
-    )
+      {'name': 'content',
+      'content': fileId ,
+      'greetingCardId': greetingCardId,
+      'createdBy': userId , 
+        },
+      {headers: {'accept': 'application/json'}},
+      )
       .then(function (response) {
         console.log('Line 71 ', response)
       })
