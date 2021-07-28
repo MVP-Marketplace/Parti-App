@@ -13,56 +13,59 @@ import { stateToHTML } from "draft-js-export-html";
 // Style Imports
 
 import MediumGreenButton from "../StyledComponents/Buttons/MediumGreenButton";
+import SmallGreenButton from "../StyledComponents/Buttons/SmallGreenButton";
+
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function UploadVideo(props) {
 
   const [fileInputState, setFileInputState] = useState('');
-	const [previewSource, setPreviewSource] = useState('');
-	const [selectedFile, setSelectedFile] = useState();
-	const [successMsg, setSuccessMsg] = useState('');
-	const [errMsg, setErrMsg] = useState('');
+  const [previewSource, setPreviewSource] = useState('');
+  const [selectedFile, setSelectedFile] = useState();
+  const [successMsg, setSuccessMsg] = useState('');
+  const [errMsg, setErrMsg] = useState('');
 
 
-  const [fileId, setFileId ] = useState('');
-  const [message, SetMessage ] = useState('');
+  const [fileId, setFileId] = useState('');
+  const [message, SetMessage] = useState('');
 
-	const handleFileInputChange = (e) => {
-		const file = e.target.files[0];
-		previewFile(file);
-		setSelectedFile(file);
-		setFileInputState(e.target.value);
-	};
+  const handleFileInputChange = (e) => {
+    const file = e.target.files[0];
+    previewFile(file);
+    setSelectedFile(file);
+    setFileInputState(e.target.value);
+  };
 
-	const previewFile = (file) => {
-		const reader = new FileReader();
-		reader.readAsDataURL(file);
-		reader.onloadend = () => {
-			setPreviewSource(reader.result);
-		};
-	};
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result);
+    };
+  };
 
-	const handleSubmitFile = (e) => {
-		e.preventDefault();
-		if (!selectedFile) return;
-	
-		const reader = new FileReader();
-		reader.readAsDataURL(selectedFile);
-		reader.onloadend = () => {
-			uploadImage(reader.result);
-		};
-		reader.onerror = () => {
-			console.error('AHHHH!!');
-			setErrMsg('something went wrong!');
-		};
-	};
-  
+  const handleSubmitFile = (e) => {
+    e.preventDefault();
+    if (!selectedFile) return;
+
+    const reader = new FileReader();
+    reader.readAsDataURL(selectedFile);
+    reader.onloadend = () => {
+      uploadImage(reader.result);
+    };
+    reader.onerror = () => {
+      console.error('AHHHH!!');
+      setErrMsg('something went wrong!');
+    };
+  };
+
   const uploadImage = async (data) => {
     await axios.post(
       'http://localhost:3001/image-upload',
-      {'file': data},
-      {headers: {'accept': 'application/json'}},
-      )
+      { 'file': data },
+      { headers: { 'accept': 'application/json' } },
+    )
       .then(function (response) {
         //handle success
         setFileInputState('');
@@ -76,6 +79,7 @@ function UploadVideo(props) {
         console.log(response);
       });
   }
+
   // posts content to greeting card, returns updated greeting card to console 
   // TODO: update greetingCardId 
   const createContent = async () => {
@@ -84,9 +88,9 @@ function UploadVideo(props) {
     const drft = JSON.stringify(content)
     await axios.post(
       'http://localhost:3001/content',
-      {'name': drft,
+      {'name': 'content',
       'content': fileId ,
-      'greetingCardId': '60e4e3771af03088508a1728',
+      'greetingCardId': greetingCardId,
       'createdBy': userId , 
         },
       {headers: {'accept': 'application/json'}},
@@ -108,21 +112,21 @@ function UploadVideo(props) {
   const [content, setContent] = useState(EditorState.createEmpty());
   const history = useHistory();
 
-  
+
   const convertDescriptionFromJSONToHTML = () => {
     try {
-      console.log('Line 90 ::::: ' , content.getCurrentContent())  
+      console.log('Line 90 ::::: ', content.getCurrentContent())
       return { __html: stateToHTML(content.getCurrentContent()) };
     } catch (exp) {
       console.log(exp);
       return { __html: "Error" };
     }
   };
-  
-// End DraftJS Functions
+
+  // End DraftJS Functions
 
 
-// Modal Functions
+  // Modal Functions
   const [modalState, setModalState] = useState("close");
 
   const handleShowModalOne = () => {
@@ -155,41 +159,37 @@ function UploadVideo(props) {
     <div>
       <MediumGreenButton onClick={handleShowModalOne}>Upload</MediumGreenButton>
 
-
       <Modal
         show={modalState === "modal-one"}
         size="md"
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        className="justify-content-md-center"
+        className="text-center"
       >
+        <Modal.Title className="text-center m-3">Ready To Upload</Modal.Title>
 
-        <Modal.Header>
-          <Modal.Title>Ready To Upload</Modal.Title>
-        </Modal.Header>
+        {/* Upload content  */}
 
-        {/* Upload content  */} 
+        <form className='form' onSubmit={handleSubmitFile} >
+          <input
+            id='fileInput'
+            type='file'
+            name='file'
+            onChange={handleFileInputChange}
+            value={fileInputState}
+            className='form-input'
+          />
+          <MediumGreenButton className="m-3" onSubmit={handleSubmitFile}> Upload </MediumGreenButton>
+        </form>
 
-        <form  className='form' onSubmit={handleSubmitFile} >
-				<input
-					id='fileInput'
-					type='file'
-					name='file'
-					onChange={handleFileInputChange}
-					value={fileInputState}
-					className='form-input'
-				/>
-			<MediumGreenButton onSubmit={handleSubmitFile}> Upload </MediumGreenButton>
-			</form>
-
-        <Modal.Body className="justify-content-md-center">
+        <Modal.Body>
           After you upload your video, you can use our text editor to add more personal touches!
         </Modal.Body>
         <Modal.Footer className="justify-content-md-center">
           <Button variant="secondary" onClick={handleClose} >
             Cancel
           </Button>
-          <Button onClick={handleShowModalTwo}>Next</Button>
+          <SmallGreenButton onClick={handleShowModalTwo}>Next</SmallGreenButton>
         </Modal.Footer>
       </Modal>
 
@@ -198,10 +198,11 @@ function UploadVideo(props) {
         size="md"
         aria-labelledby="contained-modal-title-vcenter"
         centered
+        className="text-center m-3"
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Video Uploaded</Modal.Title>
-        </Modal.Header>
+        {/* <Modal.Header closeButton> */}
+          <Modal.Title className="text-center m-3">Video Uploaded</Modal.Title>
+        {/* </Modal.Header> */}
         <Modal.Body>
           Would you like to add a personal touch to your picture or video?
         </Modal.Body>
@@ -209,8 +210,8 @@ function UploadVideo(props) {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button onClick={handleShowModalThree}>Customize</Button>
-          <Button onClick={handleShowModalFour}>Preview</Button>
+          <SmallGreenButton onClick={handleShowModalThree}>Customize</SmallGreenButton>
+          <SmallGreenButton onClick={handleShowModalFour}>Preview</SmallGreenButton>
         </Modal.Footer>
       </Modal>
 
@@ -227,22 +228,22 @@ function UploadVideo(props) {
           <Modal.Body>
             <div className="editorContainer">
               {/* <form onSubmit={onChange}> */}
-                <div className="editors">
+              <div className="editors">
 
-                  <Editor
-                    editorState={content}
-                    wrapperClassName="wrapper-class"
-                    editorClassName="editor-class"
-                    toolbarClassName="toolbar-class"
-                    wrapperStyle={{ border: "2px solid green", marginBottom: "20px" }}
-                    editorStyle={{ height: "300px", padding: "10px" }}
-                    // toolbar={{ image: { uploadCallback } }}
-                    onEditorStateChange={(editorState) => setContent(editorState)}
+                <Editor
+                  editorState={content}
+                  wrapperClassName="wrapper-class"
+                  editorClassName="editor-class"
+                  toolbarClassName="toolbar-class"
+                  wrapperStyle={{ border: "2px solid green", marginBottom: "20px" }}
+                  editorStyle={{ height: "300px", padding: "10px" }}
+                  // toolbar={{ image: { uploadCallback } }}
+                  onEditorStateChange={(editorState) => setContent(editorState)}
 
-                  />
-                  <Toolbar />
-                </div>
-                <div dangerouslySetInnerHTML={convertDescriptionFromJSONToHTML()}></div>
+                />
+                <Toolbar />
+              </div>
+              <div dangerouslySetInnerHTML={convertDescriptionFromJSONToHTML()}></div>
               {/* </form> */}
             </div>
           </Modal.Body>
@@ -250,7 +251,7 @@ function UploadVideo(props) {
             <Button variant="secondary" onClick={handleShowModalTwo}>
               Back
             </Button>
-            <Button onClick={handleShowModalFour}>Preview</Button>
+            <SmallGreenButton onClick={handleShowModalFour}>Preview</SmallGreenButton>
           </Modal.Footer>
         </Form>
       </Modal>
@@ -262,6 +263,9 @@ function UploadVideo(props) {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
+
+      {/* This Modal is designed to show a preview of the media upload, and message from draftjs, also a thank you to the users name, from the Ogranizer */}
+
         <Modal.Body aria-labelledby="contained-modal-title-vcenter" centered>
           Insert Video Box Here
         </Modal.Body>
@@ -272,7 +276,7 @@ function UploadVideo(props) {
           <Button variant="secondary" onClick={handleClose}>
             Exit
           </Button>
-          <Button onClick={handleSubmit}>Create a Card</Button>
+          <SmallGreenButton onClick={handleSubmit}>Create a Card</SmallGreenButton>
         </Modal.Footer>
       </Modal>
     </div >

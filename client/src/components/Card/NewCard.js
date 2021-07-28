@@ -21,7 +21,7 @@ function CreateNewCard(props) {
   const [calendarDate, setcalendarDate] = useState("");
   const [selectedTimezone, setSelectedTimezone] = useState("");
   const [dueDate, setDueDate] = useState("");
-  // const [hours, setHours] = useState('');
+  const [greetingCard, setGreetingCard] = useState('');
   // const [minutes, setMinutes] = useState('');
 
   const fistModalHandleClose = () => {
@@ -57,10 +57,10 @@ function CreateNewCard(props) {
         // dueTimeZone: selectedTimezone,
         occasion: occasion,
         title: title,
-      })
-      .then((response) => {
-        console.log("LINE 57", response.data);
+      })      .then((response) => {
+        console.log("LINE 57", response);
         console.log("LINE 58", response.data.createdCard._id);
+        setGreetingCard(response.data.createdCard._id)
         localStorage.setItem(
           "cardId",
           JSON.stringify(response.data.createdCard._id)
@@ -423,7 +423,7 @@ function CreateNewCard(props) {
               <p className="due-date">Scheduled : {dueDate} </p>
 
               <div className="modal-buttons">
-                <ContributorInvite onClick={handleClose} />
+                <ContributorInvite onClick={handleClose} greetingCard={greetingCard}/>
                 <SmallGreenButton onClick={handleStartDesigning}>
                   Start Designing{" "}
                 </SmallGreenButton>
