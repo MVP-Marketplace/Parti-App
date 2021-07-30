@@ -32,7 +32,7 @@ function Organizer(props) {
 
   // handle call to greetingCard database
   //   const getGreetingCards = async (e) => {
-  //     // map through CardsList to get the individual cardID
+  // map through CardsList to get the individual cardID
   //     axios
   //       .get(`/card/${cardID}`, {
   //         userId: userId,
