@@ -17,6 +17,7 @@ const Login = (props) => {
       .post("/users/login", { username: username, password: password })
       .then((response) => {
         setUser(response.data);
+        localStorage.setItem("email", JSON.stringify(response.data.username));
         localStorage.setItem("user", JSON.stringify(response.data._id));
         localStorage.setItem("cardId", JSON.stringify(response.data.cardsList));
         props.history.push("/dashboard");
@@ -67,7 +68,7 @@ const Login = (props) => {
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3" controlId="confirm-password">
+        {/* <Form.Group as={Row} className="mb-3" controlId="confirm-password">
           <Form.Label column sm="3">
             Confirm Password
           </Form.Label>
@@ -81,7 +82,7 @@ const Login = (props) => {
               }}
             />
           </Col>
-        </Form.Group>
+        </Form.Group> */}
         <SmallGreenButton type="submit" onSubmit={handleSubmit}>
           Log in
         </SmallGreenButton>
