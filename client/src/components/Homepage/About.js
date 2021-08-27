@@ -16,14 +16,27 @@ function About() {
       <Container>
         <Row className="justify-content-md-center m-3">
           <Col className="justify-content-md-center m-3">
-            <Card className="text-center" border="0" style={{ width: "25rem" }}>
+            <Card
+              className="text-center"
+              border="0"
+              style={{
+                width: "25rem",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
               <Image src={Photo4} />
             </Card>
           </Col>
           <Col className="justify-content-md m-3">
             <Card
               border="0"
-              style={{ width: "25rem", backgroundColor: "transparent" }}
+              style={{
+                width: "25rem",
+                backgroundColor: "transparent",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
             >
               <Card.Title style={{ fontSize: 48 }}>
                 What is Parti Greetings?

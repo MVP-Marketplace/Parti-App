@@ -29,7 +29,9 @@ function Organizer(props) {
 				console.error('There was an error!', error);
 			});
 	};
-
+React.useEffect(() => {
+	console.log([]);
+}, [userId]);
 	// handle call to greetingCard database
 	//   const getGreetingCards = async (e) => {
 	// // map through CardsList to get the individual cardID
@@ -49,7 +51,7 @@ function Organizer(props) {
 		<Container className='dashboard'>
 			<Row className='dashboardHeading'>
 				<h3>
-					{/* {userName} */}
+					
 					{userId}'s Dashboard
 				</h3>
 			</Row>
