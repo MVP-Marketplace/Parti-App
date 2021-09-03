@@ -1,3 +1,5 @@
+//one of the modals and its functionality for contributor video uploading
+
 import React, { Component } from 'react';
 
 import createEmojiPlugin from '@draft-js-plugins/emoji';

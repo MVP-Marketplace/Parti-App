@@ -20,17 +20,19 @@ function Default() {
 		setGreetingCard(result.data); // sets greetingCard object to state
 		setcontentList(result.data.contentList); // sets  each content object to state
 	}, []);
-
+	//Styling needs to be completed for this page to render like in the FIGMA
 	return (
 		<div className='organizer-page'>
 			<TopNavBar />
 			<Container>
 				<Row xs={2}>
 					<Col>
+						{/* conditional code based on who's logged in - contributor or organizer. Perhaps rename LSideContributor and LSideOrganizer*/}
 						<LSide />
-						{/* LSide renders contributer's videos connected to a particular card for Organizer*/}
+						{/* LSide renders contributer's videos connected to a particular card for Organizer. */}
 					</Col>
 					<Col>
+						{/* conditional code based on who's logged in - contributor or organizer. Perhaps rename PreviewContributor and PreviewOrganizer */}
 						<Preview />
 						{/* Preview renders videos and card background */}
 					</Col>

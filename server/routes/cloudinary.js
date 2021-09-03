@@ -1,11 +1,13 @@
-const express = require('express')
-const router = express.Router()
-const cloudinaryController = require('../controllers/cloudinary.js')
+// These are the routes that connect to cloudinary
 
-router.post('/image-upload', cloudinaryController.uploadImage)
+const express = require('express');
+const router = express.Router();
+const cloudinaryController = require('../controllers/cloudinary.js');
 
-router.delete('/image-delete', cloudinaryController.deleteAsset)
+router.post('/image-upload', cloudinaryController.uploadImage);
 
-router.get('/images-view',cloudinaryController.showAssets)
+router.delete('/image-delete', cloudinaryController.deleteAsset);
 
-module.exports = router
+router.get('/images-view', cloudinaryController.showAssets);
+
+module.exports = router;

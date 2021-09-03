@@ -3,31 +3,36 @@ const User = require('../models/User');
 const bodyParser = require('body-parser');
 const { createUser } = require('./users');
 
-
 const uploadImage = async (req, res) => {
 	const data = req.body;
-    try {
-        const uploadResponse = await cloudinary.uploader.upload_large(data.file,{
-             resource_type: "raw",
-			 chunk_size: 6000000,
-    		 eager: [
-					{ width: 300, height: 300, crop: "pad", audio_codec: "none" }, 
-					{ width: 160, height: 100, crop: "crop", gravity: "south", audio_codec: "none" } ],                                   
-			 eager_async: true,
-        });
-        res.json({ msg: uploadResponse,  });
-		console.log(uploadResponse)
+	try {
+		const uploadResponse = await cloudinary.uploader.upload_large(data.file, {
+			resource_type: 'raw',
+			chunk_size: 6000000,
+			eager: [
+				{ width: 300, height: 300, crop: 'pad', audio_codec: 'none' },
+				{
+					width: 160,
+					height: 100,
+					crop: 'crop',
+					gravity: 'south',
+					audio_codec: 'none',
+				},
+			],
+			eager_async: true,
+		});
+		res.json({ msg: uploadResponse });
+		console.log(uploadResponse);
 		// TODO
-		//update user with asset ID
+		// update user with asset ID
 		// const user = User.findById(req.params.id)
-	    // user.findByIdAndUpdate(req.params.id, data.image) 			
+		// user.findByIdAndUpdate(req.params.id, data.image)
 		// res.json(user)
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ err: 'Something went wrong' });
-    }
+	} catch (err) {
+		console.error(err);
+		res.status(500).json({ err: 'Something went wrong' });
+	}
 };
-
 
 const showAssets = (req, res) => {
 	cloudinary.search

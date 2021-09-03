@@ -6,6 +6,7 @@ const qs = require('qs');
 function VideoPlayer(props) {
 	// TODO:
 	// DELETE video
+	// CONNECT specific videos to userID and conditional code to populate only those video cards connected to user
 	const config = {
 		cloud_name: 'demo',
 		public_id: 'elephants',
