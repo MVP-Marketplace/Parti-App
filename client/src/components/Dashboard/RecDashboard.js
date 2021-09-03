@@ -7,6 +7,7 @@ import "./dashboard.css";
 import VideoThumbnail from "./VideoThumbnail";
 import RecipientNavBar from "../RecipientNavBar";
 
+//This dashboard should populate when the user is a recipient and not an organizer
 function Recipient(props) {
   // const userID = this.props.userID;
   return (

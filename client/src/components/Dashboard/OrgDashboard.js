@@ -14,7 +14,9 @@ function Organizer(props) {
 	// get the list of cards LINE 25 and make a get request with every CARDID to database
 
 	// React.useEffect(() => checkIfUserHasCards(handleSubmit), [])
-
+	// React.useEffect(() => {
+	// 	console.log([]);
+	// }, [userId]);
 	// create the get request to get the list of cards for current user
 	const handleSubmit = async (e) => {
 		// console.log('line 17 ', userId);
@@ -29,9 +31,7 @@ function Organizer(props) {
 				console.error('There was an error!', error);
 			});
 	};
-React.useEffect(() => {
-	console.log([]);
-}, [userId]);
+
 	// handle call to greetingCard database
 	//   const getGreetingCards = async (e) => {
 	// // map through CardsList to get the individual cardID
@@ -50,10 +50,7 @@ React.useEffect(() => {
 	return (
 		<Container className='dashboard'>
 			<Row className='dashboardHeading'>
-				<h3>
-					
-					{userId}'s Dashboard
-				</h3>
+				<h3>{userId}'s Dashboard</h3>
 			</Row>
 			<div>
 				<Row justify-content-center>
@@ -107,7 +104,7 @@ React.useEffect(() => {
 								<div className='card-col'>
 									<Col>
 										<Link to='/card'>
-											{/* this should populate the specific card name  */}
+											{/* this should populate the specific card name and then clicking on the button below should send you to the indvidual card page */}
 											<SmallGreenButton onClick={handleSubmit}>
 												View Card
 											</SmallGreenButton>
