@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
 import TopNavBar from '../components/TopNavBar';
-import Preview from '../components/Organizer/Preview';
+// import Preview from '../components/Organizer/Preview';
 import LSide from '../components/Sidebar/LSide';
 import axios from 'axios';
 import '../App.css';
-import Background from '../components/Organizer/Options/Background';
-import VideoThumbnail from '../components/Dashboard/VideoThumbnail';
 
 function Default() {
 	const [greetingCard, setGreetingCard] = useState({});
@@ -33,7 +31,7 @@ function Default() {
 					</Col>
 					<Col>
 						{/* conditional code based on who's logged in - contributor or organizer. Perhaps rename PreviewContributor and PreviewOrganizer */}
-						<Preview />
+
 						{/* Preview renders videos and card background */}
 					</Col>
 				</Row>

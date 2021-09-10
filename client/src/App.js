@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Homepage from './pages/Homepage';
-import Default from './components/Organizer/Default';
+// import Default from './components/Organizer/Default';
 import Login from './components/AccountSetUp/Login';
 import Register from './components/AccountSetUp/Register';
 import Welcome from './components/AccountSetUp/Welcome';
@@ -20,7 +20,6 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route exact path='/organizer' component={Default} />
 				<Route exact path='/' component={Homepage} />
 				<Route path='/login' component={Login} />
 				<Route path='/register' component={Register} />
