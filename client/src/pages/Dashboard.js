@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import TopNavbar from "../components/TopNavBar";
 // import RecDashboard from '../components/Dashboard/RecDashboard';
 
+//Recipient and Organizer Dashboard to show cards belonging to a particular user. 
 function Dashboard() {
   return (
     <Container fluid>

@@ -1,3 +1,5 @@
+//Part of the landing page
+
 import React from "react";
 
 // Components
