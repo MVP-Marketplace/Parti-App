@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './dashboard.css';
 
+// This component is the iframe to generate a video thumbnail pulling from the videos posted by a contributer, and viewed by organizer and recipient.
 const qs = require('qs');
 function VideoPlayer(props) {
 	// TODO:
-	// TRIM
-	// ADD Stickers
 	// DELETE video
+	// CONNECT specific videos to userID and conditional code to populate only those video cards connected to user
 	const config = {
 		cloud_name: 'demo',
 		public_id: 'elephants',

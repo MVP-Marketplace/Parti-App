@@ -1,3 +1,5 @@
+//Ask Joe what this is being used for (we deleted Alert1 because it wasn't being used)
+
 import React, { useState, useEffect } from 'react';
 
 export default function Alert({ msg, type }) {

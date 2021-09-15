@@ -1,3 +1,5 @@
+//May need two separate components LSideContributor vs LSide Recipient or conditional code in this component alone. Set up to show either videos contributed for the organizer to place into card and edit or recipient video playlist to view videos in their greeting card.
+
 import { useState } from 'react';
 import { Nav, ButtonGroup, ToggleButton } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';

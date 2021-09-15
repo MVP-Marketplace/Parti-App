@@ -1,3 +1,5 @@
+//Why is this separate from SelectTheme when both components seem to show image choices for greeting card theme.
+
 import React, { useState } from 'react';
 import { Card, CardGroup, Container, Image, Button , Tab, Tabs} from "react-bootstrap";
 import { Link } from 'react-router-dom';

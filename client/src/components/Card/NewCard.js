@@ -57,7 +57,7 @@ function CreateNewCard(props) {
         // dueTimeZone: selectedTimezone,
         occasion: occasion,
         title: title,
-      })      .then((response) => {
+      }).then((response) => {
         console.log("LINE 57", response);
         console.log("LINE 58", response.data.createdCard._id);
         setGreetingCard(response.data.createdCard._id)
@@ -106,7 +106,7 @@ function CreateNewCard(props) {
     console.log("line 104", "dateWithLocalZone:", dateWithOtherZone);
     return dateWithOtherZone;
   };
-
+// styling for modals to be centered on webpage instead of pushing to the right and not visible on certain browsers (more dynamic)
   return (
     <div>
       <Modal
@@ -380,6 +380,7 @@ function CreateNewCard(props) {
           </Form.Group>
           <div className="next-button">
             {" "}
+            {/* TODO: Code is not working to move on to the next steps */}
             <SmallGreenButton onClick={handleSubmit}>
               Create Card
             </SmallGreenButton>
