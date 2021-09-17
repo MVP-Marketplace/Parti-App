@@ -3,6 +3,7 @@ import { Container, Col, Row } from 'react-bootstrap';
 import TopNavBar from '../components/TopNavBar';
 // import Preview from '../components/Organizer/Preview';
 import LSide from '../components/Sidebar/LSide';
+import RSide from '../components/Sidebar/RSide';
 import axios from 'axios';
 import '../App.css';
 
@@ -31,7 +32,7 @@ function Default() {
 					</Col>
 					<Col>
 						{/* conditional code based on who's logged in - contributor or organizer. Perhaps rename PreviewContributor and PreviewOrganizer */}
-
+						<RSide />
 						{/* Preview renders videos and card background */}
 					</Col>
 				</Row>
