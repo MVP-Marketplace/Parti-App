@@ -5,6 +5,9 @@ import { Nav, ButtonGroup, ToggleButton } from "react-bootstrap";
 import { Card, CardGroup, Tab, Tabs, Image } from "react-bootstrap";
 import UploadVideo from "../Contributor/UploadVideo";
 import VideoThumbnail from "../Dashboard/VideoThumbnail";
+import Badge from 'react-bootstrap/Badge';
+import "./LSide.css";
+
 
 function LSide() {
     const [highlight, setHighlight] = useState("1");
@@ -22,18 +25,56 @@ function LSide() {
         <div>
             <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
                 <Tab eventKey="home" title="Received">
+                    <h5>Filter By</h5>
+
                     <CardGroup
                         style={{
                             width: "100%"
                         }}
                     >
-                        <VideoThumbnail />
-                        <VideoThumbnail />
-                        <VideoThumbnail />
+                        <div className="col-6">
+                            <VideoThumbnail />
+                            <h6>Cameron Walker</h6>
+                            <h8>00:37</h8>
+                            <div>
+                                <Badge pill bg="dark">Sibling</Badge> <Badge pill bg="dark">Bulldogs</Badge>
+                            </div>
+                            <p>Happy Birthday Kim!! Hope you have a wonderful day and wish you all the best!</p>
+                        </div>
+                        <div className="col-6">
+                            <VideoThumbnail />
+                            <h6>Marybeth Lee</h6>
+                            <h8>00:48</h8>
+                            <div>
+                                <Badge pill bg="dark">Sibling</Badge>
+                            </div>
+                            <p>I Love and miss you so much Kim!</p>
+                        </div>
+                        <div className="col-6">
+                            <VideoThumbnail />
+                            <h6>Alex Walker</h6>
+                            <h8>02:19</h8>
+                            <div>
+                                <Badge pill bg="dark">Uncle</Badge>
+                            </div>
+                            <p>Happy bday Kimmy</p>
+                        </div>
+                        <div className="col-6">
+                            <VideoThumbnail />
+                            <h6>Diana Makasha</h6>
+                            <h8>01:23</h8>
+                            <div>
+                                <Badge pill bg="dark">Cousin</Badge> <Badge pill bg="dark">Co-Worker</Badge>
+                            </div>
+                            <p>+2 more filters</p>
+                        </div>
                     </CardGroup>
                 </Tab>
                 <Tab eventKey="profile" title="Waiting">
-                    <p>Bye</p>
+                    <div>
+                        <p>Cameron Walker<br />
+                        cameronwalker@gmail.com</p>
+                    </div>
                 </Tab>
             </Tabs>
         </div>
