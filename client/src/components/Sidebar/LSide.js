@@ -72,8 +72,38 @@ function LSide() {
                 </Tab>
                 <Tab eventKey="profile" title="Waiting">
                     <div>
-                        <p>Cameron Walker<br />
+                        <p><b>Cameron Walker</b><br />
                         cameronwalker@gmail.com</p>
+                    </div>
+                    <hr />
+                    <div>
+                        <p><b>Marybeth Lee</b><br />
+                        marybethlee@gmail.com</p>
+                    </div>
+                    <hr />
+                    <div>
+                        <p><b>Diana Makasha</b><br />
+                        dianamakasha@gmail.com</p>
+                    </div>
+                    <hr />
+                    <div>
+                        <p><b>Alex Walker</b><br />
+                        alexwalker@gmail.com</p>
+                    </div>
+                    <hr />
+                    <div>
+                        <p><b>Natalie Snyderman</b><br />
+                        nataliesnyderman@gmail.com</p>
+                    </div>
+                    <hr />
+                    <div>
+                        <p><b>Natalie Snyderman</b><br />
+                        nataliesnyderman@gmail.com</p>
+                    </div>
+                    <hr />
+                    <div>
+                        <p><b>Natalie Snyderman</b><br />
+                        nataliesnyderman@gmail.com</p>
                     </div>
                 </Tab>
             </Tabs>
