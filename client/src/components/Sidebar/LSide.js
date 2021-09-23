@@ -37,7 +37,7 @@ function LSide() {
                             <h6>Cameron Walker</h6>
                             <h8>00:37</h8>
                             <div>
-                                <Badge pill bg="dark">Sibling</Badge> <Badge pill bg="dark">Bulldogs</Badge>
+                                <Badge pill className="bg-dark text-white">Sibling</Badge> <Badge pill className="bg-dark text-white">Bulldogs</Badge>
                             </div>
                             <p>Happy Birthday Kim!! Hope you have a wonderful day and wish you all the best!</p>
                         </div>
@@ -46,7 +46,7 @@ function LSide() {
                             <h6>Marybeth Lee</h6>
                             <h8>00:48</h8>
                             <div>
-                                <Badge pill bg="dark">Sibling</Badge>
+                                <Badge pill className="bg-dark text-white">Sibling</Badge>
                             </div>
                             <p>I Love and miss you so much Kim!</p>
                         </div>
@@ -55,7 +55,7 @@ function LSide() {
                             <h6>Alex Walker</h6>
                             <h8>02:19</h8>
                             <div>
-                                <Badge pill bg="dark">Uncle</Badge>
+                                <Badge pill className="bg-dark text-white">Uncle</Badge>
                             </div>
                             <p>Happy bday Kimmy</p>
                         </div>
@@ -64,7 +64,7 @@ function LSide() {
                             <h6>Diana Makasha</h6>
                             <h8>01:23</h8>
                             <div>
-                                <Badge pill bg="dark">Cousin</Badge> <Badge pill bg="dark">Co-Worker</Badge>
+                                <Badge pill className="bg-dark text-white">Cousin</Badge> <Badge pill className="bg-dark text-white">Co-Worker</Badge>
                             </div>
                             <p>+2 more filters</p>
                         </div>
