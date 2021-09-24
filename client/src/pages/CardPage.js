@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Col, Row } from 'react-bootstrap';
-import TopNavBar from '../components/TopNavBar';
+import React, { useState, useEffect } from "react";
+import { Container, Col, Row } from "react-bootstrap";
+import TopNavBar from "../components/TopNavBar";
 // import Preview from '../components/Organizer/Preview';
 import LSide from '../components/Sidebar/LSide';
 import RSide from '../components/Sidebar/RSide';
@@ -8,11 +8,12 @@ import axios from 'axios';
 import '../App.css';
 
 function Default() {
-	const [greetingCard, setGreetingCard] = useState({});
-	const [contentList, setcontentList] = useState([]);
+  const [greetingCard, setGreetingCard] = useState({});
+  const [contentList, setcontentList] = useState([]);
 
-	useEffect(async () => {
-		const id = JSON.parse(localStorage.getItem('cardId'));
+  useEffect(() => {
+    async function fetchData() {
+      const id = JSON.parse(localStorage.getItem("cardId"));
 
 		// GET request using axios inside useEffect React hook
 		const result = await axios.get(`/card/${id}`, { id: id });
