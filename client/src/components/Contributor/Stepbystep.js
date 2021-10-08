@@ -3,7 +3,7 @@
 import React from "react";
 
 // Components
-import { Card, Row, CardGroup } from "react-bootstrap";
+import { Card, Row, Col, CardGroup } from "react-bootstrap";
 import UploadContent from "./UploadVideo";
 
 
@@ -26,62 +26,88 @@ function Stepbystep() {
                         {/* Contributers will first recieve an email that brings them to the LandingPage, through EmailJS
                         The Contributor will see the name of the Occasion, from OccasionID, and the name of the Organizer whom invited them. */}
                         <Card.Subtitle style={{ fontSize: 18 }}>
-                            We are celebrating (occasion)   
-                            and (organizer) 
+                            We are celebrating (occasion)
+                            and (organizer)
                             invited you to submit your own video.
                         </Card.Subtitle>
                     </Card.Body>
                 </Card>
             </Row>
-            <Row className="justify-content-md-center m-5">
-                <CardGroup>
-                    <Card className="text-center m-3" border="0">
+            <Row
+                style={{ margin: "0 auto" }}
+                className="lg-6 row-cols-sm-2 row-cols-lg-4 justify-content-center"
+            >
+                <Col className="d-flex justify-content-center">
+                    <Card
+                        style={{
+                            border: "none",
+                            backgroundColor: "transparent",
+                        }}
+                        className="m-3 px-2"
+                    >
                         <Card.Title>1. Create</Card.Title>
                         <Card.Img
                             variant="top"
                             src={Photo1}
                             style={{ width: "18rem", minHeight: "18rem" }}
-                        />
+                            />
                         <Card.Body>
-                            <Card.Subtitle>
+                            <Card.Subtitle style={{ maxWidth: "12rem" }}>
                                 Use any smart device or camera to record up to a 3 minute video.
                             </Card.Subtitle>
                         </Card.Body>
                     </Card>
-                    <Card className="text-center m-3" border="0">
+
+                </Col>
+                <Col className="d-flex justify-content-center">
+                    <Card
+                        style={{
+                            border: "none",
+                            backgroundColor: "transparent",
+                        }}
+                        className="m-3 px-2"
+                    >
                         <Card.Title>2. Edit</Card.Title>
                         <Card.Img
                             variant="top"
                             src={Photo2}
                             style={{ width: "18rem", minHeight: "18rem" }}
-                        />
+                            />
                         <Card.Body>
-                            <Card.Subtitle>
+                            <Card.Subtitle style={{ maxWidth: "12rem" }}>
                                 Edit your videos to make it personal for a family member, friend
                                 or colleague.
                             </Card.Subtitle>
                         </Card.Body>
                     </Card>
-                    <Card className="text-center m-3" border="0">
+                </Col>
+                <Col className="d-flex justify-content-center">
+                    <Card
+                        style={{
+                            border: "none",
+                            backgroundColor: "transparent",
+                        }}
+                        className="m-3 px-2"
+                    >
                         <Card.Title>3. Send</Card.Title>
                         <Card.Img
                             variant="top"
                             src={Photo3}
                             style={{ width: "18rem", minHeight: "18rem" }}
-                        />
+                            />
                         <Card.Body>
-                            <Card.Subtitle>
+                            <Card.Subtitle style={{ maxWidth: "12rem" }}>
                                 The recipient enjoys the string of videos from all the
                                 conributors
                             </Card.Subtitle>
                         </Card.Body>
                     </Card>
-                </CardGroup>
+                </Col>
             </Row>
             <Row className="justify-content-md-center m-5 p-5">
                 <UploadContent />
             </Row>
-        </div>
+        </div >
     )
 }
 export default Stepbystep
