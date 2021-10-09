@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 // Draft JS Imports
 import { EditorState, Editor, convertToRaw } from "draft-js";
 import "@draft-js-plugins/emoji/lib/plugin.css";
 import Toolbar from "../DraftJS/StyleToolbar/toolbar";
-import '@draft-js-plugins/static-toolbar/lib/plugin.css'
+import "@draft-js-plugins/static-toolbar/lib/plugin.css";
 import { stateToHTML } from "draft-js-export-html";
 
 // Style Imports
@@ -15,20 +15,17 @@ import { stateToHTML } from "draft-js-export-html";
 import MediumGreenButton from "../StyledComponents/Buttons/MediumGreenButton";
 import SmallGreenButton from "../StyledComponents/Buttons/SmallGreenButton";
 
-
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function UploadVideo(props) {
-
-  const [fileInputState, setFileInputState] = useState('');
-  const [previewSource, setPreviewSource] = useState('');
+  const [fileInputState, setFileInputState] = useState("");
+  const [previewSource, setPreviewSource] = useState("");
   const [selectedFile, setSelectedFile] = useState();
-  const [successMsg, setSuccessMsg] = useState('');
-  const [errMsg, setErrMsg] = useState('');
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errMsg, setErrMsg] = useState("");
 
-
-  const [fileId, setFileId] = useState('');
-  const [message, SetMessage] = useState('');
+  const [fileId, setFileId] = useState("");
+  const [message, SetMessage] = useState("");
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
@@ -55,67 +52,70 @@ function UploadVideo(props) {
       uploadImage(reader.result);
     };
     reader.onerror = () => {
-      console.error('AHHHH!!');
-      setErrMsg('something went wrong!');
+      console.error("AHHHH!!");
+      setErrMsg("something went wrong!");
     };
   };
 
   const uploadImage = async (data) => {
-    await axios.post(
-      'http://localhost:3001/image-upload',
-      { 'file': data },
-      { headers: { 'accept': 'application/json' } },
-    )
+    await axios
+      .post(
+        "http://localhost:3001/image-upload",
+        { file: data },
+        { headers: { accept: "application/json" } }
+      )
       .then(function (response) {
         //handle success
-        setFileInputState('');
-        setPreviewSource('');
-        setFileId(response.data.msg.secure_url)
-        console.log('LIne 71 ', response.data.msg.secure_url)
-        setSuccessMsg('File uploaded successfully');
+        setFileInputState("");
+        setPreviewSource("");
+        setFileId(response.data.msg.secure_url);
+        console.log("LIne 71 ", response.data.msg.secure_url);
+        setSuccessMsg("File uploaded successfully");
       })
       .catch(function (response) {
         //handle error
         console.log(response);
       });
-  }
+  };
 
-  // posts content to greeting card, returns updated greeting card to console 
-  // TODO: update greetingCardId 
+  // posts content to greeting card, returns updated greeting card to console
+  // TODO: update greetingCardId
+  //       check is DraftJS is connecting to db
+  //should give a preview of card - should also be sent to db
   const createContent = async () => {
-    const userId = JSON.parse(localStorage.getItem('user'));
-    const greetingCardId = JSON.parse(localStorage.getItem('cardId'));
-    const drft = JSON.stringify(content)
-    await axios.post(
-      'http://localhost:3001/content',
-      {'name': 'content',
-      'content': fileId ,
-      'greetingCardId': greetingCardId,
-      'createdBy': userId , 
+    const userId = JSON.parse(localStorage.getItem("user"));
+    const greetingCardId = JSON.parse(localStorage.getItem("cardId"));
+    const drft = JSON.stringify(content);
+    await axios
+      .post(
+        "http://localhost:3001/content",
+        {
+          name: "content",
+          content: fileId,
+          greetingCardId: greetingCardId,
+          createdBy: userId,
         },
-      {headers: {'accept': 'application/json'}},
+        { headers: { accept: "application/json" } }
       )
       .then(function (response) {
-        console.log('Line 71 ', response)
+        console.log("Line 71 ", response);
       })
       .catch(function (response) {
         console.log(response);
       });
-  }
+  };
 
   const [show, setState] = useState(true); // handles state for modal
   const [CardSuccessShow, setCardSuccessShow] = useState(false); // handles state for modal
-
 
   // DraftJS Functions
   const [name] = useState("");
   const [content, setContent] = useState(EditorState.createEmpty());
   const history = useHistory();
 
-
   const convertDescriptionFromJSONToHTML = () => {
     try {
-      console.log('Line 90 ::::: ', content.getCurrentContent())
+      console.log("Line 90 ::::: ", content.getCurrentContent());
       return { __html: stateToHTML(content.getCurrentContent()) };
     } catch (exp) {
       console.log(exp);
@@ -124,7 +124,6 @@ function UploadVideo(props) {
   };
 
   // End DraftJS Functions
-
 
   // Modal Functions
   const [modalState, setModalState] = useState("close");
@@ -151,7 +150,7 @@ function UploadVideo(props) {
   };
 
   const handleSubmit = () => {
-    createContent()
+    createContent();
     setModalState("submit");
   };
 
@@ -170,23 +169,27 @@ function UploadVideo(props) {
 
         {/* Upload content  */}
 
-        <form className='form' onSubmit={handleSubmitFile} >
+        <form className="form" onSubmit={handleSubmitFile}>
           <input
-            id='fileInput'
-            type='file'
-            name='file'
+            id="fileInput"
+            type="file"
+            name="file"
             onChange={handleFileInputChange}
             value={fileInputState}
-            className='form-input'
+            className="form-input"
           />
-          <MediumGreenButton className="m-3" onSubmit={handleSubmitFile}> Upload </MediumGreenButton>
+          <MediumGreenButton className="m-3" onSubmit={handleSubmitFile}>
+            {" "}
+            Upload{" "}
+          </MediumGreenButton>
         </form>
 
         <Modal.Body>
-          After you upload your video, you can use our text editor to add more personal touches!
+          After you upload your video, you can use our text editor to add more
+          personal touches!
         </Modal.Body>
         <Modal.Footer className="justify-content-md-center">
-          <Button variant="secondary" onClick={handleClose} >
+          <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
           <SmallGreenButton onClick={handleShowModalTwo}>Next</SmallGreenButton>
@@ -201,7 +204,7 @@ function UploadVideo(props) {
         className="text-center m-3"
       >
         {/* <Modal.Header closeButton> */}
-          <Modal.Title className="text-center m-3">Video Uploaded</Modal.Title>
+        <Modal.Title className="text-center m-3">Video Uploaded</Modal.Title>
         {/* </Modal.Header> */}
         <Modal.Body>
           Would you like to add a personal touch to your picture or video?
@@ -210,8 +213,12 @@ function UploadVideo(props) {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <SmallGreenButton onClick={handleShowModalThree}>Customize</SmallGreenButton>
-          <SmallGreenButton onClick={handleShowModalFour}>Preview</SmallGreenButton>
+          <SmallGreenButton onClick={handleShowModalThree}>
+            Customize
+          </SmallGreenButton>
+          <SmallGreenButton onClick={handleShowModalFour}>
+            Preview
+          </SmallGreenButton>
         </Modal.Footer>
       </Modal>
 
@@ -229,21 +236,24 @@ function UploadVideo(props) {
             <div className="editorContainer">
               {/* <form onSubmit={onChange}> */}
               <div className="editors">
-
                 <Editor
                   editorState={content}
                   wrapperClassName="wrapper-class"
                   editorClassName="editor-class"
                   toolbarClassName="toolbar-class"
-                  wrapperStyle={{ border: "2px solid green", marginBottom: "20px" }}
+                  wrapperStyle={{
+                    border: "2px solid green",
+                    marginBottom: "20px",
+                  }}
                   editorStyle={{ height: "300px", padding: "10px" }}
                   // toolbar={{ image: { uploadCallback } }}
                   onEditorStateChange={(editorState) => setContent(editorState)}
-
                 />
                 <Toolbar />
               </div>
-              <div dangerouslySetInnerHTML={convertDescriptionFromJSONToHTML()}></div>
+              <div
+                dangerouslySetInnerHTML={convertDescriptionFromJSONToHTML()}
+              ></div>
               {/* </form> */}
             </div>
           </Modal.Body>
@@ -251,11 +261,12 @@ function UploadVideo(props) {
             <Button variant="secondary" onClick={handleShowModalTwo}>
               Back
             </Button>
-            <SmallGreenButton onClick={handleShowModalFour}>Preview</SmallGreenButton>
+            <SmallGreenButton onClick={handleShowModalFour}>
+              Preview
+            </SmallGreenButton>
           </Modal.Footer>
         </Form>
       </Modal>
-
 
       <Modal
         show={modalState === "modal-four"}
@@ -263,8 +274,7 @@ function UploadVideo(props) {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-
-      {/* This Modal is designed to show a preview of the media upload, and message from draftjs, also a thank you to the users name, from the Ogranizer */}
+        {/* This Modal is designed to show a preview of the media upload, and message from draftjs, also a thank you to the users name, from the Ogranizer */}
 
         <Modal.Body aria-labelledby="contained-modal-title-vcenter" centered>
           Insert Video Box Here
@@ -276,10 +286,12 @@ function UploadVideo(props) {
           <Button variant="secondary" onClick={handleClose}>
             Exit
           </Button>
-          <SmallGreenButton onClick={handleSubmit}>Create a Card</SmallGreenButton>
+          <SmallGreenButton onClick={handleSubmit}>
+            Create a Card
+          </SmallGreenButton>
         </Modal.Footer>
       </Modal>
-    </div >
+    </div>
   );
 }
 

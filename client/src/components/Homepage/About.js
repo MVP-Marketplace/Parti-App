@@ -1,4 +1,4 @@
-import { Container, Card, Row, Col, Image } from "react-bootstrap";
+import { Container, Card, Row, Col } from "react-bootstrap";
 import { SmallGreenButton } from "../StyledComponents/Buttons/SmallGreenButton";
 import Photo4 from "../../stockPhotos/c-landingpage-photo.png";
 import History from "../History/History";
@@ -10,7 +10,9 @@ function About() {
       style={{
         backgroundImage: `url(${PurpleGreenBackground})`,
         backgroundSize: "120% 100%",
-        paddingTop: "150px",
+        paddingTop: "120px",
+        paddingBottom: "20px",
+        minHeight: "45vh",
       }}
     >
       <Container>
@@ -25,7 +27,7 @@ function About() {
                 marginRight: "auto",
               }}
             >
-              <Image src={Photo4} />
+              <Card.Img src={Photo4} />
             </Card>
           </Col>
           <Col className="justify-content-md m-3">
@@ -38,11 +40,32 @@ function About() {
                 marginRight: "auto",
               }}
             >
-              <Card.Title style={{ fontSize: 48 }}>
-                What is Parti Greetings?
-              </Card.Title>
               <Card.Body>
-                <Card.Subtitle>
+                <Card.Img
+                  src={Photo4}
+                  style={{
+                    width: "100%",
+                    minHeight: "20rem",
+                    maxHeight: "22rem",
+                    objectFit: "cover",
+                  }}
+                />
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card style={{ border: 0, backgroundColor: "transparent" }}>
+              <Card.Body>
+                <Card.Title style={{ fontSize: "46px", fontWeight: 700 }}>
+                  What is Parti Greetings?
+                </Card.Title>
+                <Card.Subtitle
+                  style={{
+                    fontSize: ".8rem",
+                    fontWeight: 400,
+                    lineHeight: "1.3rem",
+                  }}
+                >
                   Parti provides a new way to digitally celebrate events. Remove
                   the need for video editing and time lost to long video
                   montages, and take back the enjoyment of the celebration by
@@ -50,10 +73,11 @@ function About() {
                   colleagues. You can also revisit your events anytime you want
                   and easily find the messages you'd like to see.
                 </Card.Subtitle>
-                <form>
+
+                <form className="d-flex justify-content-center justify-content-md-start">
                   <SmallGreenButton
                     onClick={() => History.push("/register")}
-                    className="m-3"
+                    className="mt-3 mb-4 "
                   >
                     Get Started
                   </SmallGreenButton>

@@ -6,6 +6,7 @@ import ThemesShowcase from './ThemesShowcase';
 import { Link } from 'react-router-dom';
 import './card.css';
 
+//styling on this needs to be fixed so the images show up not stretched and blurry (svg files?) (.show-case-image in css file)
 function SelectTheme(props) {
 	const cardId = props.location.state.cardId;
 	const occasion = props.location.state.occasion.toLowerCase();
@@ -29,12 +30,10 @@ function SelectTheme(props) {
 	return (
 		<div>
 			<div>
-				
 				<h2>Select Your Background Theme </h2>
 			</div>
 			<div className='theme-showcase'>
 				<h3 bg='secondary'>
-					
 					Based on your selection {props.location.state.occasion}
 				</h3>
 				<CardGroup
@@ -72,7 +71,7 @@ function SelectTheme(props) {
 						onClick={handleClick}
 					/>
 					<Link to='/dashboard'>
-          <MediumGreenButton style={{ margin: '2rem', float: 'right' }}>
+						<MediumGreenButton style={{ margin: '2rem', float: 'right' }}>
 							Continue
 						</MediumGreenButton>
 					</Link>
@@ -80,7 +79,6 @@ function SelectTheme(props) {
 			</div>
 
 			<div>
-				
 				<ThemesShowcase />
 			</div>
 		</div>

@@ -1,3 +1,5 @@
+//part of the landing page
+
 import React from "react";
 import { Card, Row, Image } from "react-bootstrap";
 import UploadContent from "./UploadVideo";
