@@ -1,40 +1,16 @@
-.register-card{
-    margin: auto; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly !important;
-    align-items: center !important ;
-    padding: 45.5px;
-    
+
+.login-card {
     align-content: center !important;
     position: absolute !important;
-    width: 754px !important;
-    height: 720px;
-    left: 343px;
-    top: 136.78px;
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), #D7B0FF  !important;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+    #D7B0FF !important;
     box-shadow: 0px 4px 10px rgba(108, 88, 128, 0.4);
     border-radius: 10px;
-
-    margin: auto; 
+    padding: 3rem;
+}
+.login-container {
     display: flex;
-    flex-direction: column;
-    flex-direction: column;
-    justify-content: space-between !important;
-
-    /* justify-content: space-evenly ; */
-    align-items: center !important ;
-    padding: 45.5px;
-    
-    align-content: center !important;
-    position: absolute !important;
-    width: 754px;
-    height: 720px;
-    left: 343px;
-    top: 136.78px;
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), #D7B0FF  !important;
-    box-shadow: 0px 4px 10px rgba(108, 88, 128, 0.4);
-    border-radius: 10px;
+    justify-content: center;
 }
 a {
     color: inherit;

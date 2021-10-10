@@ -10,6 +10,8 @@ const UserForm = (props) => {
 	const [user, setUser] = useState();
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
+	const [firstName, setFirstName] = useState('');
+	const [lastName, setLastName] = useState('');
 
 	const handleSubmit = async (e) => {
 		// stop form reloading aka browser default behavior
@@ -51,84 +53,120 @@ const UserForm = (props) => {
 	//       }
 
 	return (
-		<Card className='register-card text-center' centered>
-			<h3> Welcome to Parti Greetings </h3>
-			<h4> Let's create an account </h4>
-			{/* TODO: username should probably be separated into a first name and last name and connect those to an email address that works as the login id. */}
-			<Form className='register-form' onSubmit={handleSubmit}>
-				<Form.Group as={Row} className='mb-3' controlId='username'>
-					<Form.Label column sm='3'>
-						Email
-					</Form.Label>
-					<Col sm='5'>
-						<Form.Control
-							onChange={(event) => setUsername(event.target.value)}
-							type='text'
-							placeholder='Email'
-							name='username'
-							style={{
-								width: '334px',
-								height: 'calc(2.5em + .75rem + 2px)',
-							}}
-						/>
-					</Col>
-				</Form.Group>
+		<Container className='flex-column flex-sm-column flex-md-row'>
+			<Card className='login-card text-center' centered>
+				<h3> Welcome to Parti Greetings </h3>
+				<h4> Let's create an account </h4>
+				{/* TODO: username should probably be separated into a first name and last name and connect those to an email address that works as the login id. */}
+				<Form className='register-form' onSubmit={handleSubmit}>
+					<Form.Group as={Row} className='mb-3' controlId='firstname'>
+						<Form.Label column sm='3'>
+							First Name
+						</Form.Label>
+						<Col sm='5'>
+							<Form.Control
+								onChange={(event) => setFirstName(event.target.value)}
+								type='text'
+								placeholder='First name'
+								name='firstname'
+								style={{
+									width: '25rem',
+									height: 'calc(2.5em + .75rem + 2px)',
+								}}
+							/>
+						</Col>
+					</Form.Group>
+					<Form.Group as={Row} className='mb-3' controlId='lastname'>
+						<Form.Label column sm='3'>
+							Last Name
+						</Form.Label>
+						<Col sm='5'>
+							<Form.Control
+								onChange={(event) => setLastName(event.target.value)}
+								type='text'
+								placeholder='Last name'
+								name='lastname'
+								style={{
+									width: '25rem',
+									height: 'calc(2.5em + .75rem + 2px)',
+								}}
+							/>
+						</Col>
+					</Form.Group>
+					<Form.Group as={Row} className='mb-3' controlId='username'>
+						<Form.Label column sm='3'>
+							Email
+						</Form.Label>
+						<Col sm='5'>
+							<Form.Control
+								onChange={(event) => setUsername(event.target.value)}
+								type='text'
+								placeholder='Email'
+								name='username'
+								style={{
+									width: '25rem',
+									height: 'calc(2.5em + .75rem + 2px)',
+								}}
+							/>
+						</Col>
+					</Form.Group>
 
-				<Form.Group as={Row} className='mb-3' controlId='password'>
-					<Form.Label column sm='3'>
-						Password
-					</Form.Label>
-					<Col sm='5'>
-						<Form.Control
-							onChange={(event) => setPassword(event.target.value)}
-							type='password'
-							name='password'
-							placeholder='Password'
-							style={{
-								width: '334px',
-								height: 'calc(2.5em + .75rem + 2px)',
-							}}
-						/>
-					</Col>
-				</Form.Group>
+					<Form.Group as={Row} className='mb-3' controlId='password'>
+						<Form.Label column sm='3'>
+							Password
+						</Form.Label>
+						<Col sm='5'>
+							<Form.Control
+								onChange={(event) => setPassword(event.target.value)}
+								type='password'
+								name='password'
+								placeholder='Password'
+								style={{
+									width: '25rem',
+									height: 'calc(2.5em + .75rem + 2px)',
+								}}
+							/>
+						</Col>
+					</Form.Group>
 
-				<Form.Group as={Row} className='mb-3' controlId='confirm-password'>
-					<Form.Label column sm='3'>
-						Confirm Password
-					</Form.Label>
-					<Col sm='5'>
-						<Form.Control
-							type='password'
-							placeholder='Confirm Password'
-							style={{
-								width: '334px',
-								height: 'calc(2.5em + .75rem + 2px)',
-							}}
-						/>
-					</Col>
-				</Form.Group>
-				<SmallGreenButton type='submit' onSubmit={handleSubmit}>
-					Sign up
-				</SmallGreenButton>
-				<Card.Text> or </Card.Text>
-				<Card.Text> Sign up with </Card.Text>
-				<FacebookButton
-					type='submit'
-					href='http://localhost:3001/auth/facebook'
-				/>
-				<GoogleButton
-					type='submit'
-					href='http://localhost:3001/users/auth/google'
-				/>
-			</Form>
-			<Card.Text>
-				Already have an account?
-				<a href='/login' target='_self'>
-					{' '}
-					Click here to Sign In
-				</a>
-			</Card.Text>
-		</Card>
+					<Form.Group as={Row} className='mb-3' controlId='confirm-password'>
+						<Form.Label column sm='3'>
+							Confirm Password
+						</Form.Label>
+						<Col sm='5'>
+							<Form.Control
+								type='password'
+								placeholder='Confirm Password'
+								style={{
+									width: '25rem',
+									height: 'calc(2.5em + .75rem + 2px)',
+								}}
+							/>
+						</Col>
+					</Form.Group>
+					<SmallGreenButton type='submit' onSubmit={handleSubmit}>
+						Sign up
+					</SmallGreenButton>
+					<Card.Text> or </Card.Text>
+					<Card.Text> Sign up with </Card.Text>
+					<FacebookButton
+						type='submit'
+						href='http://localhost:3001/auth/facebook'
+					/>
+					<GoogleButton
+						type='submit'
+						href='http://localhost:3001/users/auth/google'
+					/>
+				</Form>
+				<Card.Text>
+					Already have an account?
+					<a href='/login' target='_self'>
+						{' '}
+						Click here to Sign In
+					</a>
+				</Card.Text>
+			</Card>
+		</Container>
 	);
 };
 
