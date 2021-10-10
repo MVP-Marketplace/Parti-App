@@ -11,7 +11,7 @@ passport.use(new localStrategy(User.authenticate()));
 // create User with Passport
 const createUser = (req, res) => {
 	User.register(
-		{ username: req.body.username, role: req.body.role },
+		{ firstName: req.body.firstName, lastName: req.body.lastName, username: req.body.username, role: req.body.role },
 		req.body.password,
 		function (err, user) {
 			if (err) {
