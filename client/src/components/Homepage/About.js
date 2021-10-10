@@ -16,28 +16,15 @@ function About() {
       }}
     >
       <Container>
-        <Row className="justify-content-md-center m-3">
-          <Col className="justify-content-md-center m-3">
+        <Row className="flex-column flex-sm-column flex-md-row">
+          <Col>
             <Card
-              className="text-center"
-              border="0"
               style={{
-                width: "25rem",
-                marginLeft: "auto",
-                marginRight: "auto",
-              }}
-            >
-              <Card.Img src={Photo4} />
-            </Card>
-          </Col>
-          <Col className="justify-content-md m-3">
-            <Card
-              border="0"
-              style={{
-                width: "25rem",
+                border: 0,
                 backgroundColor: "transparent",
-                marginLeft: "auto",
-                marginRight: "auto",
+
+                margin: "0 auto 1rem",
+                textAlign: "center",
               }}
             >
               <Card.Body>
