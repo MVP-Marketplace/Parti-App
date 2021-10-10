@@ -8,17 +8,18 @@ import './accountSetUp.css';
 
 const UserForm = (props) => {
 	const [user, setUser] = useState();
-	const [username, setUsername] = useState('');
-	const [password, setPassword] = useState('');
-	const [firstName, setFirstName] = useState('');
-	const [lastName, setLastName] = useState('');
+	// const [username, setUsername] = useState('');
+	// const [password, setPassword] = useState('');
+	// const [firstName, setFirstName] = useState('');
+	// const [lastName, setLastName] = useState('');
+	const [formData, setFormData] = useState({});
 
 	const handleSubmit = async (e) => {
 		// stop form reloading aka browser default behavior
 
 		e.preventDefault();
 		axios
-			.post('/users/register', { username: username, password: password })
+			.post('/users/register', formData)
 
 			.then((response) => {
 				setUser(response.data);
@@ -51,7 +52,7 @@ const UserForm = (props) => {
 
 	//       console.log('line 52' , localStorage)
 	//       }
-
+	console.log(formData);
 	return (
 		<Container className='flex-column flex-sm-column flex-md-row'>
 			<Card className='login-card text-center' centered>
@@ -65,7 +66,9 @@ const UserForm = (props) => {
 						</Form.Label>
 						<Col sm='5'>
 							<Form.Control
-								onChange={(event) => setFirstName(event.target.value)}
+								onChange={(event) =>
+									setFormData({ ...formData, firstName: event.target.value })
+								}
 								type='text'
 								placeholder='First name'
 								name='firstname'
@@ -82,7 +85,9 @@ const UserForm = (props) => {
 						</Form.Label>
 						<Col sm='5'>
 							<Form.Control
-								onChange={(event) => setLastName(event.target.value)}
+								onChange={(event) =>
+									setFormData({ ...formData, lastName: event.target.value })
+								}
 								type='text'
 								placeholder='Last name'
 								name='lastname'
@@ -99,7 +104,9 @@ const UserForm = (props) => {
 						</Form.Label>
 						<Col sm='5'>
 							<Form.Control
-								onChange={(event) => setUsername(event.target.value)}
+								onChange={(event) =>
+									setFormData({ ...formData, username: event.target.value })
+								}
 								type='text'
 								placeholder='Email'
 								name='username'
@@ -117,7 +124,9 @@ const UserForm = (props) => {
 						</Form.Label>
 						<Col sm='5'>
 							<Form.Control
-								onChange={(event) => setPassword(event.target.value)}
+								onChange={(event) =>
+									setFormData({ ...formData, password: event.target.value })
+								}
 								type='password'
 								name='password'
 								placeholder='Password'
@@ -135,6 +144,12 @@ const UserForm = (props) => {
 						</Form.Label>
 						<Col sm='5'>
 							<Form.Control
+								onChange={(event) =>
+									setFormData({
+										...formData,
+										confirmPassword: event.target.value,
+									})
+								}
 								type='password'
 								placeholder='Confirm Password'
 								style={{
