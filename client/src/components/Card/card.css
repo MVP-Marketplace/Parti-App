@@ -197,6 +197,7 @@ hr {
   display: flex;
   align-items: center;
   letter-spacing: 0.02em;
+  padding-right: 5px !important;
 }
 .time-zone-label {
   margin-right: 10px;
