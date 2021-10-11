@@ -1,8 +1,10 @@
 import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Homepage from './pages/Homepage';
+import { AppContextProvider } from './contexts/AppContext';
 // import Default from './components/Organizer/Default';
 import Login from './components/AccountSetUp/Login';
+import PrivateRoute from './components/PrivateRoute';
 import Register from './components/AccountSetUp/Register';
 import Welcome from './components/AccountSetUp/Welcome';
 import NewCard from './components/Card/NewCard';
@@ -18,24 +20,29 @@ import RecDashboard from './components/Dashboard/RecDashboard';
 //Many of these routes need to be private, so create a PrivateRoutes.js where we can separate them out for clearer code
 function App() {
 	return (
-		<BrowserRouter>
-			<Switch>
-				<Route exact path='/' component={Homepage} />
-				<Route path='/login' component={Login} />
-				<Route path='/register' component={Register} />
-				<Route path='/view-card' component={ViewCardPage} />
-				<Route path='/welcome' component={Welcome} />
-				<Route path='/create-card' component={NewCard} />
-				<Route path='/create-card-select-theme' component={SelectTheme} />
-				<Route path='/dashboard' component={Dashboard} />
-				<Route path='/contributor' component={LandingPage} />
-				<Route path='/card' component={CardPage} />
-				<Route path='/upload-video' component={UploadVideo} />
-				<Route path='/contributor-invite' component={ContributorInvite} />
-				<Route path='/recipient-thank-you' component={RecipientThankYou} />
-				<Route path='/recipient-dashboard' component={RecDashboard} />
-			</Switch>
-		</BrowserRouter>
+		<AppContextProvider>
+			<BrowserRouter>
+				<Switch>
+					<Route exact path='/' component={Homepage} />
+					<Route path='/login' component={Login} />
+					<Route path='/register' component={Register} />
+					<Route path='/view-card' component={ViewCardPage} />
+					<Route path='/welcome' component={Welcome} />
+					<Route path='/create-card' component={NewCard} />
+					<Route path='/create-card-select-theme' component={SelectTheme} />
+					<PrivateRoute path='/dashboard/:id' component={Dashboard} />
+					<Route path='/contributor' component={LandingPage} />
+					<Route path='/card' component={CardPage} />
+					<Route path='/upload-video' component={UploadVideo} />
+					<Route path='/contributor-invite' component={ContributorInvite} />
+					<Route path='/recipient-thank-you' component={RecipientThankYou} />
+					<PrivateRoute
+						path='/recipient-dashboard/:id'
+						component={RecDashboard}
+					/>
+				</Switch>
+			</BrowserRouter>
+		</AppContextProvider>
 	);
 }
 

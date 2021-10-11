@@ -20,7 +20,7 @@ const Login = (props) => {
 				localStorage.setItem('email', JSON.stringify(response.data.username));
 				localStorage.setItem('user', JSON.stringify(response.data._id));
 				localStorage.setItem('cardId', JSON.stringify(response.data.cardsList));
-				props.history.push('/dashboard');
+				props.history.push('/dashboard/:id');
 			})
 			.catch((error) => {
 				console.error('There was an error!', error);

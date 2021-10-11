@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { SmallGreenButton } from "../StyledComponents/Buttons/SmallGreenButton";
-import { Container, Card, Row, Col } from "react-bootstrap";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
+import { Container, Card, Row, Col } from 'react-bootstrap';
 // import ViewCardPage from '../../pages/ViewCardPage';
-import "./dashboard.css";
-import VideoThumbnail from "./VideoThumbnail";
-import axios from "axios";
+import './dashboard.css';
+import VideoThumbnail from './VideoThumbnail';
+import axios from 'axios';
 
 function Organizer(props) {
   const userId = JSON.parse(localStorage.getItem("user"));
@@ -13,40 +13,39 @@ function Organizer(props) {
   // TODO
   // incorporate useEffect to have the list of card objects
   // get the list of cards LINE 25 and make a get request with every CARDID to database
+	// React.useEffect(() => checkIfUserHasCards(handleSubmit), [])
+	// React.useEffect(() => {
+	// 	console.log([]);
+	// }, [userId]);
+	// create the get request to get the list of cards for current user
+	const handleSubmit = async (e) => {
+		// console.log('line 17 ', userId);
+		axios
+			.get(`/users/${userId}`, {
+				userId: userId,
+			})
+			.then((response) => {
+				const CardsList = response.data.cardsList;
+			})
+			.catch((error) => {
+				console.error('There was an error!', error);
+			});
+	};
 
-  // React.useEffect(() => checkIfUserHasCards(handleSubmit), [])
-  // React.useEffect(() => {
-  // 	console.log([]);
-  // }, [userId]);
-  // create the get request to get the list of cards for current user
-  const handleSubmit = async (e) => {
-    // console.log('line 17 ', userId);
-    axios
-      .get(`/users/${userId}`, {
-        userId: userId,
-      })
-      .then((response) => {
-        const CardsList = response.data.cardsList;
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-      });
-  };
-
-  // handle call to greetingCard database
-  //   const getGreetingCards = async (e) => {
-  // // map through CardsList to get the individual cardID
-  //     axios
-  //       .get(`/card/${cardID}`, {
-  //         userId: userId,
-  //       })
-  //       .then((response) => {
-  //         console.log("LINE 20 OrgDashboard", response.data.cardsList);
-  //       })
-  //       .catch((error) => {
-  //         console.error("There was an error!", error);
-  //       });
-  //   };
+	// handle call to greetingCard database
+	//   const getGreetingCards = async (e) => {
+	// // map through CardsList to get the individual cardID
+	//     axios
+	//       .get(`/card/${cardID}`, {
+	//         userId: userId,
+	//       })
+	//       .then((response) => {
+	//         console.log("LINE 20 OrgDashboard", response.data.cardsList);
+	//       })
+	//       .catch((error) => {
+	//         console.error("There was an error!", error);
+	//       });
+	//   };
 
   return (
     <Container className="dashboard">
@@ -76,52 +75,55 @@ function Organizer(props) {
           <Col></Col>
         </Row>
       </div>
-
-      <Row>
-        <ul className="cards-list">
-          {/* {userID.map(function (userID, index) { */}
-          {/* <li key={index}> */}
-          {/* {userID} */}
-          <Card className="text-center" inline>
-            <Container fluid>
-              <Row xs={1} md={3}>
-                <Col className="card-thumbnail">
-                  <VideoThumbnail />
-                </Col>
-                <Col className="card-col" xl={6}>
-                  <Card.Body>
-                    {/* This should render cards connected to the user/role and pull the title, date sent/due and status (open/closed) */}
-                    <Card.Text>{/* { cardTitle } */}</Card.Text>
-                    <Card.Text>
-                      Event Date:
-                      {/* { dateDue }  */}
-                    </Card.Text>
-                    <Card.Text>
-                      Status:
-                      {/* { status } */}
-                    </Card.Text>
-                  </Card.Body>
-                </Col>
-                <div className="card-col">
-                  <Col>
-                    <Link to="/card">
-                      {/* this should populate the specific card name and then clicking on the button below should send you to the indvidual card page */}
-                      <SmallGreenButton onClick={handleSubmit}>
-                        View Card
-                      </SmallGreenButton>
-                    </Link>
-                  </Col>
-                </div>
-              </Row>
-            </Container>
-          </Card>
-          {/* </li> */}
-          {/* ); */}
-          {/* })} */}
-        </ul>
-      </Row>
-    </Container>
-  );
+			<Row>
+				<ul className='cards-list'>
+					{/* {userID.map(function (userID, index) { */}
+					{/* <li key={index}> */}
+					{/* {userID} */}
+					<Card className='text-center' inline>
+						<Container fluid>
+							<Row xs={1} md={3}>
+								<Col className='card-thumbnail'>
+									<VideoThumbnail />
+								</Col>
+								<Col className='card-col' xl={6}>
+									<Card.Body>
+										{/* This should render cards connected to the user/role and pull the title, date sent/due and status (open/closed) */}
+										<Card.Text>{/* { card.title } */}</Card.Text>
+										<Card.Text>
+											For:
+											{/* `${card.recipientFirstName} + ' ' + ${card.recipientLastName}`  */}
+										</Card.Text>
+										<Card.Text>
+											Event Date:
+											{/* { card.dueDate }  */}
+										</Card.Text>
+										<Card.Text>
+											Status:
+											{/* { card.status } */}
+										</Card.Text>
+									</Card.Body>
+								</Col>
+								<div className='card-col'>
+									<Col>
+										<Link to='/card'>
+											{/* this should populate the specific card name and then clicking on the button below should send you to the indvidual card page */}
+											<SmallGreenButton onClick={handleSubmit}>
+												View Card
+											</SmallGreenButton>
+										</Link>
+									</Col>
+								</div>
+							</Row>
+						</Container>
+					</Card>
+					{/* </li> */}
+					{/* ); */}
+					{/* })} */}
+				</ul>
+			</Row>
+		</Container>
+	);
 }
 
 export default Organizer;
