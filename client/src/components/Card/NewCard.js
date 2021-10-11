@@ -141,15 +141,11 @@ function CreateNewCard(props) {
 							<Form.Label className='form-label' column sm='2'>
 								First Name
 							</Form.Label>
-							<Col sm='5'>
+							<Col>
 								<Form.Control
 									type='text'
 									placeholder='First Name'
 									onChange={(event) => setFirstName(event.target.value)}
-									style={{
-										width: '150%',
-										height: 'calc(2.5em + .75rem + 2px)',
-									}}
 								/>
 							</Col>
 						</Form.Group>
@@ -160,15 +156,11 @@ function CreateNewCard(props) {
 							<Form.Label className='form-label' column sm='2'>
 								Last Name
 							</Form.Label>
-							<Col sm='5'>
+							<Col>
 								<Form.Control
 									type='text'
 									placeholder='Last Name'
 									onChange={(event) => setLastName(event.target.value)}
-									style={{
-										width: '150%',
-										height: 'calc(2.5em + .75rem + 2px)',
-									}}
 								/>
 							</Col>
 						</Form.Group>
@@ -179,15 +171,11 @@ function CreateNewCard(props) {
 							<Form.Label className='form-label' column sm='2'>
 								Email
 							</Form.Label>
-							<Col sm='5'>
+							<Col>
 								<Form.Control
 									type='text'
 									placeholder='Email'
 									onChange={(event) => setEmail(event.target.value)}
-									style={{
-										width: '150%',
-										height: 'calc(2.5em + .75rem + 2px)',
-									}}
 								/>
 							</Col>
 						</Form.Group>
@@ -222,7 +210,7 @@ function CreateNewCard(props) {
 				<hr></hr>
 
 				<Modal.Body>
-					<Form>
+					<Form className=''>
 						<h4>What’s the Occasion?</h4>
 
 						<Form.Group
@@ -232,7 +220,7 @@ function CreateNewCard(props) {
 							<Form.Label className='form-label' column sm='2'>
 								Occasion
 							</Form.Label>
-							<Col sm='5'>
+							<Col>
 								<Form.Control
 									as='select'
 									value={occasion}
@@ -240,10 +228,6 @@ function CreateNewCard(props) {
 									className='me-sm-2'
 									onChange={(e) => {
 										setOccasion(e.target.value);
-									}}
-									style={{
-										width: '150%',
-										height: 'calc(2.5em + .75rem + 2px)',
 									}}>
 									{[
 										'Anniversary',
@@ -274,15 +258,11 @@ function CreateNewCard(props) {
 								Title
 							</Form.Label>
 
-							<Col sm='5'>
+							<Col>
 								<Form.Control
 									type='text'
 									placeholder='Title'
 									onChange={(event) => setTitle(event.target.value)}
-									style={{
-										width: '150%',
-										height: 'calc(2.5em + .75rem + 2px)',
-									}}
 								/>
 							</Col>
 						</Form.Group>
@@ -326,7 +306,7 @@ function CreateNewCard(props) {
 						<Form.Label className='form-label' column sm='3,5'>
 							Choose Delivery Date
 						</Form.Label>
-						<Col sm='5'>
+						<Col>
 							<form onSubmit={onFormSubmit}>
 								<div className='form-group'>
 									<DatePicker
@@ -356,7 +336,7 @@ function CreateNewCard(props) {
 							style={{ marginRight: '30px' }}>
 							Select Time Zone
 						</Form.Label>
-						<Col sm='5'>
+						<Col>
 							<TimezoneSelect
 								className='time-zone'
 								value={selectedTimezone}
