@@ -28,20 +28,19 @@ function SelectTheme(props) {
 	};
 
 	return (
-		<div>
-			<div>
-				<h2>Select Your Background Theme </h2>
-			</div>
+		<div className='theme'>
+			<h2>Select Your Background Theme </h2>
 			<div className='theme-showcase'>
 				<h3 bg='secondary'>
-					Based on your selection {props.location.state.occasion}
+					Based on your card theme: <br />
+					<span style={{ color: '#93E9BE' }}>
+						{props.location.state.occasion}
+					</span>
 				</h3>
 				<CardGroup
 					className='card-group'
 					style={{
-						width: '100%',
-						height: 'calc(1.0em + .75rem + 2px)',
-						marginBottom: '0rem!important',
+						marginBottom: '1rem',
 					}}>
 					<Image
 						src={`./stockPhotos/${occasion}/${occasion}1.png`}
@@ -56,8 +55,6 @@ function SelectTheme(props) {
 					<Image
 						src={`./stockPhotos/${occasion}/${occasion}3.png`}
 						className='show-case-image'
-						width='100%'
-						height='auto'
 						onClick={handleClick}
 					/>
 					<Image
@@ -71,7 +68,9 @@ function SelectTheme(props) {
 						onClick={handleClick}
 					/>
 					<Link to='/dashboard'>
-						<MediumGreenButton style={{ margin: '2rem', float: 'right' }}>
+						<MediumGreenButton
+							className='continue-button'
+							style={{ margin: '1rem', float: 'right' }}>
 							Continue
 						</MediumGreenButton>
 					</Link>

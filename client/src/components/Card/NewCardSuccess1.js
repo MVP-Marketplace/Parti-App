@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Modal, Image } from 'react-bootstrap';
 import './card.css';
 import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
-
+import HappyCard from '../../images/HappyCard.svg';
 import SadCard from '../../images/SadCard.svg';
 
 function NewCardSuccess(props) {

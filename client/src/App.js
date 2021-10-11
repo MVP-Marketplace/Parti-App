@@ -33,7 +33,7 @@ function App() {
 					<PrivateRoute path='/dashboard/:id' component={Dashboard} />
 					<Route path='/contributor' component={LandingPage} />
 					<Route path='/card' component={CardPage} />
-					<Route path='/upload-video' component={UploadVideo} />
+					<Route path='/upload-video/:cardId' component={UploadVideo} />
 					<Route path='/contributor-invite' component={ContributorInvite} />
 					<Route path='/recipient-thank-you' component={RecipientThankYou} />
 					<PrivateRoute
