@@ -8,7 +8,8 @@ import VideoThumbnail from "./VideoThumbnail";
 import axios from "axios";
 
 function Organizer(props) {
-  const userId = JSON.parse(localStorage.getItem("email"));
+  const userId = JSON.parse(localStorage.getItem("user"));
+  const firstName = JSON.parse(localStorage.getItem("firstname"));
   // TODO
   // incorporate useEffect to have the list of card objects
   // get the list of cards LINE 25 and make a get request with every CARDID to database
@@ -50,7 +51,7 @@ function Organizer(props) {
   return (
     <Container className="dashboard">
       <Row className="dashboardHeading">
-        <h3>{userId}'s Dashboard</h3>
+        <h3>{firstName}'s Dashboard</h3>
       </Row>
       <div>
         <Row justify-content-center>
