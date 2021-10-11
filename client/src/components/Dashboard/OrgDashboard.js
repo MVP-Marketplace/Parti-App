@@ -8,7 +8,7 @@ import VideoThumbnail from "./VideoThumbnail";
 import axios from "axios";
 
 function Organizer(props) {
-  const userId = JSON.parse(localStorage.getItem("email"));
+  const userId = JSON.parse(localStorage.getItem("user"));
   const firstName = JSON.parse(localStorage.getItem("firstname"));
   // TODO
   // incorporate useEffect to have the list of card objects
