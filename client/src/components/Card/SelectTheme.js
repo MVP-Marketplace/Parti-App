@@ -28,20 +28,18 @@ function SelectTheme(props) {
 	};
 
 	return (
-		<div>
-			<div>
-				<h2>Select Your Background Theme </h2>
-			</div>
+		<div className='theme'>
+			<h2>Select Your Background Theme </h2>
 			<div className='theme-showcase'>
 				<h3 bg='secondary'>
-					Based on your selection {props.location.state.occasion}
+					Based on your selection: {props.location.state.occasion}
 				</h3>
 				<CardGroup
 					className='card-group'
 					style={{
 						width: '100%',
-						height: 'calc(1.0em + .75rem + 2px)',
-						marginBottom: '0rem!important',
+						height: 'auto',
+						marginBottom: '2rem',
 					}}>
 					<Image
 						src={`./stockPhotos/${occasion}/${occasion}1.png`}

@@ -26,7 +26,7 @@ function TopNavbar() {
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
 				<Navbar.Collapse className='justify-content-end' id='basic-navbar-nav'>
 					<Nav className='me-auto'>
-						<Nav.Link href='/dashboard'>Dashboard</Nav.Link>
+						<Nav.Link href='/dashboard/:id'>Dashboard</Nav.Link>
 						{/* should change "How it works" to "Create new card" when Organizer is logged in with href changing to /create-card instead of /contributor */}
 						<Nav.Link href='/contributor'>How it works</Nav.Link>
 					</Nav>
@@ -43,6 +43,5 @@ function TopNavbar() {
 			</form>
 		</Navbar>
 	);
-
 }
 export default TopNavbar;

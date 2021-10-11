@@ -201,15 +201,19 @@ hr {
 .time-zone-label {
   margin-right: 10px;
 }
+.theme h2 {
+margin-left: 6rem;
+}
+.theme-showcase h3 {
+  margin-left: 3rem;
+}
 .theme-showcase {
   display: flex;
   flex-direction: column;
-  margin: 90px;
-  position: inherit;
-  width: 1214px;
-  height: 578.1px;
-  left: 113px;
-  top: 300.83px;
+  margin: 5rem;
+  position: sticky;
+  width: auto !important;
+  height: auto;
   background: #ffffff;
   box-shadow: 0px 4px 10px rgba(108, 88, 128, 0.4);
   border-radius: 10px;
@@ -217,17 +221,17 @@ hr {
 .card-group {
   display: flex;
   flex-flow: row wrap;
-  width: 1150px;
-  height: 350.75px;
-  left: 147px;
-  top: 420.83px;
+  width: auto !important;
+  height: auto;
+  padding-left: 2rem;
 }
 .show-case-image {
   margin: 10px;
-  width: 362px;
-  height: 170px;
+  height: auto;
+  width: 354px;
   left: 935px;
   top: 610.83px;
+  object-fit: contain !important;
   border: 1px solid #d7b0ff;
   box-sizing: border-box;
   border-radius: 10px;
