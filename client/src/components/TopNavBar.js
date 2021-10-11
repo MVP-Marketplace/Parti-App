@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../contexts/AppContext';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { SmallGreenButton } from './StyledComponents/Buttons/SmallGreenButton';
-import History from '../components/History/History';
-import PartiLogo from '../images/logo.svg';
+import React, { useContext } from "react";
+import { AppContext } from "../contexts/AppContext";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import { SmallGreenButton } from "./StyledComponents/Buttons/SmallGreenButton";
+import History from "../components/History/History";
+import PartiLogo from "../images/logo.svg";
 
 //write conditionals to change things based on who is logged in
 //TODO: if anyone is logged in Login button changes to Logout
@@ -32,6 +32,15 @@ function TopNavbar() {
 					</Nav>
 				</Navbar.Collapse>
 			</Container>
+ <form>
+        {/* Button text Sign Up should change to Sign Out when logged in with functionality to logout */}
+        <SmallGreenButton
+          onClick={() => History.push("/create-card")}
+          //{(e) => setLoggedIn(currentUser ? 'LogOut' : 'Register')}
+        >
+          + Create Card
+        </SmallGreenButton>
+      </form>
 			<form>
 				{/* Button text Sign Up should change to Sign Out when logged in with functionality to logout */}
 				<SmallGreenButton
