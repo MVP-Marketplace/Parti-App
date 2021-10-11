@@ -21,7 +21,7 @@ function CreateNewCard(props) {
   const [calendarDate, setcalendarDate] = useState("");
   const [selectedTimezone, setSelectedTimezone] = useState("");
   const [dueDate, setDueDate] = useState("");
-  const [greetingCard, setGreetingCard] = useState('');
+  const [greetingCard, setGreetingCard] = useState("");
   // const [minutes, setMinutes] = useState('');
 
   const fistModalHandleClose = () => {
@@ -57,10 +57,11 @@ function CreateNewCard(props) {
         // dueTimeZone: selectedTimezone,
         occasion: occasion,
         title: title,
-      }).then((response) => {
+      })
+      .then((response) => {
         console.log("LINE 57", response);
         console.log("LINE 58", response.data.createdCard._id);
-        setGreetingCard(response.data.createdCard._id)
+        setGreetingCard(response.data.createdCard._id);
         localStorage.setItem(
           "cardId",
           JSON.stringify(response.data.createdCard._id)
@@ -106,13 +107,13 @@ function CreateNewCard(props) {
     console.log("line 104", "dateWithLocalZone:", dateWithOtherZone);
     return dateWithOtherZone;
   };
-// styling for modals to be centered on webpage instead of pushing to the right and not visible on certain browsers (more dynamic)
+  // styling for modals to be centered on webpage instead of pushing to the right and not visible on certain browsers (more dynamic)
   return (
     <div>
       <Modal
         show={show}
         onHide={fistModalHandleClose}
-        className="my-modal"
+        className="my-modal justify-content-md-center"
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
@@ -206,7 +207,7 @@ function CreateNewCard(props) {
 
       <Modal
         show={modalState === "modal-one"}
-        className="my-modal"
+        className="my-modal justify-content-md-center"
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
@@ -308,7 +309,7 @@ function CreateNewCard(props) {
 
       <Modal
         show={modalState === "modal-two"}
-        className="my-modal"
+        className="my-modal justify-content-md-center"
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
@@ -392,7 +393,7 @@ function CreateNewCard(props) {
       <Modal
         show={CardSuccessShow}
         onHide={fistModalHandleClose}
-        className="my-modal"
+        className="my-modal justify-content-md-center"
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
@@ -424,7 +425,10 @@ function CreateNewCard(props) {
               <p className="due-date">Scheduled : {dueDate} </p>
 
               <div className="modal-buttons">
-                <ContributorInvite onClick={handleClose} greetingCard={greetingCard}/>
+                <ContributorInvite
+                  onClick={handleClose}
+                  greetingCard={greetingCard}
+                />
                 <SmallGreenButton onClick={handleStartDesigning}>
                   Start Designing{" "}
                 </SmallGreenButton>

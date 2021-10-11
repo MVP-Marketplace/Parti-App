@@ -8,11 +8,11 @@ import VideoThumbnail from './VideoThumbnail';
 import axios from 'axios';
 
 function Organizer(props) {
-	const userId = JSON.parse(localStorage.getItem('email'));
-	// TODO
-	// incorporate useEffect to have the list of card objects
-	// get the list of cards LINE 25 and make a get request with every CARDID to database
-
+  const userId = JSON.parse(localStorage.getItem("user"));
+  const firstName = JSON.parse(localStorage.getItem("firstname"));
+  // TODO
+  // incorporate useEffect to have the list of card objects
+  // get the list of cards LINE 25 and make a get request with every CARDID to database
 	// React.useEffect(() => checkIfUserHasCards(handleSubmit), [])
 	// React.useEffect(() => {
 	// 	console.log([]);
@@ -47,35 +47,34 @@ function Organizer(props) {
 	//       });
 	//   };
 
-	return (
-		<Container className='dashboard'>
-			<Row className='dashboardHeading'>
-				<h3>{userId}'s Dashboard</h3>
-			</Row>
-			<div>
-				<Row justify-content-center>
-					<Col></Col>
-					{/* Here the Sent Link should only list those cards connected to this user that have been sent by this user. Invisible if no cards sent */}
-					<Col>
-						<div className='link'>
-							<Link to='/dashboard#sent' activeClassName='selected'>
-								Sent
-							</Link>
-						</div>
-					</Col>
-					{/* The Received Link should only list those cards connected to this user that have been received. Invisible if no cards received */}
-					<Col>
-						<div className='link'>
-							<Link to='dashboard#received' activeClassName='selected'>
-								Received
-							</Link>
-						</div>
-					</Col>
-					<Col></Col>
-					<Col></Col>
-				</Row>
-			</div>
-
+  return (
+    <Container className="dashboard">
+      <Row className="dashboardHeading">
+        <h3>{firstName}'s Dashboard</h3>
+      </Row>
+      <div>
+        <Row justify-content-center>
+          <Col></Col>
+          {/* Here the Sent Link should only list those cards connected to this user that have been sent by this user. Invisible if no cards sent */}
+          <Col>
+            <div className="link">
+              <Link to="/dashboard#sent" activeClassName="selected">
+                Sent
+              </Link>
+            </div>
+          </Col>
+          {/* The Received Link should only list those cards connected to this user that have been received. Invisible if no cards received */}
+          <Col>
+            <div className="link">
+              <Link to="dashboard#received" activeClassName="selected">
+                Received
+              </Link>
+            </div>
+          </Col>
+          <Col></Col>
+          <Col></Col>
+        </Row>
+      </div>
 			<Row>
 				<ul className='cards-list'>
 					{/* {userID.map(function (userID, index) { */}
