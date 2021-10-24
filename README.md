@@ -95,6 +95,8 @@ View at...
 - Mark Heil
 - Traci Levine
 - Dan Smith
+- Philip Schotte
+- Jakiri Gamboa
 
 ## License
 

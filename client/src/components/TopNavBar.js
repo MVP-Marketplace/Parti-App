@@ -47,7 +47,7 @@ function TopNavbar() {
           onClick={() => History.push("/login")}
           //{(e) => setLoggedIn(currentUser ? 'LogOut' : 'Register')}
         >
-          Login {currentUser}
+          Login
         </SmallGreenButton>
       </form>
     </Navbar>
