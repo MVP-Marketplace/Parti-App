@@ -15,19 +15,18 @@ const AppContextProvider = ({ children }) => {
   useEffect(() => {
     if (user && !currentUser) {
       // axios
-      // 	.get(`/users`, { withCredentials: true })
-      // 	.then(({ data }) => {
-      // 		setCurrentUser(data);
+      //  .get(`/users`, { withCredentials: true })
+      //  .then(({ data }) => {
+      //    setCurrentUser(data);
       //               setLoggedIn(true)
-      // 	})
-      // 	.catch((error) => console.log(error));
+      //  })
+      //  .catch((error) => console.log(error));
 
       axios
         .get(`/users/${user}`)
         .then((response) => {
           console.log("HERE", response);
           setCurrentUser(response.data._id);
-          setLoggedIn(true);
           // const CardsList = response.data.cardsList;
         })
         .catch((error) => {
@@ -35,6 +34,18 @@ const AppContextProvider = ({ children }) => {
         });
     }
   }, [user, currentUser]);
+
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  const login = () => {
+    sleep(2000).then(() => setLoggedIn(true));
+  };
+
+  const logout = () => {
+    sleep(2000).then(() => setLoggedIn(false));
+  };
 
   return (
     <AppContext.Provider
@@ -49,6 +60,8 @@ const AppContextProvider = ({ children }) => {
         loggedIn,
         role,
         setRole,
+        login,
+        logout
       }}
     >
       {children}
@@ -57,3 +70,4 @@ const AppContextProvider = ({ children }) => {
 };
 
 export { AppContext, AppContextProvider };
+
