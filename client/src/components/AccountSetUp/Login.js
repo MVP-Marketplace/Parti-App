@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "../../contexts/AppContext";
 import { Container, Form, Card, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { SmallGreenButton } from "../StyledComponents/Buttons/SmallGreenButton";
@@ -10,6 +11,7 @@ const Login = (props) => {
   const [user, setUser] = useState();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useContext(AppContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,6 +19,7 @@ const Login = (props) => {
       .post("/users/login", { username: username, password: password })
       .then((response) => {
         setUser(response.data);
+        login();
         localStorage.setItem("email", JSON.stringify(response.data.username));
         localStorage.setItem("user", JSON.stringify(response.data._id));
         localStorage.setItem("cardId", JSON.stringify(response.data.cardsList));

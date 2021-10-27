@@ -4,11 +4,23 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { SmallGreenButton } from "./StyledComponents/Buttons/SmallGreenButton";
 import History from "../components/History/History";
 import PartiLogo from "../images/logo.svg";
+import axios from "axios";
 
 //write conditionals to change things based on who is logged in
 //TODO: if anyone is logged in Login button changes to Logout
 // How It Works link was there to give devs a link to it, but it should only be available to links contributors receive via email.
 // if anyone is logged in, Add Create Card link
+
+function LogBtn() {
+  const { login, logout, loggedIn } = useContext(AppContext);
+
+  return loggedIn ? (
+    <SmallGreenButton onclick={logout}>Logout</SmallGreenButton>
+  ) : (
+    <SmallGreenButton onClick={() => History.push("/login")}>Login</SmallGreenButton>
+  );
+}
+
 function TopNavbar() {
   const { loggedIn, currentUser } = useContext(AppContext);
   return (
@@ -43,14 +55,10 @@ function TopNavbar() {
       </form>
       <form>
         {/* Button text Sign Up should change to Sign Out when logged in with functionality to logout */}
-        <SmallGreenButton
-          onClick={() => History.push("/login")}
-          //{(e) => setLoggedIn(currentUser ? 'LogOut' : 'Register')}
-        >
-          Login
-        </SmallGreenButton>
+        <LogBtn />
       </form>
     </Navbar>
   );
 }
 export default TopNavbar;
+
