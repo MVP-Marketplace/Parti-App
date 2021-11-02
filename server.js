@@ -109,6 +109,12 @@ passport.deserializeUser((id, done) => {
   });
 });
 
+// Passport logout path
+app.get("/logout", function (req, res) {
+  req.logout();
+  res.redirect("/");
+});
+
 // middleware to set the user
 function setUser(req, res, next) {
   const user = req.body.user;
