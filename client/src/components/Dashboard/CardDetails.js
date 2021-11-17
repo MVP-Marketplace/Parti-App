@@ -12,7 +12,12 @@ import CardPage from '../../pages/CardPage';
 //This dashboard should populate when the user is a recipient and not an organizer
 function CardDetails(props) {
 	const { greetingCard } = useContext(AppContext);
-	console.log("greeting card?", greetingCard.cardId);
+	let cardId = props.card;
+	let cardIdIdx = props.index;
+	// console.log('greeting card?', greetingCard.config);
+	console.log('greeting card ID index:', cardIdIdx);
+	console.log('greeting card ID:', cardId);
+
 
 	return (
 		<Container>
@@ -38,11 +43,11 @@ function CardDetails(props) {
 					</Col>
 					<div className='card-col'>
 						<Col>
-							<Link to={`/card/${props.card}`}>
+							<Link to={`/card/${cardId}`}>
 								{/* this should populate the specific card name and then clicking on the button below should send you to the indvidual card page */}
-								<SmallGreenButton>View Card {CardPage}</SmallGreenButton>
+								<SmallGreenButton key = {cardIdIdx} value={cardId}>View Card {CardPage}</SmallGreenButton>
 							</Link>
-							<Link to='/card/:id'>
+							<Link to={`/card/${cardId}`}>
 								<SmallGreenButton>Edit Card {CardPage}</SmallGreenButton>
 							</Link>
 						</Col>

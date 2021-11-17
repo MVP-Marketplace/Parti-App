@@ -7,7 +7,6 @@ import './dashboard.css';
 import VideoThumbnail from './VideoThumbnail';
 import CardDetails from './CardDetails';
 
-
 function OrgDashboard() {
 	const { cards, currentUser } = useContext(AppContext);
 
@@ -43,8 +42,7 @@ function OrgDashboard() {
 				{cards.length ? (
 					<ul>
 						{cards.map((card, index) => {
-							console.log('one card ID?', card, 'card index?', index);
-							return <CardDetails card={card} key={index} />;
+							return <CardDetails card={card} key={card} index={index} />;
 						})}
 					</ul>
 				) : (

@@ -8,25 +8,13 @@ import RSide from '../components/Sidebar/RSide';
 import axios from 'axios';
 import '../App.css';
 
-function Default(props) {
+function CardPage(props) {
 	const { greetingCard } = useContext(AppContext);
 	let cardId = props.card;
-	console.log('how do I access', greetingCard.config.cardId);
-	// const [greetingCard, setGreetingCard] = useState({});
-	// const [contentList, setContentList] = useState([]);
-
-	// useEffect(() => {
-	//   async function fetchData() {
-	//     const id = JSON.parse(localStorage.getItem("cardId"));
-
-	//     // GET request using axios inside useEffect React hook
-	//     const result = await axios.get(`/card/${id}`, { id: id });
-	//     setGreetingCard(result.data); // sets greetingCard object to state
-	//     setContentList(result.data.contentList); // sets  each content object to state
-	//     console.log("card data" + result.data);
-	//   }
-	// }, []);
-	//Styling needs to be completed for this page to render like in the FIGMA
+	console.log(
+		'greeting card IDs for user logged in:', props
+	);
+	//map over
 	return (
 		<div className='organizer-page'>
 			<TopNavBar />
@@ -49,4 +37,4 @@ function Default(props) {
 	);
 }
 
-export default Default;
+export default CardPage;
