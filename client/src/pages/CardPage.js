@@ -8,10 +8,10 @@ import RSide from '../components/Sidebar/RSide';
 import axios from 'axios';
 import '../App.css';
 
-function Default() {
-	const { cards, greetingCard } = useContext(AppContext);
-	let cardId = cards[0];
-	console.log("how do I access", cardId, greetingCard);
+function Default(props) {
+	const { greetingCard } = useContext(AppContext);
+	let cardId = props.card;
+	console.log('how do I access', greetingCard.config.cardId);
 	// const [greetingCard, setGreetingCard] = useState({});
 	// const [contentList, setContentList] = useState([]);
 

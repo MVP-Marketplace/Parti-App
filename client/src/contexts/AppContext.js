@@ -43,7 +43,6 @@ const AppContextProvider = ({ children }) => {
 				.then((response) => {
 					// console.log('HERE', response);
 					setGreetingCard(response);
-					console.log('is this one card', response);
 				})
 				.catch((error) => {
 					console.error('There was an error!', error);

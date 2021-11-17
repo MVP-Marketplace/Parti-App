@@ -7,11 +7,12 @@ import { SmallGreenButton } from '../StyledComponents/Buttons/SmallGreenButton';
 import { Container, Card, Row, Col } from 'react-bootstrap';
 import './dashboard.css';
 import VideoThumbnail from './VideoThumbnail';
+import CardPage from '../../pages/CardPage';
 
 //This dashboard should populate when the user is a recipient and not an organizer
-function CardDetails() {
-	const { cards, greetingCard } = useContext(AppContext);
-	// console.log('here is one card');
+function CardDetails(props) {
+	const { greetingCard } = useContext(AppContext);
+	console.log("greeting card?", greetingCard.cardId);
 
 	return (
 		<Container>
@@ -37,12 +38,12 @@ function CardDetails() {
 					</Col>
 					<div className='card-col'>
 						<Col>
-							<Link to='/card/:id'>
+							<Link to={`/card/${props.card}`}>
 								{/* this should populate the specific card name and then clicking on the button below should send you to the indvidual card page */}
-								<SmallGreenButton>View Card</SmallGreenButton>
+								<SmallGreenButton>View Card {CardPage}</SmallGreenButton>
 							</Link>
 							<Link to='/card/:id'>
-								<SmallGreenButton>Edit Card</SmallGreenButton>
+								<SmallGreenButton>Edit Card {CardPage}</SmallGreenButton>
 							</Link>
 						</Col>
 					</div>

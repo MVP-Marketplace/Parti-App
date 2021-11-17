@@ -7,10 +7,12 @@ import './dashboard.css';
 import VideoThumbnail from './VideoThumbnail';
 import CardDetails from './CardDetails';
 
+
 function OrgDashboard() {
 	const { cards, currentUser } = useContext(AppContext);
 
 	console.log('card', cards[0]);
+	console.log('card array', cards);
 
 	return (
 		<Container className='dashboard'>
@@ -40,9 +42,9 @@ function OrgDashboard() {
 			<Row>
 				{cards.length ? (
 					<ul>
-						{cards.map((card) => {
-							console.log(card);
-							return <CardDetails card={card} key={card} />;
+						{cards.map((card, index) => {
+							console.log('one card ID?', card, 'card index?', index);
+							return <CardDetails card={card} key={index} />;
 						})}
 					</ul>
 				) : (
