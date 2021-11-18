@@ -10,6 +10,7 @@ const AppContextProvider = ({ children }) => {
 	const [currentUser, setCurrentUser] = useState('');
 	const [role, setRole] = useState([]);
 	const [cards, setCardsList] = useState([]);
+	const [videos, setVideos] = useState([]);
 	const [greetingCard, setGreetingCard] = useState('');
 	const [loggedIn, setLoggedIn] = useState(false);
 
@@ -27,7 +28,6 @@ const AppContextProvider = ({ children }) => {
 				.get(`/users/${user}`)
 				.then((response) => {
 					setCurrentUser(response.data);
-					setLoggedIn(true);
 					setCardsList(response.data.cardsList);
 				})
 				.catch((error) => {
@@ -49,7 +49,15 @@ const AppContextProvider = ({ children }) => {
 				});
 		}
 	}, [user, currentUser, cards, greetingCard]);
-
+	function sleep(ms) {
+		return new Promise((resolve) => setTimeout(resolve, ms));
+	}
+	const login = () => {
+		sleep(2000).then(() => setLoggedIn(true));
+	};
+	const logout = () => {
+		sleep(2000).then(() => setLoggedIn(false));
+	};
 	return (
 		<AppContext.Provider
 			value={{
@@ -58,11 +66,15 @@ const AppContextProvider = ({ children }) => {
 				cards,
 				setCardsList,
 				greetingCard,
+				videos,
+				setVideos,
 				setGreetingCard,
 				setLoggedIn,
 				loggedIn,
 				role,
 				setRole,
+				login,
+				logout,
 			}}>
 			{children}
 		</AppContext.Provider>
@@ -70,4 +82,3 @@ const AppContextProvider = ({ children }) => {
 };
 
 export { AppContext, AppContextProvider };
-
