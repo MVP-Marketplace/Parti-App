@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from "../contexts/AppContext";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { SmallGreenButton } from "./StyledComponents/Buttons/SmallGreenButton";
 import History from "../components/History/History";
 import PartiLogo from "../images/logo.svg";
@@ -26,21 +27,27 @@ function TopNavbar() {
   return (
     <Navbar fixed="top" bg="white" expand="lg">
       <Container>
-        <Navbar.Brand href="/">
-          <img
-            src={PartiLogo}
-            width="100%"
-            height="30em"
-            className=""
-            alt="Parti App Logo"
-          />
+      <Navbar.Brand>
+          <Nav.Link as={Link} to="/">
+            <img
+              src={PartiLogo}
+              width="100%"
+              height="30em"
+              className=""
+              alt="Parti App Logo"
+            />
+          </Nav.Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/dashboard/:id">Dashboard</Nav.Link>
+        <Nav className="me-auto">
+            <Nav.Link as={Link} to="/dashboard/:id">
+              Dashboard
+            </Nav.Link>
             {/* should change "How it works" to "Create new card" when Organizer is logged in with href changing to /create-card instead of /contributor */}
-            <Nav.Link href="/contributor">How it works</Nav.Link>
+            <Nav.Link as={Link} to="/contributor">
+              How it works
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

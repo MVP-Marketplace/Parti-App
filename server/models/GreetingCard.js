@@ -29,6 +29,12 @@ const greetingCardSchema = new Schema({
 			ref: "Content",
 		}
   ],
+  contactList: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
   status: {
     type: String,
     enum: ['Incomplete', 'Completed', 'Sent'],

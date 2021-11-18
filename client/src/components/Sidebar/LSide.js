@@ -1,15 +1,33 @@
 //May need two separate components LSideContributor vs LSide Recipient or conditional code in this component alone. Set up to show either videos contributed for the organizer to place into card and edit or recipient video playlist to view videos in their greeting card.
 
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Nav, ButtonGroup, ToggleButton } from "react-bootstrap";
 import { Card, CardGroup, Tab, Tabs, Image } from "react-bootstrap";
 import UploadVideo from "../Contributor/UploadVideo";
 import VideoThumbnail from "../Dashboard/VideoThumbnail";
 import Badge from 'react-bootstrap/Badge';
 import "./LSide.css";
+import axios from "axios";
 
 
 function LSide() {
+    const [greetingCard, setGreetingCard] = useState({});
+    const [contactList, setContactList] = useState([]);
+    const [contentList, setContentList] = useState([]);
+  
+    useEffect(() => {
+      async function fetchData() {
+        const id = JSON.parse(localStorage.getItem("user"));
+  
+        // GET request using axios inside useEffect React hook
+        const result = await axios
+        .get(`/users/${id}`, { id: id });
+        setContactList(result.data.contactList); // sets  each content object to state
+        
+      }
+      fetchData();
+    }, []);
+
     const [highlight, setHighlight] = useState("1");
 
     const options = [
@@ -20,6 +38,8 @@ function LSide() {
         { name: "Music", value: "3" },
         //toggle choices of music connected to card where Card Previews renders
     ];
+
+    console.log("THERE", contactList);
 
     return (
         <div>
@@ -72,18 +92,15 @@ function LSide() {
                 </Tab>
                 <Tab eventKey="profile" title="Waiting">
                     <div>
-                        <p><b>Cameron Walker</b><br />
-                        cameronwalker@gmail.com</p>
+                        <p>{contactList[0]}</p>
                     </div>
                     <hr />
                     <div>
-                        <p><b>Marybeth Lee</b><br />
-                        marybethlee@gmail.com</p>
+                        <p>{contactList[1]}</p>
                     </div>
                     <hr />
                     <div>
-                        <p><b>Diana Makasha</b><br />
-                        dianamakasha@gmail.com</p>
+                        <p>{contactList[2]}</p>
                     </div>
                     <hr />
                     <div>
