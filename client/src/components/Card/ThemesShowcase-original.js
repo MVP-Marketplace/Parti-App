@@ -19,17 +19,11 @@ function ThemesShowcase(props) {
   const [key, setKey] = useState("home");
   const [selectedTheme, setTheme] = useState("");
   const cardId = JSON.parse(localStorage.getItem("cardId"));
-  const userId = JSON.parse(localStorage.getItem("user")); // get user id for the dashboard
 
   console.log(cardId);
   const handleClick = async (e) => {
-    // await setTheme(e.target.src); // not needed.  set directly in axios put() request
-    // const cardId = props.state; // shows undefined
-
-    console.log("cardId2", cardId);
-    console.log("theme2 url clicked on", e.target.src);
-    console.log("userid2", userId);
-
+    await setTheme(e.target.src);
+    const cardId = props.state;
     axios
       .put(`/card/${cardId}`, {
         theme: e.target.src,
@@ -205,18 +199,16 @@ function ThemesShowcase(props) {
       </Tabs>
 
       <div>
-        {/* Added to continue to specific user dashboard */}
-        <Link to={`/dashboard/${userId}`}>
-          <MediumGreenButton
-            className="continue-button"
-            style={{
-              margin: "1rem",
-              float: "right",
-            }}
-          >
-            Continue
-          </MediumGreenButton>
-        </Link>
+        {" "}
+        <MediumGreenButton
+          className="continue-button"
+          style={{
+            margin: "1rem",
+            float: "right",
+          }}
+        >
+          Continue
+        </MediumGreenButton>
       </div>
     </div>
   );
