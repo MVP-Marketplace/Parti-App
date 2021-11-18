@@ -33,8 +33,7 @@ function App() {
           <Route path="/create-card-select-theme" component={SelectTheme} />
           <PrivateRoute path="/dashboard/:id" component={Dashboard} />
           <Route path="/contributor" component={LandingPage} />
-          {/* <Route path="/card" component={CardPage} />  may need to access specific card below */}
-          <Route path="/card/:id" component={CardPage} />
+          <Route path="/card" component={CardPage} />
           <Route path="/upload-video/:cardId" component={UploadVideo} />
           <Route path="/contributor-invite" component={ContributorInvite} />
           <Route path="/recipient-thank-you" component={RecipientThankYou} />

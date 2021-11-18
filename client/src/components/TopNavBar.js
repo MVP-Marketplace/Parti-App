@@ -1,3 +1,4 @@
+
 import React, { useContext } from 'react';
 import { AppContext } from '../contexts/AppContext';
 import { Navbar, Nav, Container } from 'react-bootstrap';
@@ -9,6 +10,17 @@ import PartiLogo from '../images/logo.svg';
 //TODO: if anyone is logged in Login button changes to Logout
 // How It Works link was there to give devs a link to it, but it should only be available to links contributors receive via email.
 // if anyone is logged in, Add Create Card link
+
+function LogBtn() {
+  const { login, logout, loggedIn } = useContext(AppContext);
+
+  return loggedIn ? (
+    <SmallGreenButton onclick={logout}>Logout</SmallGreenButton>
+  ) : (
+    <SmallGreenButton onClick={() => History.push("/login")}>Login</SmallGreenButton>
+  );
+}
+
 function TopNavbar() {
 	const { loggedIn, currentUser } = useContext(AppContext);
 	return (
@@ -54,3 +66,4 @@ function TopNavbar() {
 	);
 }
 export default TopNavbar;
+
