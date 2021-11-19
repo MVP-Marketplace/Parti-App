@@ -53,7 +53,8 @@ const AppContextProvider = ({ children }) => {
 		return new Promise((resolve) => setTimeout(resolve, ms));
 	}
 	const login = () => {
-		sleep(2000).then(() => setLoggedIn(true));
+		// sleep(2000).then(() => setLoggedIn(true));
+		setLoggedIn(true);
 	};
 	const logout = () => {
 		sleep(2000).then(() => setLoggedIn(false));
