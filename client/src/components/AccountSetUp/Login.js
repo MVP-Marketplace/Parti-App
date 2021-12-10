@@ -19,10 +19,11 @@ const Login = (props) => {
       .post("/users/login", { username: username, password: password })
       .then((response) => {
         setUser(response.data);
-        login();
+        // login();
         localStorage.setItem("email", JSON.stringify(response.data.username));
         localStorage.setItem("user", JSON.stringify(response.data._id));
         localStorage.setItem("cardId", JSON.stringify(response.data.cardsList));
+        login(); // MOVED
         props.history.push("/dashboard/:id");
       })
       .catch((error) => {

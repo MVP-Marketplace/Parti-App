@@ -1,6 +1,6 @@
 //Why is this separate from SelectTheme when both components seem to show image choices for greeting card theme.
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Card,
   CardGroup,
@@ -14,12 +14,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./card.css";
 import MediumGreenButton from "../StyledComponents/Buttons/MediumGreenButton";
+import { AppContext } from "../../contexts/AppContext";
 
 function ThemesShowcase(props) {
   const [key, setKey] = useState("home");
   const [selectedTheme, setTheme] = useState("");
   const cardId = JSON.parse(localStorage.getItem("cardId"));
   const userId = JSON.parse(localStorage.getItem("user")); // get user id for the dashboard
+  const { setCardsList } = useContext(AppContext);
 
   console.log(cardId);
   const handleClick = async (e) => {
@@ -41,6 +43,18 @@ function ThemesShowcase(props) {
         console.error("There was an error!", error);
       });
   };
+
+  const updateCardList = () => {
+    axios
+      .get(`/users/${userId}`)
+      .then((response) => {
+        setCardsList(response.data.cardsList);
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+  };
+
   return (
     <div className="theme-showcase">
       <h3 bg="secondary"> Other Themes </h3>
@@ -213,6 +227,7 @@ function ThemesShowcase(props) {
               margin: "1rem",
               float: "right",
             }}
+            onClick={updateCardList}
           >
             Continue
           </MediumGreenButton>

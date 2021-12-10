@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { AppContext } from "../../contexts/AppContext";
+import React, { useState, useContext } from "react";
 import { CardGroup, Image, Row } from "react-bootstrap";
 import axios from "axios";
 import MediumGreenButton from "../StyledComponents/Buttons/MediumGreenButton";
@@ -13,6 +14,7 @@ function SelectTheme(props) {
   const userId = JSON.parse(localStorage.getItem("user")); // get user id for the dashboard
   const occasion = props.location.state.occasion.toLowerCase();
   const [selectedTheme, setTheme] = useState("");
+  const { setCardsList } = useContext(AppContext);
 
   const handleClick = async (e) => {
     setTheme(e.target.src);
@@ -27,6 +29,17 @@ function SelectTheme(props) {
       })
       .then((response) => {
         console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+  };
+
+  const updateCardList = () => {
+    axios
+      .get(`/users/${userId}`)
+      .then((response) => {
+        setCardsList(response.data.cardsList);
       })
       .catch((error) => {
         console.error("There was an error!", error);
@@ -75,10 +88,12 @@ function SelectTheme(props) {
             onClick={handleClick}
           />
           {/* <Link to="/dashboard"> changed to below for specific user dashboard */}
+          {/* <Link to={`/card/${cardId}`}> */}
           <Link to={`/dashboard/${userId}`}>
             <MediumGreenButton
               className="continue-button"
               style={{ margin: "1rem", float: "right" }}
+              onClick={updateCardList}
             >
               Continue
             </MediumGreenButton>
