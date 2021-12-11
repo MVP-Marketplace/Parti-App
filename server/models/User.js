@@ -35,7 +35,8 @@ const userSchema = new Schema({
   ],
   cardsList: [
     {
-      type: mongoose.Schema.Types.ObjectId,
+      // type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "GreetingCard",
     },
   ],
