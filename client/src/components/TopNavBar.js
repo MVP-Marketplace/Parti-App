@@ -49,17 +49,17 @@ function TopNavbar() {
           </Nav>
         </Navbar.Collapse>
       </Container>
-      <form>
-        {/* Button text Sign Up should change to Sign Out when logged in with functionality to logout */}
-        <Link to="/create-card">
-          <SmallGreenButton
-          // onClick={() => History.push('/create-card')} // COMMENTED
+      {/* <form> */}
+      {/* Button text Sign Up should change to Sign Out when logged in with functionality to logout */}
+      {/* <Link to="/create-card">
+          <SmallGreenButton */}
+      {/* // onClick={() => History.push('/create-card')} // COMMENTED
           //{(e) => setLoggedIn(currentUser ? 'LogOut' : 'Register')}
           >
             + Create Card
           </SmallGreenButton>
         </Link>
-      </form>
+      </form> */}
       <form>
         {/* Button text Sign Up should change to Sign Out when logged in with functionality to logout */}
         <LogBtn />
