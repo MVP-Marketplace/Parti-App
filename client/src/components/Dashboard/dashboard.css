@@ -1,10 +1,10 @@
 body {
     background:linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
     #93E9BE;
-    padding-top: 5rem;
+    padding-top: 10em;
 }
 h3 {
-    padding-top: 1em;
+    padding-top: 3em;
 }
 .iframe-container {
     padding: 1rem;
@@ -22,12 +22,17 @@ h3 {
     margin: 10px;
 }
 .card-col {
-    flex-direction: space-between;
-    margin-top: 1rem; 
+    flex-direction: space-around;
+    margin-top: 1rem;
+    /* margin-right: 1rem;  */
 }
 .card-details {
     margin-top: 20px;
+    font-size: 10px !important;
 }
 .card-thumbnail img {
-    max-width: 100px;
+    display: flex;
+    justify-content: center;
+    max-width: 150px;
+    margin: 20px;
 }
